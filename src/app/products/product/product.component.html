@@ -1,0 +1,13 @@
+<div class="background-container" [ngStyle]="{
+  'background-image': 'url(' + product.backgroundUrl + ')',
+  'height': height ,
+  'width': width
+}">
+    <div class="text">
+        <h2>
+          <strong> {{ product.title }}</strong>
+        </h2>
+        <p>{{ product.description }}</p>
+        <button>{{ product.buttonText }}</button>
+    </div>
+</div>

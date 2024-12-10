@@ -1,0 +1,74 @@
+/* Banner container */
+.banner {
+    display: flex; /* Use flexbox to lay out children side by side */
+    width: 70%;
+    height: 400px;
+    border-radius: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    overflow: hidden;
+    margin-top: 30px;
+  }
+  
+  /* Container for the text and button */
+  .banner .text-banner {
+    width: 47%; /* You can adjust this value */
+    height: 100%;
+    background-color: #F5F5F7;
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+    justify-content: flex-start; /* Align items to the top */
+    padding: 20px; /* Add some padding for internal spacing */
+    gap: 20px; /* Adds spacing between <h2>, <p>, and <button> */
+  }
+  
+  /* Header styling */
+  h2 {
+    font-family: Inter, sans-serif;
+    font-size: 32px;
+    font-weight: 500;
+    letter-spacing: -0.51px;
+    line-height: 44.8px;
+    margin: 0;
+    max-width: 80%;
+    margin-top: 50px;
+  }
+  
+  /* Paragraph styling */
+  p {
+    font-family: Inter, sans-serif;
+    font-size: 16px;
+    line-height: 1.4;
+    margin: 0;
+    max-width: 85%;
+    color: #262626;
+    margin-top: 15px;
+  }
+  
+  /* Button styling */
+  button {
+    padding: 14px 18px;
+    border-radius: 26px;
+    background-color: #0E2F4F;
+    color: white;
+    font-family: Inter, sans-serif;
+    border: none;
+    cursor: pointer;
+    align-self: flex-start;
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 10px;
+  }
+  
+  /* Image container styling */
+  .image-banner {
+    width: 53%; /* Make sure it takes up 50% of the container */
+    height: 100%; /* Ensure it stretches to fill the height */
+  }
+  
+  .image-banner img {
+    width: 100%; /* Make the image stretch to the full width */
+    height: 100%; /* Make the image fill the height */
+    object-fit: cover; /* Ensures the image covers the container while maintaining its aspect ratio */
+  }
+  

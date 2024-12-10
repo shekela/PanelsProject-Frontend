@@ -1,0 +1,46 @@
+section{
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+}
+section > div{
+    width: 72%;
+    max-width: 72%;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: Inter, sans-serif;
+}
+.title{
+    font-size: 76px;
+    text-align: center;
+    letter-spacing: -3px;
+    margin: 80px 0px 0px 0px;
+    height: 95.1875px;
+    line-height: 95.2px;
+}
+.title-ii{
+    color: rgb(38, 38, 38);
+    font-family: Inter, sans-serif;
+    text-align: center;
+    font-size: 24px;
+    height: 100.781px;
+    letter-spacing: -0.38px;
+    width: 50%;
+    margin-left: 25%;
+    max-width: 100%;
+}
+.products {
+    display: flex; /* Enable Flexbox */
+    flex-wrap: wrap; /* Allow content to wrap to the next line */
+    gap: 16px; /* Add spacing between items */
+    justify-content: flex-start; /* Align items to the left */
+    padding: 16px; /* Optional: Add padding around the container */
+    width: 100%; /* Ensure it takes full width of the parent */
+    box-sizing: border-box; /* Include padding in width calculations */
+    margin-top: 55px;
+}
+.product{
+    flex: 1; /* Adjust size to fit 4 items per row with gap */
+    box-sizing: border-box; /* Include padding/border in size calculation */
+}

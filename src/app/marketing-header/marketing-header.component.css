@@ -1,0 +1,57 @@
+.section-container {
+    display: flex;
+    width: 100%;
+    height: 80vh; /* Adjust as needed */
+    margin-top: 78px;
+    font-family: sans-serif;
+    overflow: hidden;
+  }
+  
+  .black-box {
+    width: 40%; /* Text box width */
+    background-color: #514339;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    box-sizing: border-box;
+  }
+  
+  .image-box {
+    width: 60%; /* Image box width */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background-color: black; /* Optional: Fallback color */
+  }
+  
+  .image-box img {
+    width: 120%; /* Scale the width to make the image larger */
+    height: auto; /* Maintain aspect ratio */
+    object-fit: contain; /* Ensure the image fits while maintaining its original aspect ratio */
+  }
+  
+  
+  .black-box h1 {
+    font-size: 70px;
+    margin: 20px 0 7px 0; /* Top margin reduced, bottom margin adjusted */
+    max-width: 85%;
+    margin-left: 25px;
+    margin-top: 25px;
+  }
+  
+  .black-box h2 {
+    font-size: 45px;
+    margin: 10px 0 20px 0; /* Remove top margin */
+    max-width: 85%;
+    margin-left: 25px;
+  }
+  
+  .black-box p {
+    font-size: 21px;
+    margin: 10px 0 0 0; /* Only a small top margin */
+    max-width: 85%;
+    margin-left: 25px;
+  }

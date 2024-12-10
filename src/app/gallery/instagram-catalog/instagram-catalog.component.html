@@ -1,0 +1,86 @@
+<div class="backdrop"></div>
+<dialog open>
+  <div class="instagram-catalog-pictures">
+    <svg (click)="closeFeed()" xmlns="http://www.w3.org/2000/svg" width="13.505" height="13.505" viewBox="0 0 10.505 10.505" class="close-feed"><path d="M5.421,5.417a.583.583,0,0,1,.824,0L10.5,9.661l4.251-4.245a.582.582,0,1,1,.824.823l-4.251,4.245,4.251,4.245a.582.582,0,1,1-.824.823L10.5,11.306,6.245,15.551a.582.582,0,0,1-.824-.823l4.251-4.245L5.421,6.239a.581.581,0,0,1,0-.823Z" transform="translate(-5.251 -5.231)" fill-rule="evenodd"></path></svg>
+  
+    <div class="feed">
+         <div class="feed-part">
+            <div class="top-part">
+                <div class="top-part-logo">
+                    <i class="fab fa-instagram"></i>
+                    <a [href]="pictureLeft.url"  target="_blank">{{ instagramPageName }}</a>
+                </div>
+            </div>
+            <div class="picture-part">
+                <ng-container *ngIf="pictureLeft?.mediaType === 'image'">
+                    <img [src]="pictureLeft.picture" />
+                  </ng-container>
+                
+                  <!-- Render video if mediaType is 'video' -->
+                  <ng-container *ngIf="pictureLeft?.mediaType === 'video'">
+                    <video
+                    #leftVideo
+                    loop
+                    playsinline
+                    [src]="pictureLeft.picture"
+                    class="video-element"
+                  ></video>
+                  </ng-container>
+            </div>
+         </div>
+         <div class="with-buttons-feed">
+            <svg (click)="onChangeToLeft()" xmlns="http://www.w3.org/2000/svg" cl fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-2 h-2" id="btn"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5"></path></svg>
+            <div class="feed-main-part">
+                <div class="top-part" id="top-part-main">
+                    <div class="top-part-logo" id="top-part-logo-main">
+                        <i class="fab fa-instagram"></i>
+                        <a [href]="pictureMain?.url">{{ instagramPageName }}</a>
+                    </div>
+                </div>
+                <div class="picture-part">
+                      <ng-container *ngIf="pictureMain?.mediaType === 'image'">
+                        <img [src]="pictureMain?.picture" />
+                      </ng-container>
+                    
+                      <!-- Render video if mediaType is 'video' -->
+                      <ng-container *ngIf="pictureMain?.mediaType === 'video'">
+                        <video
+                        #mainVideo
+                        autoplay
+                        loop
+                        playsinline
+                        [src]="pictureMain?.picture"
+                        class="video-element"
+                      ></video>
+                      </ng-container>
+                </div>
+             </div>
+             <svg (click)="onChangeToRight()" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-2 h-2" id="btn"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"></path></svg>
+         </div>
+         <div class="feed-part">
+            <div class="top-part">
+                <div class="top-part-logo">
+                    <i class="fab fa-instagram"></i>
+                    <a [href]="pictureRight.url">{{ instagramPageName }}</a>
+                </div>
+            </div>
+            <div class="picture-part">
+                <ng-container *ngIf="pictureRight?.mediaType === 'image'">
+                    <img [src]="pictureRight.picture" />
+                  </ng-container>
+                
+                  <!-- Render video if mediaType is 'video' -->
+                  <ng-container *ngIf="pictureRight?.mediaType === 'video'">
+                    <video
+                    #rightVideo
+                    loop
+                    playsinline
+                    [src]="pictureRight.picture"
+                    class="video-element"
+                  ></video>
+                  </ng-container>
+            </div>
+         </div>
+    </div>
+  </div>
+</dialog>

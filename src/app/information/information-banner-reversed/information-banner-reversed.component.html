@@ -1,0 +1,12 @@
+<div class="banner">
+    <div class="image-banner">
+       <img [src]="imageUrl"/>
+    </div>
+    <div class="text-banner">
+        <div>
+           <h2>{{ title }}</h2>
+           <p [innerHTML]="text | linebreak"></p>
+        </div>
+        <button>Explore LED</button>
+    </div>
+</div>

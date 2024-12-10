@@ -1,0 +1,20 @@
+<section>
+    <div>
+        <ng-container *ngIf="showTitle">
+            <h2 class="title">
+              <strong>{{title}}</strong>
+            </h2>
+            <p class="title-ii">
+              {{titleText}}
+            </p>
+          </ng-container>
+        <div class="products">
+            <app-product 
+            *ngFor="let product of products"
+            [product]="product"
+            [height]="product.height"
+            [width]="product.width"
+            class="product"/>
+        </div>
+    </div>
+</section>

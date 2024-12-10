@@ -1,0 +1,70 @@
+/* Container for the video and overlay text */
+section{
+    width: 100%;
+    font-family: Inter, sans-serif;
+    margin-top: 35px;
+}
+.video-container {
+    position: relative;
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    height: 500px; /* Adjust height as needed */
+    overflow: hidden;
+    border-radius: 30px;
+    border: none;
+}
+
+/* Video styling to ensure it covers the div */
+.background-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: 1; /* Keeps the video behind the text */
+    object-fit: cover;
+}
+
+/* Overlay text container */
+.overlay-text {
+    position: absolute;
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 2; /* Ensures the text is above the video */
+    color: white; /* Text color */
+}
+
+.overlay-text h1 {
+    font-size: 3rem;
+    margin: 0 0 10px 0;
+}
+
+.overlay-text p {
+    font-size: 18px;
+}
+
+.overlay-text button {
+    font-family: Inter, sans-serif;
+    padding: 16px 26px;
+    color: white;
+    background-color: #0e2F4F;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 19px;
+    font-weight: 600;
+    overflow-wrap: break-word;
+    text-align: center;
+    justify-content: center;
+}
+
+.overlay-text button:hover {
+    cursor: pointer;
+    background-color: rgba(14, 47, 79, 0.8);
+}

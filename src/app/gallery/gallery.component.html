@@ -1,0 +1,66 @@
+<section>
+    <div class="gallery">
+      <h2>Gallery</h2>
+      <p>Explore a gallery of projects through captivating images and videos shared by our community.</p>
+
+      <div class="pictures">
+        <div
+        *ngFor="let obj of displayedPictures"
+        class="picture"
+        [style.gridRowEnd]="'span ' + obj.rowSpan"
+      >
+        <!-- Render image if mediaType is 'image' -->
+        <ng-container *ngIf="obj.mediaType === 'image'">
+          <img (click)="onCatalogLoad(obj)" [src]="obj.picture" />
+        </ng-container>
+      
+        <!-- Render video if mediaType is 'video' -->
+        <ng-container *ngIf="obj.mediaType === 'video'">
+          <video
+          muted
+          loop
+          [src]="obj.picture"
+          class="video-element"
+          (mouseenter)="onVideoHover($event)"
+          (mouseleave)="onVideoLeave($event)"
+          (click)="onCatalogLoad(obj)"
+        ></video>
+        </ng-container>
+      
+        <!-- Overlay for interaction -->
+        <div class="overlay">
+          <i class="fab fa-instagram"></i>
+        </div>
+      
+        <!-- Instagram catalog component -->
+        <app-instagram-catalog
+          [pictureMain]="mainPicture"
+          [pictureLeft]="leftPicture"
+          [pictureRight]="rightPicture"
+          [instagramPageName]="instagramPageName"
+          (changeToLeft)="onChangeToLeft()"
+          (changeToRight)="onChangeToRight()"
+          *ngIf="isInstagramCatalogLoaded"
+          (close)="onCatalogClose()"
+        ></app-instagram-catalog>
+      </div>
+      </div>
+  
+      <div class="progress-container">
+        <div class="progress-bar" [style.width.%]="progressPercentage"></div>
+      </div>
+      <div class="progress-text">
+        You have seen {{ loadedCount }} out of {{ totalPictures }}
+      </div>
+      <button *ngIf="loadedCount < totalPictures" (click)="loadMore()">
+        Load more
+      </button>
+
+    </div>
+    <div
+    class="backdrop"
+    *ngIf="isInstagramCatalogLoaded"
+  ></div>
+
+  
+  </section>

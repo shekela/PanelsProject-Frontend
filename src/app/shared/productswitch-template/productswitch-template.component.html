@@ -1,0 +1,18 @@
+<div 
+  class="background-container" 
+  [ngStyle]="{'background-image': 'url(' + currentProduct.backgroundUrl + ')'}">
+  <div class="switcher-container">
+    <div class="switcher" [style.width]="widthFull">
+        <div class="margin">
+            <div 
+            class="section" 
+            *ngFor="let item of products" 
+            (click)="selectProduct(item)"
+            [ngClass]="{'active': currentProduct.title === item.title}" 
+            [style.width]="widthSection">
+            <p>{{ item.title }}</p>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>

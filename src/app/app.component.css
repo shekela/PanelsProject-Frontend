@@ -1,0 +1,12 @@
+#app-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px; /* Define the fixed header height */
+    z-index: 1000;
+  }
+  
+#app-marketing-header {
+    margin-top: 60px; /* Offset by the same height as the header */
+  }
