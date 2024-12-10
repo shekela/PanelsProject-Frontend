@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BackgroundContentModel } from '../backgoundcontent.model';
+import { BackgroundContentModel } from '../models/backgoundcontent.model';
 import { ProductsToChoose } from '../DUMMY_DATA/dummy-choose-product'; 
 
 @Injectable({

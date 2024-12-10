@@ -1,5 +1,5 @@
 import { Component, inject, Input } from '@angular/core';
-import { BackgroundContentModel } from 'src/app/backgoundcontent.model';
+import { BackgroundContentModel } from 'src/app/models/backgoundcontent.model';
 import { DataServiceService } from 'src/app/services/data-service.service';
 
 @Component({

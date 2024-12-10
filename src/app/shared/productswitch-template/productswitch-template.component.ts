@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { BackgroundContentModel } from 'src/app/backgoundcontent.model';
+import { BackgroundContentModel } from 'src/app/models/backgoundcontent.model';
 import { ProductsToChoose } from 'src/app/DUMMY_DATA/dummy-choose-product';
 import { ProductSwitcherService } from 'src/app/services/product-switcher.service';
 

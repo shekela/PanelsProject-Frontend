@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { BackgroundContentModel } from 'src/app/backgoundcontent.model';
+import { BackgroundContentModel } from 'src/app/models/backgoundcontent.model';
 
 @Component({
   selector: 'app-product',

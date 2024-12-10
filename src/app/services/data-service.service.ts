@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { marketingBannerData } from '../DUMMY_DATA/dummy-mbanner-data';
 import { dummyProducts } from '../DUMMY_DATA/dummy-products';
 import { VideoCatalogData } from '../DUMMY_DATA/dummy-videocatalog-data';
-import { GalleryObjectModel } from '../gallery-objects.model';
+import { GalleryObjectModel } from '../models/gallery-objects.model';
 import { GalleryObjects } from '../DUMMY_DATA/dummy-gallery-objects';
 
 

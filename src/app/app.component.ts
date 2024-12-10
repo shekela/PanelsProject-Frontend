@@ -3,10 +3,10 @@ import { marketingBannerData } from './DUMMY_DATA/dummy-mbanner-data';
 import { dummyProducts } from './DUMMY_DATA/dummy-products'; 
 import { VideoCatalogData } from './DUMMY_DATA/dummy-videocatalog-data';
 import { ProductsToChoose } from './DUMMY_DATA/dummy-choose-product';
-import { BackgroundContentModel } from './backgoundcontent.model';
+import { BackgroundContentModel } from './models/backgoundcontent.model';
 import { ProductSwitcherService } from './services/product-switcher.service';
 import { DataServiceService } from './services/data-service.service';
-import { GalleryObjectModel } from './gallery-objects.model';
+import { GalleryObjectModel } from './models/gallery-objects.model';
 import { GalleryObjects } from './DUMMY_DATA/dummy-gallery-objects';
 
 @Component({

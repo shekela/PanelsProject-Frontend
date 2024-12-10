@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { MarketingBannerData } from './marketingdata.model';
+import { MarketingBannerData } from '../models/marketingdata.model';
 @Component({
   selector: 'app-marketing-header',
   templateUrl: './marketing-header.component.html',

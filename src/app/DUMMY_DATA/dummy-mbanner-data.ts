@@ -1,4 +1,4 @@
-import { MarketingBannerData } from "../marketing-header/marketingdata.model";
+import { MarketingBannerData } from "../models/marketingdata.model";
 
 export const marketingBannerData: MarketingBannerData = {
     title: "Summer Sale Extravaganza",

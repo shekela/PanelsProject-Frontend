@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { BackgroundContentModel } from '../backgoundcontent.model';
+import { BackgroundContentModel } from '../models/backgoundcontent.model';
 @Component({
   selector: 'app-videocatalog',
   templateUrl: './videocatalog.component.html',

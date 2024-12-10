@@ -1,4 +1,4 @@
-import { GalleryObjectModel } from "../gallery-objects.model"
+import { GalleryObjectModel } from "../models/gallery-objects.model"
 
 export const  GalleryObjects: GalleryObjectModel[] = [
     {

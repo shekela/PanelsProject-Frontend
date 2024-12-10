@@ -1,5 +1,5 @@
 import { Component, ElementRef, EventEmitter, Input, Output, ViewChild } from '@angular/core';
-import { GalleryObjectModel } from 'src/app/gallery-objects.model';
+import { GalleryObjectModel } from 'src/app/models/gallery-objects.model';
 
 @Component({
   selector: 'app-instagram-catalog',

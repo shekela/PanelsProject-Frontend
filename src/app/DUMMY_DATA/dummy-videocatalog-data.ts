@@ -1,4 +1,4 @@
-import { BackgroundContentModel } from "../backgoundcontent.model"
+import { BackgroundContentModel } from "../models/backgoundcontent.model"
 
 export const VideoCatalogData: BackgroundContentModel = {
     title: "Akupanel",

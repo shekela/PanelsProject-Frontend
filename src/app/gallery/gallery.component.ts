@@ -1,6 +1,6 @@
 import { ChangeDetectorRef, Component, ElementRef, inject, Renderer2, ViewChild } from '@angular/core';
 import { GalleryObjects } from '../DUMMY_DATA/dummy-gallery-objects'; 
-import { GalleryObjectModel } from '../gallery-objects.model';
+import { GalleryObjectModel } from '../models/gallery-objects.model';
 import { DataServiceService } from '../services/data-service.service';
 
 @Component({
