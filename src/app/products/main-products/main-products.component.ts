@@ -10,8 +10,8 @@ import { DataServiceService } from 'src/app/services/data-service.service';
 export class MainProductsComponent {
   private dataService = inject(DataServiceService);
   @Input() products: BackgroundContentModel[] = [];
-  @Input() width?: string = "658px";
-  @Input() height?: string = "500px";
+  @Input() width?: string;
+  @Input() height?: string;
   @Input() showTitle: boolean = true;
 
   @Input() title!: string;

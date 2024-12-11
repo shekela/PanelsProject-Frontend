@@ -68,3 +68,25 @@ section{
     cursor: pointer;
     background-color: rgba(14, 47, 79, 0.8);
 }
+
+  
+  /* Largest screens */
+  @media only screen and (max-width: 1024px) {
+    .video-container {
+        width: 75%;
+    }
+    .background-video {
+        object-fit: contain;
+    }
+  }
+  
+  /* Smallest screens */
+  @media only screen and (max-width: 600px) {
+    .video-container {
+        width: 80%;
+    }
+    .background-video {
+        object-fit: contain;
+    }
+  }
+  

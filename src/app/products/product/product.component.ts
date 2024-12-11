@@ -9,8 +9,8 @@ import { BackgroundContentModel } from 'src/app/models/backgoundcontent.model';
 export class ProductComponent {
   @Input() product!: BackgroundContentModel;
 
-  @Input() width?: string = "658px";
-  @Input() height?: string = "500px";
+  @Input() width?: string;
+  @Input() height?: string;
 
   ngOnInit() {
     // Fallback to default height/width if not provided

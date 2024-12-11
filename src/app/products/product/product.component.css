@@ -69,3 +69,206 @@
     cursor: pointer;
     background-color: rgba(14, 47, 79, 0.8);
 }
+@media only screen and (max-width: 1920px) {
+    .background-container {
+        position: relative;
+        width: 34vw !important;
+        height: 400px !important;
+        background-image: url('https://ccfssflq.photoncache.com/wp-content/uploads/2024/08/Alrum-Brun2-1024x682.jpg');
+        border-radius: 30px;
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        overflow: hidden;
+        flex-direction: column; /* Stack children vertically */
+    }
+    .text h2 {
+        font-family: Inter, sans-serif;
+        font-weight: bold;
+        font-size: 41.92px;
+        font-weight: 500;
+        letter-spacing: -0.67px;
+        line-height: 1.2; /* Use a relative line-height instead of a fixed value */
+        margin: 0 0 10px 0; /* Space between h2 and p */
+        height: auto; /* Remove fixed height */
+        word-break: break-word; /* Ensure long words wrap correctly */
+    }
+    
+    .text p {
+        font-family: Inter, sans-serif;
+        font-size: 24px;
+        letter-spacing: -0.38px;
+        line-height: 1.4; /* Adjust for readability */
+        margin: 0 0 40px 0;
+        height: auto; /* Remove fixed height */
+    }
+}
+@media only screen and (max-width: 1200px) {
+    .background-container {
+        position: relative;
+        width: 33.5vw !important;
+        height: 400px !important;
+        background-image: url('https://ccfssflq.photoncache.com/wp-content/uploads/2024/08/Alrum-Brun2-1024x682.jpg');
+        border-radius: 30px;
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        overflow: hidden;
+        flex-direction: column; /* Stack children vertically */
+    }
+    .text h2 {
+        font-family: Inter, sans-serif;
+        font-weight: bold;
+        font-size: 41.92px;
+        font-weight: 500;
+        letter-spacing: -0.67px;
+        line-height: 1.2; /* Use a relative line-height instead of a fixed value */
+        margin: 0 0 10px 0; /* Space between h2 and p */
+        height: auto; /* Remove fixed height */
+        word-break: break-word; /* Ensure long words wrap correctly */
+    }
+    
+    .text p {
+        font-family: Inter, sans-serif;
+        font-size: 24px;
+        letter-spacing: -0.38px;
+        line-height: 1.4; /* Adjust for readability */
+        margin: 0 0 40px 0;
+        height: auto; /* Remove fixed height */
+    }
+}
+@media only screen and (max-width: 1024px) {
+    .background-container {
+        width: 100% !important; /* Overrides inline style */
+        height: 450px !important; 
+        background-image: url('https://ccfssflq.photoncache.com/wp-content/uploads/2024/08/Alrum-Brun2-1024x682.jpg');
+        border-radius: 30px;
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        overflow: hidden;
+        flex-direction: column; /* Stack children vertically */
+    }
+    .text {
+        margin-top: 50px;
+        position: relative; /* Ensure the text appears above the overlay */
+        text-align: center;
+        color: white; /* Adjust text color for readability */
+        z-index: 2; /* Place text above the overlay */
+        padding: 0px 30px;
+        border-radius: 8px; /* Optional: rounded corners for the text background */
+        justify-content: center;
+    }
+    
+    .text h2 {
+        font-family: Inter, sans-serif;
+        font-weight: bold;
+        font-size: 43.92px;
+        font-weight: 500;
+        height: auto; /* Remove fixed height for flexibility */
+        letter-spacing: 0px;
+        line-height: 1.2; /* Adjust line height for tighter spacing */
+        margin: 0; /* Remove all margins */
+        margin-bottom: 0px; /* Add a small margin for spacing */
+    }
+    
+    .text p {
+        font-family: Inter, sans-serif;
+        font-size:  33px;
+        height: auto; /* Remove fixed height for flexibility */
+        letter-spacing: 0px;
+        line-height: 1.2; /* Adjust line height for tighter spacing */
+        margin: 0; /* Remove all margins */
+        margin-top: 6px;
+    }
+    
+    
+    .text button {
+        font-family: Inter, sans-serif;
+        padding: 20px 28px;
+        color: white;
+        background-color: #0e2F4F;
+        border: none;
+        border-radius: 30px;
+        cursor: pointer;
+        font-size: 26px;
+        font-weight: 600;
+        overflow-wrap: break-word;
+        text-align: center;
+        justify-content: center;
+        margin-top: 20px;
+    }
+}
+
+
+@media only screen and (max-width: 600px) {
+    .background-container {
+        width: 100% !important; /* Overrides inline style */
+        height: 320px !important; 
+        background-image: url('https://ccfssflq.photoncache.com/wp-content/uploads/2024/08/Alrum-Brun2-1024x682.jpg');
+        border-radius: 30px;
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        overflow: hidden;
+        flex-direction: column; /* Stack children vertically */
+    }
+    .text {
+        margin-top: 50px;
+        position: relative; /* Ensure the text appears above the overlay */
+        text-align: center;
+        color: white; /* Adjust text color for readability */
+        z-index: 2; /* Place text above the overlay */
+        padding: 0px 30px;
+        border-radius: 8px; /* Optional: rounded corners for the text background */
+        justify-content: center;
+    }
+    
+    .text h2 {
+        font-family: Inter, sans-serif;
+        font-weight: bold;
+        font-size: 23.92px;
+        font-weight: 500;
+        height: auto; /* Remove fixed height for flexibility */
+        letter-spacing: 0px;
+        line-height: 1.2; /* Adjust line height for tighter spacing */
+        margin: 0; /* Remove all margins */
+        margin-bottom: 0px; /* Add a small margin for spacing */
+    }
+    
+    .text p {
+        font-family: Inter, sans-serif;
+        font-size: 18px;
+        height: auto; /* Remove fixed height for flexibility */
+        letter-spacing: 0px;
+        line-height: 1.2; /* Adjust line height for tighter spacing */
+        margin: 0; /* Remove all margins */
+        margin-top: 6px;
+    }
+    
+    
+    .text button {
+        font-family: Inter, sans-serif;
+        padding: 13px 20px;
+        color: white;
+        background-color: #0e2F4F;
+        border: none;
+        border-radius: 30px;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: 600;
+        overflow-wrap: break-word;
+        text-align: center;
+        justify-content: center;
+        margin-top: 20px;
+    }
+    
+}

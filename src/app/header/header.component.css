@@ -33,11 +33,130 @@ nav{
     height: 100%;
     cursor: pointer;
 }
-.overview{
+.overview {
     display: flex;
     align-items: center;
     font-size: 13px;
 }
+#res-nav{
+    width: 100%;
+    background-color: #EEEEEE;
+    height: auto;
+    display: none;
+}
+.overview-responsive{
+    text-align: center;
+    display: flex;
+    width: 80%;
+    margin-left: 10%;
+    font-family: Inter, sans-serif;
+}
 .overview-part{
     margin-left: 25px;
+}
+
+/* Largest screens */
+@media only screen and (max-width: 1024px) {
+    #res-nav {
+        display: block;
+    }
+    .margin-space {
+        width: 70%;
+        margin-left: 15%;
+    }
+    .overview-part {
+        justify-content: center;
+    }
+    .overview-responsive {
+        width: 60%;
+        margin-left: 20%;
+        justify-content: center;
+    }
+    .nav {
+        margin-top: -2px;
+    }
+    .margin-space > .overview {
+        display: none;
+    }
+    .menu {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+    }
+    .icon {
+        font-size: 18px;
+    }
+    .brandLogo {
+        max-width: 180px;
+        max-height: 100%;
+        overflow: hidden;
+    }
+    .brandLogo img {
+        width: 180px;
+        height: 100%;
+        cursor: pointer;
+    }
+}
+
+/* Medium screens */
+@media only screen and (max-width: 768px) {
+    .margin-space {
+        width: 80%;
+        margin-left: 10%;
+    }
+    .overview-part {
+        font-size: 12px;
+    }
+    .overview-responsive {
+        width: 100%;
+        margin-left: 0;
+    }
+    .menu {
+        justify-content: center;
+    }
+    .brandLogo {
+        max-width: 150px;
+    }
+    .brandLogo img {
+        width: 150px;
+    }
+}
+
+/* Smallest screens */
+@media only screen and (max-width: 600px) {
+    #res-nav {
+        display: block;
+        font-size: 10px;
+    }
+    .overview-responsive {
+        width: 100%;
+        justify-content: center;
+    }
+    .overview-part {
+        font-size: 10px;
+    }
+    .nav {
+        margin-top: -2px;
+    }
+    .margin-space > .overview {
+        display: none;
+    }
+    .menu {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+    }
+    .icon {
+        font-size: 18px;
+    }
+    .brandLogo {
+        max-width: 120px;
+        max-height: 100%;
+        overflow: hidden;
+    }
+    .brandLogo img {
+        width: 120px;
+        height: 100%;
+        cursor: pointer;
+    }
 }

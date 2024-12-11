@@ -29,6 +29,7 @@ export const  ProductsToChoose: BackgroundContentModel[] = [
         title: "Akupanel | 700",
         backgroundUrl: "https://ccfssflq.photoncache.com/wp-content/uploads/2024/05/beige2-cgi1-1536x1536.jpg",
     },
+    
 
 ]
 

@@ -75,7 +75,7 @@
     background-color: rgba(14, 47, 79, 0.8);
 }
 
-.switcher-container {
+ .switcher-container {
     position: absolute; /* Position relative to the parent container */
     top: 10px; /* Distance from the top of the container */
     left: 10px; /* Distance from the left of the container */
@@ -133,3 +133,64 @@
     background-color: white;
     color: black;
 }
+
+
+
+  @media only screen and (max-width: 1425px) {
+
+  }
+  
+    /* Largest screens */
+  @media only screen and (max-width: 1024px) {
+
+  }
+  
+  /* Smallest screens */
+  @media only screen and (max-width: 600px) {
+    .background-container {
+        width: 80%;
+    }
+    .switcher-container {
+        width: 100%; /* Full width of the parent container */
+        overflow-x: auto; /* Enable horizontal scrolling */
+        overflow-y: hidden; /* Prevent vertical scrolling */
+        white-space: nowrap; /* Ensure all items are in a single line */
+        display: flex;
+        justify-content: flex-start; /* Align items to the start */
+        align-items: center;
+    }
+    
+    .switcher {
+        display: inline-flex; /* Inline-flex ensures horizontal scrolling works */
+        width: max-content; /* Only take as much space as the content needs */
+        height: 70px; /* Keep consistent height */
+        border-radius: 100px;
+        background-color: #BFC8CA;
+        align-items: center;
+        padding: 10px; /* Add padding for better spacing */
+        gap: 10px; /* Space between sections */
+    }
+    
+    .section {
+        flex-shrink: 0; /* Prevent items from shrinking */
+        padding: 2px 8px; /* Fixed width for scrolling */
+        height: 100%; /* Match height of the switcher */
+        background-color: none;
+        border-radius: 100px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        cursor: pointer;
+    }
+    .section p {
+        font-family: Inter, sans-serif;
+        margin: 0; /* Remove any default margin */
+        font-size: 13px; /* Optional: Make text bold */
+        color: #676A6A; /* Optional: Adjust text color */
+        margin-left: 10px;
+    }
+    
+        
+  }
+  
