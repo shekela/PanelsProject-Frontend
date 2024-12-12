@@ -3,7 +3,7 @@
   
     <div class="playback-container">
       <button class="play-button" (click)="togglePlayPause()">
-        <span *ngIf="!isPlaying">&#9654;</span> <!-- Play icon -->
+        <span id="playingSpan" *ngIf="!isPlaying">&#9654;</span> <!-- Play icon -->
         <span *ngIf="isPlaying">||</span> <!-- Pause icon -->
       </button>
       <div class="waveform">

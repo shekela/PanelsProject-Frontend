@@ -22,7 +22,7 @@ section{
     color: rgb(38, 38, 38);
     display: block;
     font-family: Inter, sans-serif;
-    font-size: 24px;
+    font-size: 22px;
     height: 67.1875px;
     letter-spacing: -0.38px;
     line-height: 33.6px;
@@ -181,3 +181,63 @@ section{
     justify-content: center; /* Optional: Center content horizontally */
     align-items: center; /* Optional: Center content vertically */
   }
+  @media screen and (max-width: 1025px){
+    .gallery h2{
+      color: rgb(0, 0, 0);
+      display: block;
+      font-family: Inter, sans-serif;
+      font-size: 42px;
+      font-weight: 500;
+      height: 72.7969px;
+      letter-spacing: -1.7px;
+      line-height: 72.8px;
+      margin: 0;
+  }
+  .gallery p{
+      color: rgb(38, 38, 38);
+      display: block;
+      font-family: Inter, sans-serif;
+      font-size: 21px;
+      line-height: 1.2;
+      width: 90%;
+      max-width: 90%;
+      margin-left: 5%;
+      margin-top: 0px;
+  }
+    .gallery{
+      width: 85%;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+    }
+  }
+
+  @media only screen and (max-width: 600px) {
+    .gallery h2{
+      color: rgb(0, 0, 0);
+      display: block;
+      font-family: Inter, sans-serif;
+      font-size: 42px;
+      font-weight: 500;
+      height: 72.7969px;
+      letter-spacing: -1.7px;
+      line-height: 72.8px;
+      margin: 0;
+  }
+  .gallery p{
+      color: rgb(38, 38, 38);
+      display: block;
+      font-family: Inter, sans-serif;
+      font-size: 17px;
+      line-height: 1.2;
+      width: 90%;
+      max-width: 90%;
+      margin-left: 5%;
+      margin-top: 0px;
+  }
+    .progress-container{
+      margin-top: 40px;
+    }
+  }
+
+  

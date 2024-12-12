@@ -71,4 +71,44 @@
     height: 100%; /* Make the image fill the height */
     object-fit: cover; /* Ensures the image covers the container while maintaining its aspect ratio */
   }
+
+  @media screen and (max-width: 1025px) {
+    .banner {
+      width: 90%;
+    }
+    button{
+      margin-bottom: 20px;
+    }
+  }
   
+  @media screen and (max-width: 600px) {
+    .banner {
+      display: block; /* Use flexbox to lay out children side by side */
+      width: 90%;
+      height: auto;
+      border-radius: 30px;
+      margin-left: auto;
+      margin-right: auto;
+      overflow: hidden;
+      margin-top: 30px;
+    }
+    
+    /* Container for the text and button */
+    .banner .text-banner {
+      width: 100%; /* You can adjust this value */
+      height: 50%;
+      background-color: #F5F5F7;
+      display: flex;
+      flex-direction: column; /* Stack elements vertically */
+      justify-content: flex-start; /* Align items to the top */
+      padding: 20px; /* Add some padding for internal spacing */
+      gap: 20px; /* Adds spacing between <h2>, <p>, and <button> */
+    }
+    .image-banner {
+      width: 100%; /* Make sure it takes up 50% of the container */
+      height: 390px; /* Ensure it stretches to fill the height */
+    }
+    button{
+      margin-bottom: 20px;
+    }
+  }

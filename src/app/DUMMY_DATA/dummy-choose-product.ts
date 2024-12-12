@@ -30,31 +30,31 @@ export const  ProductsToChoose: BackgroundContentModel[] = [
         backgroundUrl: "https://ccfssflq.photoncache.com/wp-content/uploads/2024/05/beige2-cgi1-1536x1536.jpg",
     },
     {
-        title: "Akupanel | 100 ",
+        title: "Akupanel | 800 ",
         backgroundUrl: "https://ccfssflq.photoncache.com/wp-content/uploads/2024/05/beige2-cgi1-1536x1536.jpg",
     },
     {
-        title: "Akupanel | 200 ",
+        title: "Akupanel | 850 ",
         backgroundUrl: "https://ccfssflq.photoncache.com/wp-content/uploads/2023/08/akupanel-60-showcase-classic.jpg",
     },
     {
-        title: "Akupanel | 300",
+        title: "Akupanel | 900",
         backgroundUrl: "https://ccfssflq.photoncache.com/wp-content/uploads/2024/05/beige4-cgi2-1536x1536.jpg",
     },
     {
-        title: "Akupanel | 400",
+        title: "Akupanel | 950",
         backgroundUrl: "https://ccfssflq.photoncache.com/wp-content/uploads/2023/08/akupanel-60-showcase-classic.jpg",
     },
     {
-        title: "Akupanel | 500",
+        title: "Akupanel | 960",
         backgroundUrl: "https://ccfssflq.photoncache.com/wp-content/uploads/2024/05/beige2-cgi1-1536x1536.jpg",
     },
     {
-        title: "Akupanel | 600",
+        title: "Akupanel | 970",
         backgroundUrl: "https://ccfssflq.photoncache.com/wp-content/uploads/2023/08/akupanel-60-showcase-classic.jpg",
     },
     {
-        title: "Akupanel | 700",
+        title: "Akupanel | 990",
         backgroundUrl: "https://ccfssflq.photoncache.com/wp-content/uploads/2024/05/beige2-cgi1-1536x1536.jpg",
     },
     

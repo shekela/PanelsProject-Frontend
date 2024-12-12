@@ -81,6 +81,7 @@
     position: absolute; 
     top: 10px; 
     left: 10px;
+    right: 10px;
     z-index: 2; 
     display: inline-flex; 
     align-items: center;
@@ -96,12 +97,10 @@
 .switcher-container::-webkit-scrollbar {
     width: 0px; /* Completely hides the scrollbar */
     height: 0px;
+    display: none !important;
 }
-
-/* Firefox */
-.switcher-container {
-    scrollbar-width: thin; /* Hides scrollbar but still allows scrolling */
-    scrollbar-color: transparent transparent; /* Set scrollbar color to transparent */
+::-webkit-scrollbar {
+    display: none;
 }
 .switcher {
     display: flex; /* Flex layout for horizontal alignment */
@@ -122,13 +121,15 @@
     min-width: 120px; /* Ensure consistent width */
     width: 160px;
     max-width: 160px;
-    height: 50px;
+    height: 45px;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
     margin-left: 5px;
-    margin-top: 15px;
+    margin-right: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
     background-color: transparent;
     border-radius: 100px;
     cursor: pointer;
@@ -160,7 +161,11 @@
 
 
 
-
+  @media only screen and (max-width: 1900px) {
+    .background-container{
+        width: 80%;
+    }
+  }
 
   @media only screen and (max-width: 1425px) {
     .background-container{
@@ -173,13 +178,6 @@
     .background-container{
         width: 76%;
     }
-    .switcher-container{
-        padding-top: 12px;
-        padding-bottom: 12px;
-    }
-     .section{
-        margin-top: 0px;
-     }
   }
   
   /* Smallest screens */
@@ -202,138 +200,4 @@
         margin-top: 50px;
     }
     
-    .background-container::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.5);
-        z-index: 1;
-    }
-    
-    .text {
-        margin-top: 50px;
-        position: relative;
-        text-align: center;
-        color: white;
-        z-index: 2;
-        padding: 0px 20px;
-        border-radius: 8px;
-    }
-    
-    .text h2 {
-        font-family: Inter, sans-serif;
-        font-weight: bold;
-        font-size: 41.92px;
-        font-weight: 500;
-        margin: 0 0 10px;
-    }
-    
-    .text p {
-        font-family: Inter, sans-serif;
-        font-size: 24px;
-        margin: 0 0 40px;
-    }
-    
-    .text button {
-        font-family: Inter, sans-serif;
-        padding: 16px 26px;
-        color: white;
-        background-color: #0e2F4F;
-        border: none;
-        border-radius: 30px;
-        cursor: pointer;
-        font-size: 19px;
-        font-weight: 600;
-    }
-    
-    .text button:hover {
-        cursor: pointer;
-        background-color: rgba(14, 47, 79, 0.8);
-    }
-    
-    .switcher-container {
-        position: absolute;
-        top: 10px;
-        left: 10px;
-        z-index: 2;
-        width: calc(100% - 20px); /* Use available space, accounting for padding */
-        display: flex;
-        justify-content: flex-start;
-        overflow-x: scroll; /* Allow horizontal scrolling */
-        background-color: #BFC8CA;
-        border-radius: 100px;
-    }
-    
-    .switcher-container::-webkit-scrollbar {
-        width: 0px; /* Completely hide scrollbar */
-        height: 0px;
-    }
-    
-    .switcher-container {
-        scrollbar-width: none; /* Hide scrollbar in Firefox */
-    }
-
-    .switcher {
-        display: flex;
-        gap: 0px;
-        overflow-x: auto; /* Allow horizontal scrolling if content exceeds container */
-        padding: 0px;
-        max-width: 100%; 
-    }
-    
-    .margin {
-        display: flex;
-        height: 80%;
-    }
-    
-    .section {
-        flex-shrink: 0;
-        height: 100%;
-        width: auto;
-        min-width: 100px;
-        padding-left: 3px;
-        padding-right: 3px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        padding: 14px 8px;
-        margin-left: 5px;
-        margin-top: 0px;
-        background-color: transparent;
-        border-radius: 100px;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-    }
-    
-    .section:hover {
-        cursor: pointer;
-        background-color: #D0D5D6;
-    }
-    
-    .section p {
-        font-family: Inter, sans-serif;
-        margin: 0;
-        font-size: 15px;
-        color: #676A6A;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-    }
-    
-    .active {
-        background-color: white;
-        color: black;
-    }
-    
-    .active:hover {
-        background-color: white;
-        color: black;
-    }
 }

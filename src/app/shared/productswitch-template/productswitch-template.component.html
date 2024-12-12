@@ -3,7 +3,6 @@
   [ngStyle]="{'background-image': 'url(' + currentProduct.backgroundUrl + ')'}">
   <div class="switcher-container">
     <div class="switcher">
-        <div class="margin">
             <div 
             class="section" 
             *ngFor="let item of products" 
@@ -12,7 +11,6 @@
              >
             <p>{{ item.title }}</p>
           </div>
-        </div>
     </div>
   </div>
 </div>
