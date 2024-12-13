@@ -1,0 +1,57 @@
+div{
+    width: 100%;
+    height: calc(100% - 78px);
+    margin-top: 78px;
+    position: fixed;
+    background-color: rgb(240, 235, 235);
+}
+ul {
+    margin-left: 15%;
+    padding: 0;
+}
+
+li {
+    list-style-type: none;
+    margin-top: 25px;
+    display: flex; /* Use flexbox for consistent alignment */
+    align-items: center; /* Align all children vertically */
+    gap: 10px; /* Spacing between <span> and <a> */
+    max-height: 60px;
+}
+li:hover{
+    color:grey;
+    cursor: pointer;
+}
+li a {
+    font-family: Inter, sans-serif;
+    font-size: 42px;
+    line-height: 1; /* Consistent line-height */
+    height: auto; /* No hard height needed */
+    display: flex; /* Make it flexible to align content */
+    align-items: center; /* Vertical center alignment */
+}
+
+li span {
+    font-family: Inter, sans-serif;
+    font-size: 42px;
+    line-height: 1; /* Consistent line-height */
+    display: flex; /* Make it flexible like <a> */
+    align-items: center; /* Vertical center alignment */
+}
+
+.icon {
+    font-size: 25px; /* Icon size */
+}
+.languages{
+    margin-left: 25px;
+}
+.languages img{
+    margin-left: 10px;
+    padding: 8px 8px;
+    border-radius: 8px;
+    width: 40px;
+    height: 30px;
+}
+.active{
+    background-color: rgba(14, 47, 79, 0.9);
+}

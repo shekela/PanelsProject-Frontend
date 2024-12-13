@@ -12,9 +12,15 @@
 </div>
 <nav class="nav">
     <div class="margin-space"> 
-        <div class="menu">
-            <fa-icon [icon]="faBars" class="icon"></fa-icon>
-            <span style="margin-left: 8px;">Menu</span>
+        <div class="menu" (click)="onOpen()">
+            <ng-container *ngIf="isLoaded">
+                <fa-icon [icon]="faX" class="icon" id="xMark"></fa-icon>
+                <span style="margin-left: 8px;">Menu</span>
+            </ng-container>
+            <ng-container *ngIf="!isLoaded">
+                <fa-icon [icon]="faBars" class="icon"></fa-icon>
+                <span style="margin-left: 8px;">Menu</span>
+            </ng-container>
         </div>
         <div class="brandLogo">
             <img [src]="brandLogo"/>
@@ -31,3 +37,5 @@
         </div>
     </div>
 </nav>
+
+<app-menu [isLoaded]="isLoaded"/>

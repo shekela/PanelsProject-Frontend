@@ -17,6 +17,7 @@ import { InstagramCatalogComponent } from './gallery/instagram-catalog/instagram
 import { InformationBannerComponent } from './information/information-banner/information-banner.component';
 import { InformationBannerReversedComponent } from './information/information-banner-reversed/information-banner-reversed.component';
 import { LinebreakPipe } from './pipes/linebreak.pipe';
+import { MenuComponent } from './menu/menu.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { LinebreakPipe } from './pipes/linebreak.pipe';
     InformationBannerComponent,
     InformationBannerReversedComponent,
     LinebreakPipe,
+    MenuComponent,
   ],
   imports: [
     BrowserModule,
