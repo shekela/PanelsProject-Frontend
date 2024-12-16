@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-information-banner-reversed',
@@ -6,7 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./information-banner-reversed.component.css']
 })
 export class InformationBannerReversedComponent {
-    title: string = 'LED lighting for your wall panels';
-    text: string = 'Discover how LED can enhance your home with energy-efficient, customizable, and aesthetically pleasing solutions.Create the perfect ambiance with LED and elevate your interior design effortlessly';
-    imageUrl: string = 'https://ccfssflq.photoncache.com/wp-content/uploads/2024/08/akupanel-clay-led-denmark-office-2-1-683x1024-1.jpg';
+    @Input({required: true}) title!: string;
+    @Input({required: true}) titleText!: string;
+    @Input({required: true}) imageUrl!: string;
+    @Input({required: true}) buttonText!: string;
 }

@@ -1,11 +1,10 @@
 <app-header id="app-header"></app-header>
-<app-marketing-header id="app-marketing-header" [marketingData]="marketingBannerData"></app-marketing-header>
-<app-main-products id="main-products" [products]="mainProductsData" [title]="titleMP" [titleText]="titleTextMP"></app-main-products>
-<app-videocatalog [videoCatalogData]="videoCatalogData"/>
+<app-marketing-header id="app-marketing-header"></app-marketing-header>
+<app-main-products id="main-products"></app-main-products>
+<app-videocatalog/>
 <app-productswitch-template/>
 <app-voice-comperator></app-voice-comperator>
-<app-main-products [products]="colorAndCoversProducts" [showTitle]="false" />
+<app-main-products [productsInput]="colorAndCoversProducts" [showTitle]="false" /> 
 <app-gallery/>
-<app-information-banner/>
-<app-information-banner-reversed/>
-<app-information-banner/>
+<app-information/>
+<app-contact/>

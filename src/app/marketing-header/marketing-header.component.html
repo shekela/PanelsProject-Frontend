@@ -1,13 +1,11 @@
 <section class="section-container">
     <div class="black-box">
-      <h1>{{ marketingData!.title }}</h1>
-      <h2>{{ marketingData!.aim }}</h2>
-      <p>
-        {{ marketingData!.description }}
-      </p>
+      <h1>{{ marketingBannerData.title }}</h1>
+      <h2>{{ marketingBannerData.aim }}</h2>
+      <p>{{ marketingBannerData.description }}</p>
     </div>
     <div class="image-box">
-      <img [src]="marketingData!.imgUrl" alt="Marketing Section" />
+      <img [src]="marketingBannerData.imgUrl" alt="Marketing Section" />
     </div>
 </section>
   

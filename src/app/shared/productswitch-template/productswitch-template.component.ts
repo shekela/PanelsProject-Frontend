@@ -1,7 +1,7 @@
-import { Component, ElementRef, Input, ViewEncapsulation } from '@angular/core';
+import { Component, ElementRef, ViewEncapsulation } from '@angular/core';
 import { BackgroundContentModel } from 'src/app/models/backgoundcontent.model';
-import { ProductsToChoose } from 'src/app/DUMMY_DATA/dummy-choose-product';
-import { ProductSwitcherService } from 'src/app/services/product-switcher.service';
+import { ProductsToChoose } from 'src/app/DUMMY_DATA/PRODUCTSTOCHOOSE-DATA/eng';
+import { LanguageService } from 'src/app/services/language.service';
 
 @Component({
   selector: 'app-productswitch-template',
@@ -19,7 +19,13 @@ export class ProductswitchTemplateComponent {
     console.log('Selected product:', this.currentProduct);
   }
 
-  constructor(private elRef: ElementRef) {}
+  constructor(private elRef: ElementRef, private languageService: LanguageService) {}
+     
+  ngOnInit(): void {
+    this.languageService.language$.subscribe(language => {
+      this.products = this.languageService.getProductsToChooseTranslation(language);
+    });
+  }
 
   ngAfterViewInit() {
     const switcherContainer = this.elRef.nativeElement.querySelector('.switcher-container');

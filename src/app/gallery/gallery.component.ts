@@ -2,6 +2,9 @@ import { ChangeDetectorRef, Component, ElementRef, inject, Renderer2, ViewChild 
 import { GalleryObjects } from '../DUMMY_DATA/dummy-gallery-objects'; 
 import { GalleryObjectModel } from '../models/gallery-objects.model';
 import { DataServiceService } from '../services/data-service.service';
+import { GalleryComponentTexts } from '../DUMMY_DATA/GALLERY-COMPONENT-DATA/eng';
+import { Subscription } from 'rxjs';
+import { LanguageService } from '../services/language.service';
 
 @Component({
   selector: 'app-gallery',
@@ -10,8 +13,13 @@ import { DataServiceService } from '../services/data-service.service';
 })
 
 export class GalleryComponent {
-
+private languageSubscription: Subscription | null = null; // Initialize as null
 private dataService = inject(DataServiceService);
+
+componentTexts = GalleryComponentTexts;
+
+
+
 
 instagramPageName = this.dataService.instagramPageName;
 isInstagramCatalogLoaded = false;
@@ -26,7 +34,7 @@ mainPicture?: GalleryObjectModel;
 leftPicture?: any;
 rightPicture?: any;
 
-constructor(private renderer: Renderer2, private cdr: ChangeDetectorRef) {
+constructor(private renderer: Renderer2, private cdr: ChangeDetectorRef, private languageService: LanguageService) {
   const heightPattern = [118, 190, 118, 190, 118, 118, 190, 190, 118, 190, 118, 190];
 
   this.pictures = this.pictures.map((pic, index) => {
@@ -122,6 +130,20 @@ onVideoLeave(event: MouseEvent): void {
   const video = event.target as HTMLVideoElement;
   video.pause();
   video.currentTime = 0;
+}
+
+
+ngOnInit(): void {
+  this.languageSubscription = this.languageService.language$.subscribe((language) => {
+    this.componentTexts = this.languageService.getGalleryComponentsTextsTranslation(language);
+  });
+}
+
+ngOnDestroy(): void {
+  // Unsubscribe to prevent memory leaks
+  if (this.languageSubscription) {
+    this.languageSubscription.unsubscribe();
+  }
 }
 
 }

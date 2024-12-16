@@ -2,15 +2,15 @@
     <div>
         <ng-container *ngIf="showTitle">
             <h2 class="title">
-              <strong>{{title}}</strong>
+              <strong>{{products.title}}</strong>
             </h2>
             <p class="title-ii">
-              {{titleText}}
+              {{products.titleText}}
             </p>
           </ng-container>
         <div class="products">
             <app-product 
-            *ngFor="let product of products"
+            *ngFor="let product of products.products"
             [product]="product"
             [height]="product.height"
             [width]="product.width"

@@ -1,0 +1,28 @@
+<footer>
+    <div class="contact-form">
+        <div>
+            <h2 class="title">{{ componentTexts.titles[0] }}</h2>
+            <div class="contact-content">
+                <span>{{ componentTexts.phone }}</span>
+                <span>{{ componentTexts.email }}</span>
+                <div class="social-media">
+                    <span (click)="navigateTo(componentTexts.instragramLink)"><i class="fab fa-instagram"></i></span>
+                    <span (click)="navigateTo(componentTexts.facebookLink)"><i class="fab fa-facebook"></i></span>
+                </div>
+                <img [src]="brandLogo" class="brandLogo"/>
+            </div>
+        </div>
+        <div>
+            <h2 class="title">{{ componentTexts.titles[1] }}</h2>
+            <div class="schedule">
+                <p *ngFor="let workingDay of componentTexts.workingHours">{{workingDay}}</p>
+            </div>
+        </div>
+        <div>
+            <h2 class="title">{{ componentTexts.titles[2] }}</h2>
+            <div class="about-us">
+                <p>{{ componentTexts.aboutUs }}</p>
+            </div>
+        </div>
+    </div>
+</footer>

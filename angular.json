@@ -39,8 +39,8 @@
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "2kb",
-                  "maximumError": "4kb"
+                  "maximumWarning": "5kb",  
+                  "maximumError": "7kb"
                 }
               ],
               "outputHashing": "all"
@@ -63,7 +63,8 @@
               "browserTarget": "panels-project:build:production"
             },
             "development": {
-              "browserTarget": "panels-project:build:development"
+              "browserTarget": "panels-project:build:development",
+              "hmr": false 
             }
           },
           "defaultConfiguration": "development"

@@ -2,20 +2,34 @@ body{
     padding: 0;
     margin: 0;
 }
-html, body {
-  overflow-y: scroll; /* Always reserve space for the vertical scrollbar */
-}
 html.no-scroll,
 body.no-scroll {
   overflow: hidden !important; 
   height: 100vh; 
   width: 100vw; 
 }
-.switcher-container {
-  scrollbar-width: none; /* Hide the scrollbar but preserve layout */
-  -ms-overflow-style: none; /* For IE */
+
+@font-face {
+  font-family: 'FiraGO';
+  src: url('./assets/FiraGO-Light.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
 }
 
-.switcher-container::-webkit-scrollbar {
-  display: none; /* For WebKit */
+body, h1, h2, h3, h4, h5, h6, p, a, span, li {
+  font-family: inherit;
+}
+
+html[lang='GEO'] body, 
+html[lang='GEO'] h1, 
+html[lang='GEO'] h2, 
+html[lang='GEO'] h3, 
+html[lang='GEO'] h4, 
+html[lang='GEO'] h5, 
+html[lang='GEO'] h6, 
+html[lang='GEO'] p, 
+html[lang='GEO'] a, 
+html[lang='GEO'] span, 
+html[lang='GEO'] li {
+  font-family: 'FiraGO', sans-serif !important;
 }

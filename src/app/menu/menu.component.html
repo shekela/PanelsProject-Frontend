@@ -1,35 +1,31 @@
 <div *ngIf="isLoaded">
-   <ul>
-        <li>
-            <span>
-                <fa-icon [icon]="faPlus" class="icon"></fa-icon>
-            </span>
-            <a>Products</a>
-        </li>
-        <li>
-            <span>
-                <fa-icon [icon]="faPlus" class="icon"></fa-icon>
-            </span>
-            <a>Gallery</a>
-        </li>
-        <li>
-            <span>
-                <fa-icon [icon]="faPlus" class="icon"></fa-icon>
-            </span>
-            <a>About us</a>
-        </li>
-        <li>
-            <span>
-                <fa-icon [icon]="faPlus" class="icon"></fa-icon>
-            </span>
-            <a>Contact us</a>
-        </li>
-        <li>
-            <span class="languages">
-                <img src="https://flagicons.lipis.dev/flags/4x3/ge.svg" [class.active] = "language === 'GEO'" (click)="changeLanguage('GEO')"/>
-                <img src="https://flagicons.lipis.dev/flags/4x3/ru.svg" [class.active] = "language === 'RUS'" (click)="changeLanguage('RUS')" />
-                <img src="https://flagicons.lipis.dev/flags/4x3/gb.svg" [class.active] = "language === 'ENG'" (click)="changeLanguage('ENG')"/>
-            </span>
-        </li>
-   </ul>
-</div>
+    <ul>
+      <li *ngFor="let section of menuContent.menuSections">
+        <span>
+          <fa-icon [icon]="faPlus" class="icon"></fa-icon>
+        </span>
+        <a>{{ section }}</a>
+      </li>
+      <li>
+        <span class="languages">
+          <!-- Language Switcher -->
+          <img
+            src="https://flagicons.lipis.dev/flags/4x3/ge.svg"
+            [class.active]="language === 'GEO'"
+            (click)="changeLanguage('GEO')"
+          />
+          <img
+            src="https://flagicons.lipis.dev/flags/4x3/ru.svg"
+            [class.active]="language === 'RUS'"
+            (click)="changeLanguage('RUS')"
+          />
+          <img
+            src="https://flagicons.lipis.dev/flags/4x3/gb.svg"
+            [class.active]="language === 'ENG'"
+            (click)="changeLanguage('ENG')"
+          />
+        </span>
+      </li>
+    </ul>
+  </div>
+  

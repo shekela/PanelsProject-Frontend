@@ -2,9 +2,9 @@
      <div class="text-banner">
          <div>
             <h2>{{ title }}</h2>
-            <p [innerHTML]="text | linebreak"></p>
+            <p [innerHTML]="titleText | linebreak"></p>
          </div>
-         <button>Explore LED</button>
+         <button>{{buttonText}}</button>
      </div>
      <div class="image-banner">
         <img [src]="imageUrl"/>

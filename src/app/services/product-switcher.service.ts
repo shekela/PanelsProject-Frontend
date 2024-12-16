@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BackgroundContentModel } from '../models/backgoundcontent.model';
-import { ProductsToChoose } from '../DUMMY_DATA/dummy-choose-product'; 
+import { ProductsToChoose } from '../DUMMY_DATA/PRODUCTSTOCHOOSE-DATA/eng'; 
 
 @Injectable({
   providedIn: 'root'

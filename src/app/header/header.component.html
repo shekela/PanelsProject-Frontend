@@ -2,11 +2,11 @@
     <div class="overview-responsive">
         <p class="overview-part">
             <fa-icon [icon]="faCheck" class="icon-check"></fa-icon>
-            <span style="margin-left: 8px;"> Scandinavian quality</span>
+            <span style="margin-left: 8px;">{{headerContent.qualityOne}}</span>
         </p>
         <p class="overview-part">
             <fa-icon [icon]="faCheck" class="icon-check"></fa-icon>
-            <span style="margin-left: 8px;"> Easy installation</span>
+            <span style="margin-left: 8px;">{{headerContent.qualityTwo}}</span>
         </p>
     </div>
 </div>
@@ -15,11 +15,11 @@
         <div class="menu" (click)="onOpen()">
             <ng-container *ngIf="isLoaded">
                 <fa-icon [icon]="faX" class="icon" id="xMark"></fa-icon>
-                <span style="margin-left: 8px;">Menu</span>
+                <span style="margin-left: 8px;">{{headerContent.menu}}</span>
             </ng-container>
             <ng-container *ngIf="!isLoaded">
                 <fa-icon [icon]="faBars" class="icon"></fa-icon>
-                <span style="margin-left: 8px;">Menu</span>
+                <span style="margin-left: 8px;">{{headerContent.menu}}</span>
             </ng-container>
         </div>
         <div class="brandLogo">
@@ -28,11 +28,11 @@
         <div class="overview">
             <p class="overview-part">
                 <fa-icon [icon]="faCheck" class="icon-check"></fa-icon>
-                <span style="margin-left: 8px;"> Scandinavian quality</span>
+                <span style="margin-left: 8px;">{{headerContent.qualityOne}}</span>
             </p>
             <p class="overview-part">
                 <fa-icon [icon]="faCheck" class="icon-check"></fa-icon>
-                <span style="margin-left: 8px;"> Easy installation</span>
+                <span style="margin-left: 8px;">{{headerContent.qualityTwo}}</span>
             </p>
         </div>
     </div>

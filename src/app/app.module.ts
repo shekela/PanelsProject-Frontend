@@ -18,6 +18,12 @@ import { InformationBannerComponent } from './information/information-banner/inf
 import { InformationBannerReversedComponent } from './information/information-banner-reversed/information-banner-reversed.component';
 import { LinebreakPipe } from './pipes/linebreak.pipe';
 import { MenuComponent } from './menu/menu.component';
+import { HttpClientModule } from '@angular/common/http';
+import { TranslateModule } from '@ngx-translate/core';
+import { InformationComponent } from './information/information/information.component';
+import { ContactComponent } from './contact/contact.component';
+
+
 
 @NgModule({
   declarations: [
@@ -35,12 +41,16 @@ import { MenuComponent } from './menu/menu.component';
     InformationBannerReversedComponent,
     LinebreakPipe,
     MenuComponent,
+    InformationComponent,
+    ContactComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FontAwesomeModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule,
+    TranslateModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent]

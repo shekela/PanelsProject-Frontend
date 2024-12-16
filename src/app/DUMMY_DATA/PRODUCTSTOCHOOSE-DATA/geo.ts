@@ -1,65 +1,61 @@
-import { BackgroundContentModel } from "../models/backgoundcontent.model"
+import { BackgroundContentModel } from "src/app/models/backgoundcontent.model" 
 
 export const  ProductsToChoose: BackgroundContentModel[] = [
     {
-        title: "Akupanel | 100 ",
+        title: "აკუპანელი | 100 ",
         backgroundUrl: "https://ccfssflq.photoncache.com/wp-content/uploads/2024/05/beige2-cgi1-1536x1536.jpg",
     },
     {
-        title: "Akupanel | 200 ",
+        title: "აკუპანელი | 200 ",
         backgroundUrl: "https://ccfssflq.photoncache.com/wp-content/uploads/2023/08/akupanel-60-showcase-classic.jpg",
     },
     {
-        title: "Akupanel | 300",
+        title: "აკუპანელი | 300",
         backgroundUrl: "https://ccfssflq.photoncache.com/wp-content/uploads/2024/05/beige4-cgi2-1536x1536.jpg",
     },
     {
-        title: "Akupanel | 400",
+        title: "აკუპანელი | 400",
         backgroundUrl: "https://ccfssflq.photoncache.com/wp-content/uploads/2023/08/akupanel-60-showcase-classic.jpg",
     },
     {
-        title: "Akupanel | 500",
+        title: "აკუპანელი | 500",
         backgroundUrl: "https://ccfssflq.photoncache.com/wp-content/uploads/2024/05/beige2-cgi1-1536x1536.jpg",
     },
     {
-        title: "Akupanel | 600",
+        title: "აკუპანელი | 600",
         backgroundUrl: "https://ccfssflq.photoncache.com/wp-content/uploads/2023/08/akupanel-60-showcase-classic.jpg",
     },
     {
-        title: "Akupanel | 700",
+        title: "აკუპანელი | 700",
         backgroundUrl: "https://ccfssflq.photoncache.com/wp-content/uploads/2024/05/beige2-cgi1-1536x1536.jpg",
     },
     {
-        title: "Akupanel | 800 ",
+        title: "აკუპანელი | 800 ",
         backgroundUrl: "https://ccfssflq.photoncache.com/wp-content/uploads/2024/05/beige2-cgi1-1536x1536.jpg",
     },
     {
-        title: "Akupanel | 850 ",
+        title: "აკუპანელი | 850 ",
         backgroundUrl: "https://ccfssflq.photoncache.com/wp-content/uploads/2023/08/akupanel-60-showcase-classic.jpg",
     },
     {
-        title: "Akupanel | 900",
+        title: "აკუპანელი | 900",
         backgroundUrl: "https://ccfssflq.photoncache.com/wp-content/uploads/2024/05/beige4-cgi2-1536x1536.jpg",
     },
     {
-        title: "Akupanel | 950",
+        title: "აკუპანელი | 950",
         backgroundUrl: "https://ccfssflq.photoncache.com/wp-content/uploads/2023/08/akupanel-60-showcase-classic.jpg",
     },
     {
-        title: "Akupanel | 960",
+        title: "აკუპანელი | 960",
         backgroundUrl: "https://ccfssflq.photoncache.com/wp-content/uploads/2024/05/beige2-cgi1-1536x1536.jpg",
     },
     {
-        title: "Akupanel | 970",
+        title: "აკუპანელი | 970",
         backgroundUrl: "https://ccfssflq.photoncache.com/wp-content/uploads/2023/08/akupanel-60-showcase-classic.jpg",
     },
     {
-        title: "Akupanel | 990",
+        title: "აკუპანელი | 990",
         backgroundUrl: "https://ccfssflq.photoncache.com/wp-content/uploads/2024/05/beige2-cgi1-1536x1536.jpg",
     },
-    
-    
-    
-
 ]
 

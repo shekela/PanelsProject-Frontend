@@ -17,6 +17,8 @@ section{
     height: 72.7969px;
     letter-spacing: -1.7px;
     line-height: 72.8px;
+    margin: 0;
+    margin-top: 50px;
 }
 .gallery p{
     color: rgb(38, 38, 38);
@@ -28,6 +30,7 @@ section{
     line-height: 33.6px;
     max-width: 50%;
     margin-left: 25%;
+    margin-top: 0;
 }
 /* Progress bar container */
 .progress-container {

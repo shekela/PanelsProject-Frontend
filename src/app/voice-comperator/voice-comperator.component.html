@@ -1,5 +1,5 @@
 <div class="voice-comparator">
-    <h2>Hear the difference</h2>
+    <h2>{{ voiceComperatorData.title }}</h2>
   
     <div class="playback-container">
       <button class="play-button" (click)="togglePlayPause()">
@@ -13,12 +13,12 @@
     </div>
   
     <div class="toggle-container">
-      <span [class.active]="!isVoiceTwoSelected">Without Akupanel</span>
+      <span [class.active]="!isVoiceTwoSelected">{{voiceComperatorData.buttonWO}}</span>
       <label class="switch">
         <input type="checkbox" [(ngModel)]="isVoiceTwoSelected" (ngModelChange)="onVoiceToggleChange()" />
         <span class="slider round"></span>
       </label>
-      <span [class.active]="isVoiceTwoSelected">With Akupanel</span>
+      <span [class.active]="isVoiceTwoSelected">{{voiceComperatorData.buttonW}}</span>
     </div>
   </div>
   
