@@ -22,6 +22,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { TranslateModule } from '@ngx-translate/core';
 import { InformationComponent } from './information/information/information.component';
 import { ContactComponent } from './contact/contact.component';
+import { AdminLoginComponent } from './admin/admin-login/admin-login.component';
 
 
 
@@ -43,6 +44,7 @@ import { ContactComponent } from './contact/contact.component';
     MenuComponent,
     InformationComponent,
     ContactComponent,
+    AdminLoginComponent,
   ],
   imports: [
     BrowserModule,

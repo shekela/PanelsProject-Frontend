@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { InfoBannerContent } from 'src/app/DUMMY_DATA/INFO-BANNER-COMPONENT/eng';
-import { InfoBannerContentInterface } from 'src/app/models/infor-banner.model';
+import { BackgroundContentModel } from 'src/app/models/backgoundcontent.model';
 import { LanguageService } from 'src/app/services/language.service';
 
 @Component({
@@ -9,8 +8,9 @@ import { LanguageService } from 'src/app/services/language.service';
   templateUrl: './information.component.html',
   styleUrls: ['./information.component.css']
 })
+
 export class InformationComponent {
-  infoBannerContent!: InfoBannerContentInterface[];
+  infoBannerContent!: BackgroundContentModel[];
 
   private languageSubscription: Subscription | null = null; // Initialize as null
   

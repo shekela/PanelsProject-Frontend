@@ -1,7 +1,7 @@
 export interface BackgroundContentModel {
-    title?: string;
+    title: string;
     description?: string;
-    backgroundUrl?: string;
+    backgroundUrl: string;
     buttonText?: string;
     height?: string;
     width?: string;

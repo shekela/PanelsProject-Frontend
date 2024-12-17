@@ -1,11 +1,11 @@
 <div class="banner">
     <div class="image-banner">
-       <img [src]="imageUrl"/>
+       <img [src]="backgroundUrl"/>
     </div>
     <div class="text-banner">
         <div>
            <h2>{{ title }}</h2>
-           <p [innerHTML]="titleText | linebreak"></p>
+           <p [innerHTML]="(description ?? '') | linebreak"></p>
         </div>
         <button>{{ buttonText }}</button>
     </div>

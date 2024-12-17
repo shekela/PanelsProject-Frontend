@@ -3,8 +3,8 @@
     <app-information-banner 
       *ngIf="i % 2 === 0"
       [title]="banner.title" 
-      [titleText]="banner.titleText" 
-      [imageUrl]="banner.imageUrl"
+      [description]="banner.description" 
+      [backgroundUrl]="banner.backgroundUrl"
       [buttonText]="banner.buttonText">
     </app-information-banner>
   
@@ -12,8 +12,8 @@
     <app-information-banner-reversed 
       *ngIf="i % 2 !== 0"
       [title]="banner.title" 
-      [titleText]="banner.titleText" 
-      [imageUrl]="banner.imageUrl"
+      [description]="banner.description" 
+      [backgroundUrl]="banner.backgroundUrl"
       [buttonText]="banner.buttonText">
     </app-information-banner-reversed>
   </div>

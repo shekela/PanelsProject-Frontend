@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, SimpleChanges } from '@angular/core';
 import { BackgroundContentModel } from 'src/app/models/backgoundcontent.model';
 
 @Component({
@@ -12,8 +12,8 @@ export class ProductComponent {
   @Input() width?: string;
   @Input() height?: string;
 
-  ngOnInit() {
-    // Fallback to default height/width if not provided
+  ngOnChanges(changes: SimpleChanges): void {
+    // Apply defaults on property change
     if (!this.height) {
       this.height = '500px';
     }
@@ -21,4 +21,5 @@ export class ProductComponent {
       this.width = '658px';
     }
   }
+
 }

@@ -1,5 +1,4 @@
 import { Component, Input } from '@angular/core';
-import { LinebreakPipe } from 'src/app/pipes/linebreak.pipe';
 
 @Component({
   selector: 'app-information-banner',
@@ -8,7 +7,7 @@ import { LinebreakPipe } from 'src/app/pipes/linebreak.pipe';
 })
 export class InformationBannerComponent {
     @Input({required: true}) title!: string;
-    @Input({required: true}) titleText!: string;
-    @Input({required: true}) imageUrl!: string;
-    @Input({required: true}) buttonText!: string;
+    @Input({required: true}) description?: string | undefined;
+    @Input({required: true}) backgroundUrl!: string;
+    @Input({required: true}) buttonText?: string;
 }

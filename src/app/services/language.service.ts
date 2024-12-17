@@ -50,7 +50,6 @@ import { MainProductsInterface } from '../models/mainproducts.model';
 import { BackgroundContentModel } from '../models/backgoundcontent.model';
 import { VoiceCompoeratorInterface } from '../models/voice-comperator-model';
 import { GalleryComponentTextsInterface } from '../models/gallery-component-texts.model';
-import { InfoBannerContentInterface } from '../models/infor-banner.model';
 import { ContactInterface } from '../models/contact.model';
 import { MenuInterface } from '../models/menucontent.model';
 import { HeaderInterface } from '../models/headercontent.model';
@@ -64,7 +63,7 @@ interface Translations {
   colorsAndCovers: {[key: string]: BackgroundContentModel[]},
   voiceComperator: {[key: string]: VoiceCompoeratorInterface},
   galleryComponentTexts: {[key: string]: GalleryComponentTextsInterface},
-  infoBanners: {[key: string]: InfoBannerContentInterface[]},
+  infoBanners: {[key: string]: BackgroundContentModel[]},
   contactTextData: {[key: string]: ContactInterface},
   menuParts: {[key: string]: MenuInterface},
   headerContent: {[key: string]: HeaderInterface}
@@ -189,7 +188,7 @@ export class LanguageService {
     return this.translations.galleryComponentTexts[language] || this.translations.galleryComponentTexts['GEO']
   }
 
-  getInfoBannersTranslation(language: string): InfoBannerContentInterface[]{
+  getInfoBannersTranslation(language: string): BackgroundContentModel[]{
     return this.translations.infoBanners[language] || this.translations.infoBanners['GEO']
   }
   getContactTextTranslation(language: string): ContactInterface{
