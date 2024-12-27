@@ -4,6 +4,7 @@ import { BackgroundContentModel } from 'src/app/models/backgoundcontent.model';
 import { MainProductsInterface } from 'src/app/models/mainproducts.model';
 import { DataServiceService } from 'src/app/services/data-service.service';
 import { LanguageService } from 'src/app/services/language.service';
+import { SeparationService } from 'src/app/services/separation.service';
 
 @Component({
   selector: 'app-main-products',
@@ -13,20 +14,32 @@ import { LanguageService } from 'src/app/services/language.service';
 export class MainProductsComponent {
   private dataService = inject(DataServiceService);
   private languageSubscription: Subscription | undefined;
+  private subscription: Subscription | null = null;
 
   @Input() showTitle: boolean = true;
   @Input() products!: MainProductsInterface;
   @Input() productsInput?: BackgroundContentModel[];
 
-  constructor(private languageService: LanguageService) {}
+  constructor(private languageService: LanguageService, private separationService: SeparationService) {}
 
   ngOnInit(): void {
     // Subscribe to language changes if no productsInput is provided
     if (!this.productsInput) {
-      this.languageSubscription = this.languageService.language$.subscribe(language => {
-        this.products = this.languageService.getMainProductsTranslation(language);
+        this.subscription = this.languageService.language$.subscribe((language) => {
+        this.products =
+          this.separationService.translations.mainProducts[language] ||
+          this.separationService.translations.mainProducts['GEO'];
       });
-    }
+    
+      this.subscription.add(
+        this.separationService.translations$.subscribe(() => {
+          const currentLanguage = this.languageService.getCurrentLanguage();
+          this.products =
+            this.separationService.translations.mainProducts[currentLanguage] ||
+            this.separationService.translations.mainProducts['GEO'];
+        })
+      );
+      }
   }
 
   ngOnChanges(changes: SimpleChanges): void {

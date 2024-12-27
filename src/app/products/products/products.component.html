@@ -1,0 +1,9 @@
+<app-header id="app-header"/>
+<section>
+    <div class="banner">
+       <h2>{{pageData.title}}</h2>
+    </div>
+    <div class="products">
+        <app-sale-item *ngFor="let product of pageData.saleItems" [product]="product"/>
+    </div>
+</section>

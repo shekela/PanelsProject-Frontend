@@ -1,0 +1,61 @@
+#app-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px; /* Define the fixed header height */
+    z-index: 1000;
+}
+section{
+    margin-top: 100px;
+}
+.banner {
+    position: relative;
+    background-image: url('https://ccfssflq.photoncache.com/wp-content/uploads/2024/08/Alrum-Brun2-1024x682.jpg');
+    width: 66%;
+    height: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 30px;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    overflow: hidden;
+    flex-direction: column; /* Stack children vertically */
+}
+.banner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Black overlay with 50% opacity */
+    z-index: 1; /* Place overlay behind the text */
+}
+.banner h2{
+    color: white;
+    font-size: 74px;
+    font-family: Inter, sans-serif;
+    z-index: 2;
+    position: absolute; /* Position relative to the .banner */
+    bottom: 0px; /* Adjust the distance from the bottom edge */
+    left: 30px;
+}
+.products {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    width: fit-content;
+    max-width: 66%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+}
+
+.products > .product {
+    flex-shrink: 0;
+}
+

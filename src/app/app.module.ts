@@ -23,6 +23,9 @@ import { TranslateModule } from '@ngx-translate/core';
 import { InformationComponent } from './information/information/information.component';
 import { ContactComponent } from './contact/contact.component';
 import { AdminLoginComponent } from './admin/admin-login/admin-login.component';
+import { ProductsComponent } from './products/products/products.component';
+import { MainComponent } from './main/main.component';
+import { SaleItemComponent } from './products/sale-item/sale-item.component';
 
 
 
@@ -45,6 +48,9 @@ import { AdminLoginComponent } from './admin/admin-login/admin-login.component';
     InformationComponent,
     ContactComponent,
     AdminLoginComponent,
+    ProductsComponent,
+    MainComponent,
+    SaleItemComponent,
   ],
   imports: [
     BrowserModule,

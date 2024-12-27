@@ -1,12 +1,13 @@
 <section>
-    <div class="video-container">
-        <video autoplay muted loop class="background-video">
-          <source [src]="videoCatalogData.backgroundUrl" type="video/mp4" />
-        </video>
-        <div class="overlay-text">
-          <h1>{{ videoCatalogData.title }}</h1>
-          <p>{{ videoCatalogData.description }}</p>
-          <button>{{ videoCatalogData.buttonText }}</button>
-        </div>
-      </div>
+  <div class="video-container">
+    <video autoplay muted loop class="background-video" [attr.src]="videoCatalogData?.backgroundUrl">
+      <!-- Ensure the video is loaded -->
+      <source [src]="videoCatalogData?.backgroundUrl" type="video/mp4" />
+    </video>
+    <div class="overlay-text">
+      <h1>{{ videoCatalogData?.title }}</h1>
+      <p>{{ videoCatalogData?.description }}</p>
+      <button>{{ videoCatalogData?.buttonText }}</button>
+    </div>
+  </div>
 </section>

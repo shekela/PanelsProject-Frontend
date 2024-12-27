@@ -16,7 +16,6 @@ export class ProductswitchTemplateComponent {
 
   selectProduct(product: BackgroundContentModel): void {
     this.currentProduct = product; // Update the current product
-    console.log('Selected product:', this.currentProduct);
   }
 
   constructor(private elRef: ElementRef, private languageService: LanguageService) {}
@@ -30,7 +29,6 @@ export class ProductswitchTemplateComponent {
   ngAfterViewInit() {
     const switcherContainer = this.elRef.nativeElement.querySelector('.switcher-container');
     const hasVerticalScrollbar = switcherContainer.scrollHeight > switcherContainer.clientHeight;
-    console.log('Has vertical scrollbar:', hasVerticalScrollbar);
 
     if (hasVerticalScrollbar) {
       switcherContainer.style.paddingBottom = '10px'; // Adjust to avoid clipping

@@ -69,42 +69,7 @@
     cursor: pointer;
     background-color: rgba(14, 47, 79, 0.8);
 }
-@media only screen and (max-width: 1920px) {
-    .background-container {
-        position: relative;
-        width: 34vw !important;
-        height: 400px !important;
-        background-image: url('https://ccfssflq.photoncache.com/wp-content/uploads/2024/08/Alrum-Brun2-1024x682.jpg');
-        border-radius: 30px;
-        background-size: cover;
-        background-position: center;
-        display: flex;
-        align-items: center;
-        justify-content: flex-start;
-        overflow: hidden;
-        flex-direction: column; /* Stack children vertically */
-    }
-    .text h2 {
-        font-family: Inter, sans-serif;
-        font-weight: bold;
-        font-size: 41.92px;
-        font-weight: 500;
-        letter-spacing: -0.67px;
-        line-height: 1.2; /* Use a relative line-height instead of a fixed value */
-        margin: 0 0 10px 0; /* Space between h2 and p */
-        height: auto; /* Remove fixed height */
-        word-break: break-word; /* Ensure long words wrap correctly */
-    }
-    
-    .text p {
-        font-family: Inter, sans-serif;
-        font-size: 24px;
-        letter-spacing: -0.38px;
-        line-height: 1.4; /* Adjust for readability */
-        margin: 0 0 40px 0;
-        height: auto; /* Remove fixed height */
-    }
-}
+
 @media only screen and (max-width: 1200px) {
     .background-container {
         position: relative;

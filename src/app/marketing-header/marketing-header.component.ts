@@ -1,29 +1,45 @@
-import { Component, Input, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { LanguageService } from '../services/language.service';
+import { SeparationService } from '../services/separation.service';
 import { Subscription } from 'rxjs';
 import { MarketingBannerData } from '../models/marketingdata.model';
 
 @Component({
   selector: 'app-marketing-header',
   templateUrl: './marketing-header.component.html',
-  styleUrls: ['./marketing-header.component.css']
+  styleUrls: ['./marketing-header.component.css'],
 })
 export class MarketingHeaderComponent implements OnInit, OnDestroy {
   marketingBannerData!: MarketingBannerData;
-  private languageSubscription: Subscription | null = null; // Initialize as null
 
-  constructor(private languageService: LanguageService) {}
+  
+  private subscription: Subscription | null = null;
+
+  constructor(
+    private languageService: LanguageService,
+    private separationService: SeparationService
+  ) {}
 
   ngOnInit(): void {
-    this.languageSubscription = this.languageService.language$.subscribe((language) => {
-      this.marketingBannerData = this.languageService.getMarketingBannerTranslation(language);
+    this.subscription = this.languageService.language$.subscribe((language) => {
+      this.marketingBannerData =
+        this.separationService.translations.marketingBanner[language] ||
+        this.separationService.translations.marketingBanner['GEO'];
     });
+  
+    this.subscription.add(
+      this.separationService.translations$.subscribe(() => {
+        const currentLanguage = this.languageService.getCurrentLanguage();
+        this.marketingBannerData =
+          this.separationService.translations.marketingBanner[currentLanguage] ||
+          this.separationService.translations.marketingBanner['GEO'];
+      })
+    );
   }
 
   ngOnDestroy(): void {
-    // Unsubscribe to prevent memory leaks
-    if (this.languageSubscription) {
-      this.languageSubscription.unsubscribe();
+    if (this.subscription) {
+      this.subscription.unsubscribe();
     }
   }
 }
