@@ -23,24 +23,44 @@ export class MainProductsComponent {
   constructor(private languageService: LanguageService, private separationService: SeparationService) {}
 
   ngOnInit(): void {
-    // Subscribe to language changes if no productsInput is provided
     if (!this.productsInput) {
         this.subscription = this.languageService.language$.subscribe((language) => {
-        this.products =
-          this.separationService.translations.mainProducts[language] ||
-          this.separationService.translations.mainProducts['GEO'];
-      });
-    
-      this.subscription.add(
-        this.separationService.translations$.subscribe(() => {
-          const currentLanguage = this.languageService.getCurrentLanguage();
-          this.products =
-            this.separationService.translations.mainProducts[currentLanguage] ||
-            this.separationService.translations.mainProducts['GEO'];
-        })
-      );
-      }
-  }
+            this.products =
+              this.separationService.translations.mainProducts[language] ||
+              this.separationService.translations.mainProducts['GEO'];
+
+            // Check the backgroundUrl for each product
+            if (this.products && this.products.products) {
+                this.products.products.forEach(product => {
+                    if (product.backgroundUrl && !product.backgroundUrl.startsWith('https://localhost:7001/')) {
+                        product.backgroundUrl = `https://localhost:7001${product.backgroundUrl}`;
+                        console.log(`Product URL: ${product.backgroundUrl}`);  // Log the URL for debugging
+                    }
+                });
+            }
+        });
+
+        this.subscription.add(
+            this.separationService.translations$.subscribe(() => {
+                const currentLanguage = this.languageService.getCurrentLanguage();
+                this.products =
+                  this.separationService.translations.mainProducts[currentLanguage] ||
+                  this.separationService.translations.mainProducts['GEO'];
+
+                if (this.products && this.products.products) {
+                    this.products.products.forEach(product => {
+                        if (product.backgroundUrl && !product.backgroundUrl.startsWith('https://localhost:7001/')) {
+                            product.backgroundUrl = `https://localhost:7001${product.backgroundUrl}`;
+                            console.log(`Product URL: ${product.backgroundUrl}`);  // Log the URL for debugging
+                        }
+                    });
+                }
+            })
+        );
+    }
+}
+
+
 
   ngOnChanges(changes: SimpleChanges): void {
     // Update products when productsInput changes

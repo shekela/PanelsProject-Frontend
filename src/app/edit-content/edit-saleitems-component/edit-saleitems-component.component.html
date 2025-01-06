@@ -1,0 +1,66 @@
+<div class="sale-item-container">
+    <h1>Sale Item Management</h1>
+  
+    <!-- Add Sale Item Form -->
+    <form (submit)="onAddSaleItem()" class="form">
+      <h2>Add New Sale Item</h2>
+      <input type="text" placeholder="Title (EN)" [(ngModel)]="newSaleItem.titleEn" name="titleEn" required />
+      <textarea placeholder="Description (EN)" [(ngModel)]="newSaleItem.descriptionEn" name="descriptionEn" required></textarea>
+      <input type="text" placeholder="Title (KA)" [(ngModel)]="newSaleItem.titleKa" name="titleKa" />
+      <textarea placeholder="Description (KA)" [(ngModel)]="newSaleItem.descriptionKa" name="descriptionKa"></textarea>
+      <input type="text" placeholder="Title (RU)" [(ngModel)]="newSaleItem.titleRu" name="titleRu" />
+      <textarea placeholder="Description (RU)" [(ngModel)]="newSaleItem.descriptionRu" name="descriptionRu"></textarea>
+      <div class="file-upload-wrapper">
+        <input
+          id="product-image"
+          type="file"
+          (change)="onFileSelected($event)"
+          accept="image/*"
+          class="file-upload-input"
+        />
+        <label for="product-image" class="file-upload-label">
+          <span class="upload-icon">📁</span>
+          Upload Background Image
+        </label>
+        <span class="file-upload-name" *ngIf="selectedFile">
+          {{ selectedFile.name }}
+        </span>
+      </div>
+  
+      <button type="submit">Add Sale Item</button>
+    </form>
+  
+    <!-- Sale Items List -->
+    <h2>All Sale Items</h2>
+    <div style="display: flex;flex-wrap: wrap;flex-direction: row;  width: 80%;margin-left: auto;margin-right: auto;">
+        <div *ngFor="let item of saleItems" class="sale-item">
+            <div class="image-container">
+              <img *ngIf="item.picture" [src]="item.picture" alt="{{ item.titleEn }}" />
+            </div>
+            <div class="details">
+              <h3>{{ item.titleEn }}</h3>
+              <p>{{ item.descriptionEn }}</p>
+              <button (click)="onDeleteSaleItem(item.id)">Delete</button>
+            </div>
+        </div>
+    </div>
+      
+    <div class="overlay" *ngIf="showDeletePopup">
+        <div class="popup">
+          <h3>Are you sure you want to delete this sale item?</h3>
+          <div class="popup-actions">
+            <button (click)="confirmDelete()">Yes</button>
+            <button (click)="cancelDelete()">No</button>
+          </div>
+        </div>
+      </div>
+  
+    <!-- Popup for Success/Action -->
+    <div *ngIf="showPopup" class="popup">
+      <div class="popup-content">
+        <h3>{{ popupMessage }}</h3>
+        <button (click)="closePopup()">Close</button>
+      </div>
+    </div>
+  </div>
+  

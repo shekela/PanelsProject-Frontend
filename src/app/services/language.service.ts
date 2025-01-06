@@ -41,20 +41,25 @@ export class LanguageService {
     this.languageSubject.next(selectedLanguage);
     localStorage.setItem('language', selectedLanguage);
     document.documentElement.lang = selectedLanguage;
-
+    
     if (selectedLanguage === 'GEO') {
       document.body.style.fontFamily = 'FiraGO, sans-serif';
     } else {
       document.body.style.fontFamily = '';
     }
-
+    
     this.separationService.fetchMarketingBanners(selectedLanguage);
     this.separationService.fetchMainProducts(selectedLanguage);
     this.separationService.fetchVideoCatalog(selectedLanguage);
+    this.separationService.fetchProductsCatalogSlider(selectedLanguage);
+    this.separationService.fetchVoiceComperator(selectedLanguage);
+    this.separationService.fetchColorAndCovers(selectedLanguage);
+    this.separationService.fetchInformationBanners(selectedLanguage);
+    this.separationService.fetchGalleryComponentTexts(selectedLanguage);
+    this.separationService.fetchSaleItems(selectedLanguage);
   }
 
 
-  
   // Get translations for the Marketing Banner
   getMarketingBannerTranslation(language: string) {
     return this.separationService.translations.marketingBanner[language] || 

@@ -1,4 +1,4 @@
-<div *ngFor="let banner of infoBannerContent; let i = index">
+<div *ngFor="let banner of infoBannerContent; let i = index" class="box">
     <!-- Render app-information-banner for odd indices (0, 2, 4, ...) -->
     <app-information-banner 
       *ngIf="i % 2 === 0"

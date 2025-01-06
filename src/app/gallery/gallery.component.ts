@@ -5,6 +5,8 @@ import { DataServiceService } from '../services/data-service.service';
 import { GalleryComponentTexts } from '../DUMMY_DATA/GALLERY-COMPONENT-DATA/eng';
 import { Subscription } from 'rxjs';
 import { LanguageService } from '../services/language.service';
+import { RequestsService } from '../services/requests.service';
+import { SeparationService } from '../services/separation.service';
 
 @Component({
   selector: 'app-gallery',
@@ -15,18 +17,17 @@ import { LanguageService } from '../services/language.service';
 export class GalleryComponent {
 private languageSubscription: Subscription | null = null; // Initialize as null
 private dataService = inject(DataServiceService);
+private subscription: Subscription | null = null;
 
 componentTexts = GalleryComponentTexts;
 
-
-
-
 instagramPageName = this.dataService.instagramPageName;
 isInstagramCatalogLoaded = false;
+isGEO: boolean = false;
 
-pictures: GalleryObjectModel[] = GalleryObjects; // Original array of pictures
+pictures!: GalleryObjectModel[]; // Original array of pictures
 displayedPictures: GalleryObjectModel[] = []; // Pictures currently displayed
-totalPictures: number = this.pictures.length; // Total number of pictures
+totalPictures!: number; // Total number of pictures
 loadedCount: number = 0; // Number of pictures currently loaded
 progressPercentage: number = 0; // Progress percentage
 
@@ -34,19 +35,7 @@ mainPicture?: GalleryObjectModel;
 leftPicture?: any;
 rightPicture?: any;
 
-constructor(private renderer: Renderer2, private cdr: ChangeDetectorRef, private languageService: LanguageService) {
-  const heightPattern = [118, 190, 118, 190, 118, 118, 190, 190, 118, 190, 118, 190];
-
-  this.pictures = this.pictures.map((pic, index) => {
-    const height = heightPattern[index % heightPattern.length]; 
-    return {
-      ...pic,
-      height: `${height}px`, 
-      rowSpan: Math.ceil(height / 8), 
-    };
-  });
-
-  this.loadMore();
+constructor(private renderer: Renderer2, private cdr: ChangeDetectorRef, private languageService: LanguageService, private requestService: RequestsService, private separationService: SeparationService) {
 }
 
 loadMore(): void {
@@ -134,8 +123,36 @@ onVideoLeave(event: MouseEvent): void {
 
 
 ngOnInit(): void {
-  this.languageSubscription = this.languageService.language$.subscribe((language) => {
-    this.componentTexts = this.languageService.getGalleryComponentsTextsTranslation(language);
+  this.subscription = this.languageService.language$.subscribe((language) => {
+    this.componentTexts =
+      this.separationService.translations.galleryComponentTexts[language] ||
+      this.separationService.translations.galleryComponentTexts['GEO'];
+      this.isGEO = language === 'GEO';
+  });
+
+  this.subscription.add(
+    this.separationService.translations$.subscribe(() => {
+      const currentLanguage = this.languageService.getCurrentLanguage();
+      this.componentTexts =
+        this.separationService.translations.galleryComponentTexts[currentLanguage] ||
+        this.separationService.translations.galleryComponentTexts['GEO'];
+    })
+  );
+
+  this.requestService.getGalleryPictures().subscribe((data: GalleryObjectModel[]) => {
+    this.pictures = data;
+    this.totalPictures = this.pictures.length;
+    const heightPattern = [118, 190, 118, 190, 118, 118, 190, 190, 118, 190, 118, 190];
+    this.pictures = this.pictures.map((pic, index) => {
+      const height = heightPattern[index % heightPattern.length];
+      return {
+        ...pic,
+        height: `${height}px`,
+        rowSpan: Math.ceil(height / 8),
+        picture: `https://localhost:7001${pic.picture}`
+      };
+    });
+    this.loadMore();
   });
 }
 

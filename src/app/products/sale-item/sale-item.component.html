@@ -1,9 +1,25 @@
 <div class="product">
+    <div 
+        class="background-container" 
+        [ngStyle]="{'background-image': 'url(' + product.picture + ')'}"
+    >
+        <div class="overlay">
+            <p [innerHTML]="(product.description) | linebreak"></p>
+        </div>
+    </div>
+    <div class="details">
+        <p>{{ product.title }}</p>
+    </div>
+</div>
+
+
+
+<!-- <div class="product">
     <div class="background-container" [ngStyle]="{'background-image': 'url(' + product.picture + ')'}"></div>
     <div class="details">
          <p>{{product.title}}</p>
-         <div class="colors">
+          <div class="colors">
             <img *ngFor="let color of product.colors" [src]="color.picture" [alt]="color.title"/>
-         </div>
+         </div> 
     </div>
-</div>
+</div> -->

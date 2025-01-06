@@ -1,0 +1,7 @@
+<div *ngIf="isLoaded">
+    <ul>
+        <li *ngFor="let section of menuContent" (click)="onSelectSection(section)">
+            <a>{{ section }}</a>
+        </li>
+    </ul>
+</div>

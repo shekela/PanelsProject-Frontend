@@ -1,0 +1,94 @@
+<div class="edit-section">
+    <h1>Edit Colors and Covers</h1>
+    <button class="btn btn-primary" (click)="openAddProductPopup()">Add New Product</button>
+
+    <div class="product-list">
+        <div *ngFor="let product of products" class="product-card">
+            <div class="product-header">
+                <div class="product-details">
+                    <p><strong>Title (EN):</strong> {{ product.titleEn }}</p>
+                    <p><strong>Description (EN):</strong> {{ product.descriptionEn }}</p>
+                    <p><strong>Button Text (EN):</strong> {{ product.buttonTextEn }}</p>
+                    <img [src]="product.backgroundUrl" alt="Product Image" class="product-image" />
+                </div>
+                <div class="product-actions">
+                    <button class="btn btn-success" (click)="openEditProductPopup(product)">Edit</button>
+                    <button class="btn btn-danger" (click)="openDeleteConfirmation(product.id)">Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add/Edit Product Popup -->
+    <div class="popup" *ngIf="isProductPopupOpen">
+        <div class="popup-content">
+            <h2>{{ editMode ? 'Edit Product' : 'Add New Product' }}</h2>
+            <form (ngSubmit)="saveProduct()">
+                <div class="form-section">
+                    <!-- English Fields -->
+                    <label for="title-en">Title (EN):</label>
+                    <input id="title-en" type="text" [(ngModel)]="currentProduct.titleEn" name="titleEn" class="form-control" required />
+
+                    <label for="description-en">Description (EN):</label>
+                    <textarea id="description-en" [(ngModel)]="currentProduct.descriptionEn" name="descriptionEn" class="form-control" required></textarea>
+
+                    <label for="button-text-en">Button Text (EN):</label>
+                    <input id="button-text-en" type="text" [(ngModel)]="currentProduct.buttonTextEn" name="buttonTextEn" class="form-control" required />
+
+                    <!-- Georgian Fields -->
+                    <label for="title-ka">Title (KA):</label>
+                    <input id="title-ka" type="text" [(ngModel)]="currentProduct.titleKa" name="titleKa" class="form-control" />
+
+                    <label for="description-ka">Description (KA):</label>
+                    <textarea id="description-ka" [(ngModel)]="currentProduct.descriptionKa" name="descriptionKa" class="form-control"></textarea>
+
+                    <label for="button-text-ka">Button Text (KA):</label>
+                    <input id="button-text-ka" type="text" [(ngModel)]="currentProduct.buttonTextKa" name="buttonTextKa" class="form-control" />
+
+                    <!-- Russian Fields -->
+                    <label for="title-ru">Title (RU):</label>
+                    <input id="title-ru" type="text" [(ngModel)]="currentProduct.titleRu" name="titleRu" class="form-control" />
+
+                    <label for="description-ru">Description (RU):</label>
+                    <textarea id="description-ru" [(ngModel)]="currentProduct.descriptionRu" name="descriptionRu" class="form-control"></textarea>
+
+                    <label for="button-text-ru">Button Text (RU):</label>
+                    <input id="button-text-ru" type="text" [(ngModel)]="currentProduct.buttonTextRu" name="buttonTextRu" class="form-control" />
+
+                    <!-- Background URL -->
+                    <div class="file-upload-wrapper">
+                        <input
+                          id="background-image-upload"
+                          type="file"
+                          (change)="onImageUpload($event)"
+                          accept="image/*"
+                          class="file-upload-input"
+                        />
+                        <label for="background-image-upload" class="file-upload-label">
+                          <span class="upload-icon">📁</span>
+                          Upload Background Image
+                        </label>
+                        <span class="file-upload-name" *ngIf="selectedImageFile">{{ selectedImageFile.name }}</span>
+                    </div>
+                      
+
+                    <div class="button-group">
+                        <button type="submit" class="btn btn-success">{{ editMode ? 'Update' : 'Add' }}</button>
+                        <button type="button" class="btn btn-danger" (click)="closeProductPopup()">Cancel</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Delete Confirmation Modal -->
+    <div class="popup" *ngIf="isDeletePopupOpen">
+        <div class="popup-content">
+            <h2>Are you sure you want to delete this product?</h2>
+            <div class="button-group">
+                <button class="btn btn-danger" (click)="deleteProduct()">Yes</button>
+                <button class="btn btn-secondary" (click)="closeDeletePopup()">No</button>
+            </div>
+        </div>
+    </div>
+</div>

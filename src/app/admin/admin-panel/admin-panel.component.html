@@ -1,0 +1,50 @@
+<div class="navigation-admin-panel" style="font-family: sans-serif !important;">
+    <div class="construct-nav">
+        <div>
+            <h2>ADMIN PANEL</h2>
+        </div>
+        <div>
+            <h2 (click)="onOpen()">MENU</h2>
+        </div>
+        <div class="activePage">
+            <button class="greendot"></button>
+            <h2>{{ contentView }}</h2>
+        </div>
+    </div>
+</div>
+
+<section *ngIf="!isLoaded" id="contentSection">
+    <app-marketing-header id="itemC" *ngIf="contentView == 'Marketing Banner'"/>
+    <app-main-products *ngIf="contentView == 'Main Products'"/>
+    <app-videocatalog id="itemC" *ngIf="contentView == 'Video Catalog'"/>
+    <app-productswitch-template id="itemC" *ngIf="contentView == 'Products Catalog Slider'"/>
+    <app-voice-comperator id="itemC" *ngIf="contentView == 'Voice Comperator'"/>
+    <app-main-products *ngIf="contentView == 'Colors and Covers'" class="special-main-products" [productsInput]="colorAndCoversProducts" [showTitle]="false"/> 
+    <app-gallery id="itemC" *ngIf="contentView == 'Gallery'"/>
+    <app-information id="itemC" *ngIf="contentView == 'Information Banners'"/>
+    <app-products id="itemC" *ngIf="contentView == 'Sale Items'"/>
+    <div class="circle" (click)="toggleEditor()">
+        <img src="https://www.iconpacks.net/icons/2/free-arrow-down-icon-3101-thumb.png" class="arrow"/>
+    </div>
+</section>
+
+<section class="edit-content" *ngIf="!isLoaded" id="editorSection">
+  <div class="circle-top" (click)="scrollToTop()">
+    <img src="assets/arro-up-3100.png" class="arrow"/>
+  </div>
+  <app-edit-marketing-header *ngIf="contentView == 'Marketing Banner'"/>
+  <app-edit-main-products *ngIf="contentView == 'Main Products'"/>
+  <app-edit-video-catalog *ngIf="contentView == 'Video Catalog'"/>
+  <app-edit-product-catalog-slider *ngIf="contentView == 'Products Catalog Slider'"/>
+  <app-edit-voice-comperator *ngIf="contentView == 'Voice Comperator'"/>
+  <app-edit-colors-covers *ngIf="contentView == 'Colors and Covers'" />
+  <app-edit-gallery-component *ngIf="contentView == 'Gallery'"/>
+  <app-edit-informatiobanner-component *ngIf="contentView == 'Information Banners'"/>
+  <app-edit-saleitems-component *ngIf="contentView == 'Sale Items'"/>
+</section>
+
+
+<app-admin-menu
+    [isLoaded]="isLoaded"
+    (sectionSelected)="onSectionSelected($event)"
+></app-admin-menu>

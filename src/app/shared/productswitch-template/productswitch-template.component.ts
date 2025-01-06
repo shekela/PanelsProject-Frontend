@@ -1,7 +1,8 @@
 import { Component, ElementRef, ViewEncapsulation } from '@angular/core';
 import { BackgroundContentModel } from 'src/app/models/backgoundcontent.model';
-import { ProductsToChoose } from 'src/app/DUMMY_DATA/PRODUCTSTOCHOOSE-DATA/eng';
 import { LanguageService } from 'src/app/services/language.service';
+import { SeparationService } from 'src/app/services/separation.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-productswitch-template',
@@ -9,22 +10,56 @@ import { LanguageService } from 'src/app/services/language.service';
   styleUrls: ['./productswitch-template.component.css'],
   encapsulation: ViewEncapsulation.None,
 })
-
 export class ProductswitchTemplateComponent {
-  products: BackgroundContentModel[] = ProductsToChoose; // Products array
-  currentProduct: BackgroundContentModel = this.products[0];
+  private subscription: Subscription | null = null;
+  
+  products: BackgroundContentModel[] = []; // Initialize as an empty array
+  currentProduct: BackgroundContentModel | null = null; // Initialize as null
 
   selectProduct(product: BackgroundContentModel): void {
     this.currentProduct = product; // Update the current product
   }
 
-  constructor(private elRef: ElementRef, private languageService: LanguageService) {}
-     
+  constructor(
+    private elRef: ElementRef,
+    private languageService: LanguageService,
+    private separationService: SeparationService
+  ) {}
+
   ngOnInit(): void {
-    this.languageService.language$.subscribe(language => {
-      this.products = this.languageService.getProductsToChooseTranslation(language);
+    this.subscription = this.languageService.language$.subscribe((language) => {
+      this.loadProducts(language);
     });
+
+    this.subscription.add(
+      this.separationService.translations$.subscribe(() => {
+        const currentLanguage = this.languageService.getCurrentLanguage();
+        this.loadProducts(currentLanguage);
+      })
+    );
   }
+
+  private loadProducts(language: string): void {
+    this.products =
+      this.separationService.translations.productsToChoose[language] ||
+      this.separationService.translations.productsToChoose['GEO'];
+  
+    // Prepend 'localhost:7001' to the backgroundUrl of each product if not already included
+    this.products = this.products.map(product => {
+      if (!product.backgroundUrl.startsWith('https://localhost:7001')) {
+        product.backgroundUrl = `https://localhost:7001${product.backgroundUrl}`;
+      }
+      return product;
+    });
+  
+    // Set the first product as the current product
+    if (this.products.length > 0) {
+      this.currentProduct = this.products[0];
+    } else {
+      this.currentProduct = null; // Handle empty products
+    }
+  }
+  
 
   ngAfterViewInit() {
     const switcherContainer = this.elRef.nativeElement.querySelector('.switcher-container');
@@ -35,4 +70,7 @@ export class ProductswitchTemplateComponent {
     }
   }
 
+  ngOnDestroy(): void {
+    this.subscription?.unsubscribe(); // Cleanup subscriptions
+  }
 }

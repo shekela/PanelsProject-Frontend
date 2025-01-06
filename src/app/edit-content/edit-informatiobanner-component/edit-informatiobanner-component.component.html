@@ -1,0 +1,89 @@
+<div class="edit-section">
+    <h1>Edit Information Banners</h1>
+    <button class="btn btn-primary" (click)="openAddBannerPopup()">Add New Banner</button>
+  
+    <div class="banner-list">
+        <div *ngFor="let banner of banners" class="banner-card">
+          <div class="banner-header">
+            <div class="banner-details">
+              <h3>{{ banner.titleEn }}</h3>
+              <p><strong>Description (EN):</strong> {{ banner.descriptionEn }}</p>
+              <p><strong>Button Text (EN):</strong> {{ banner.buttonTextEn }}</p>
+              <img [src]="banner.backgroundUrl" alt="Banner Image" class="banner-image" />
+            </div>
+            <div class="banner-actions">
+              <button class="btn btn-success" (click)="openEditBannerPopup(banner)">Edit</button>
+              <button class="btn btn-danger" (click)="openDeletePopup(banner.id)">Delete</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+  
+    <!-- Add/Edit Banner Popup -->
+    <div class="popup" *ngIf="isProductPopupOpen">
+      <div class="popup-content">
+        <h2>{{ editMode ? 'Edit Banner' : 'Add New Banner' }}</h2>
+        <form (ngSubmit)="saveBanner()">
+          <div class="form-section">
+            <!-- English Fields -->
+            <label for="title-en">Title (EN):</label>
+            <input id="title-en" type="text" [(ngModel)]="currentBanner.titleEn" name="titleEn" class="form-control" required />
+  
+            <label for="description-en">Description (EN):</label>
+            <textarea id="description-en" [(ngModel)]="currentBanner.descriptionEn" name="descriptionEn" class="form-control" required></textarea>
+  
+            <label for="button-text-en">Button Text (EN):</label>
+            <input id="button-text-en" type="text" [(ngModel)]="currentBanner.buttonTextEn" name="buttonTextEn" class="form-control" required />
+  
+            <!-- Georgian Fields -->
+            <label for="title-ka">Title (KA):</label>
+            <input id="title-ka" type="text" [(ngModel)]="currentBanner.titleKa" name="titleKa" class="form-control" />
+  
+            <label for="description-ka">Description (KA):</label>
+            <textarea id="description-ka" [(ngModel)]="currentBanner.descriptionKa" name="descriptionKa" class="form-control"></textarea>
+  
+            <label for="button-text-ka">Button Text (KA):</label>
+            <input id="button-text-ka" type="text" [(ngModel)]="currentBanner.buttonTextKa" name="buttonTextKa" class="form-control" />
+  
+            <!-- Russian Fields -->
+            <label for="title-ru">Title (RU):</label>
+            <input id="title-ru" type="text" [(ngModel)]="currentBanner.titleRu" name="titleRu" class="form-control" />
+  
+            <label for="description-ru">Description (RU):</label>
+            <textarea id="description-ru" [(ngModel)]="currentBanner.descriptionRu" name="descriptionRu" class="form-control"></textarea>
+  
+            <label for="button-text-ru">Button Text (RU):</label>
+            <input id="button-text-ru" type="text" [(ngModel)]="currentBanner.buttonTextRu" name="buttonTextRu" class="form-control" />
+  
+            <!-- Background URL -->
+            <label for="background-image-upload">Upload Background Image:</label>
+            <input
+              id="background-image-upload"
+              type="file"
+              (change)="onImageUpload($event)"
+              accept="image/*"
+              class="form-control"
+            />
+  
+            <div class="button-group">
+              <button type="submit" class="btn btn-success">{{ editMode ? 'Update' : 'Add' }}</button>
+              <button type="button" class="btn btn-danger" (click)="closeProductPopup()">Cancel</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  
+    <!-- Delete Confirmation Modal -->
+    <div class="popup" *ngIf="isDeletePopupOpen">
+      <div class="popup-content">
+        <h2>Are you sure you want to delete this banner?</h2>
+        <div class="button-group">
+          <button class="btn btn-danger" (click)="deleteBanner()">Yes</button>
+          <button class="btn btn-secondary" (click)="closeDeletePopup()">No</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  

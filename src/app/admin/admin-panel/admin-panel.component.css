@@ -1,0 +1,220 @@
+.navigation-admin-panel {
+    width: 100%; /* Set the width to 90% */
+    margin: 0 auto; /* Center align the navbar */
+    height: 110px;
+    background-color: #B6CFE6;
+    position: fixed;
+    top: 0;
+    z-index: 10000;
+    color: #455484;
+    font-family: sans-serif !important;
+}
+.navigation-admin-panel, 
+.navigation-admin-panel * {
+  font-family: sans-serif !important;
+}
+.construct-nav{
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.construct-nav > div{
+    width: 20%;
+    text-align: center;
+}
+.construct-nav h2{
+    font-weight: lighter;
+    font-size: 23px;
+    cursor: pointer;
+}
+.activePage{
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+.activePage h2{
+    margin-left: 15px;
+}
+.greendot {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 2px solid lightgrey;
+    background-color: burlywood;
+
+    /* Animation properties */
+    animation: grow-shrink 1.5s infinite ease-in-out;
+}
+
+/* Keyframes for the grow-shrink animation */
+@keyframes grow-shrink {
+    0%, 100% {
+        transform: scale(1); /* Original size */
+    }
+    50% {
+        transform: scale(1.2); /* Grow to 1.5x size */
+    }
+}
+
+::ng-deep app-header {
+    display: none;
+}
+
+::ng-deep app-productswitch-template .background-container{
+    margin-top: 200px !important;
+}
+
+::ng-deep app-voice-comperator .voice-comparator{
+    margin-top: 200px !important;
+}
+
+::ng-deep app-main-products.special-main-products section {
+    margin-top: 200px !important;  /* Example: Adjust margin or any other styles */
+}
+
+::ng-deep app-videocatalog .video-container {
+    margin-top: 200px !important;
+}
+
+::ng-deep app-gallery section{
+    margin-top: 200px !important;
+}
+::ng-deep  app-instagram-catalog .instagram-catalog-pictures{
+    margin-top: 100px !important;
+}
+
+::ng-deep  app-instagram-catalog .backdrop{
+    margin-top: 100px !important;
+    z-index: 1000000;
+}
+::ng-deep  app-instagram-catalog .close-feed{
+    margin-top: 110px !important;
+    z-index: 1000000;
+}
+
+::ng-deep app-information .box{
+   margin-top: 100px;
+}
+
+::ng-deep app-edit-video-catalog .edit-section{
+    margin-top: 300px !important;
+}
+
+::ng-deep app-edit-voice-comperator .edit-section{
+    margin-top: 300px !important;
+}
+
+::ng-deep app-edit-product-catalog-slider .edit-section{
+    margin-top: 300px !important;
+    font-family: sans-serif;
+}
+::ng-deep app-edit-colors-covers .edit-section{
+    margin-top: 200px !important;
+}
+
+::ng-deep app-edit-gallery-component .edit-section{
+    margin-top: 200px !important;
+}
+
+::ng-deep app-edit-informatiobanner-component .edit-section{
+    margin-top: 200px !important;
+}
+::ng-deep app-edit-saleitems-component .sale-item-container{
+    margin-top: 200px !important;
+}
+.circle, .circle-top {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    width: 70px;
+    height: 70px;
+    cursor: pointer;
+    background-color: #fff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.circle img, .circle-top img {
+    width: 30px;
+    height: auto;
+}
+
+/* Circle at the Bottom */
+.circle {
+    bottom: 20px;
+    margin-top: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Circle at the Top */
+.circle-top {
+    top: 135px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.circle-top img{
+    margin-top: -5px;
+}
+
+/* Content Section */
+#contentSection {
+    width: 100%;
+    margin-top: 30px;  /* You can adjust this margin */
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Editor Section */
+#editorSection {
+    overflow: hidden;
+    display: none;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 100vh;
+    height: 100%;
+    background-color: white; /* Optional background color */
+    z-index: 1000;
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Lock Scroll */
+body.locked {
+    overflow: hidden;
+}
+
+/* Content that is hidden when editor is visible */
+body.editor-open #contentSection {
+    transform: translateY(-100%); /* Hides content section when editor is visible */
+}
+
+body.editor-open #editorSection {
+    display: block;
+    transform: translateY(0); /* Shows editor section when editor is visible */
+}
+
+/* Adding spacing to elements inside the editor */
+.app-edit-marketing-header,
+.app-edit-main-products,
+.app-edit-video-catalog,
+.app-edit-product-catalog-slider,
+.app-edit-voice-comperator,
+.app-edit-colors-covers {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+/* Optional Styling for the editor content to ensure it takes full height */
+.app-edit-marketing-header, .app-edit-main-products, .app-edit-video-catalog,
+.app-edit-product-catalog-slider, .app-edit-voice-comperator, .app-edit-colors-covers {
+    padding-top: 50px;
+    padding-bottom: 50px;
+}

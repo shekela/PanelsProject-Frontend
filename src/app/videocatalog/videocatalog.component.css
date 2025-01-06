@@ -1,4 +1,3 @@
-/* Container for the video and overlay text */
 section{
     width: 100%;
     font-family: Inter, sans-serif;
@@ -25,11 +24,10 @@ section{
     min-height: 100%;
     width: auto;
     height: auto;
-    z-index: 1;
+    z-index: -1;
     object-fit: cover;
     background-color: rgba(0, 0, 0, 0.2);  /* Temporary background color */
   }
-
 /* Overlay text container */
 .overlay-text {
     position: absolute;

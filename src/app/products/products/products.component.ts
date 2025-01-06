@@ -1,8 +1,11 @@
 import { Component } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { SaleItems } from 'src/app/DUMMY_DATA/SALE-ITEMS/geo';
+import { ProductsPageInterface } from 'src/app/models/products-page.model';
 import { SaleItemInterface } from 'src/app/models/sale-item.model';
 import { LanguageService } from 'src/app/services/language.service';
+import { RequestsService } from 'src/app/services/requests.service';
+import { SeparationService } from 'src/app/services/separation.service';
 
 @Component({
   selector: 'app-products',
@@ -13,22 +16,53 @@ export class ProductsComponent {
   productWidth = '395px'; // or dynamically calculated
   productHeight = '395px';
 
-  pageData = SaleItems;
+  pageData!: ProductsPageInterface;
 
   private languageSubscription: Subscription | null = null; // Initialize as null
+  private subscription: Subscription | null = null;
   
-    constructor(private languageService: LanguageService) {}
+  constructor(private languageService: LanguageService, private requestService: RequestsService, private separationService: SeparationService) {}
   
-    ngOnInit(): void {
-      this.languageSubscription = this.languageService.language$.subscribe((language) => {
-        this.pageData = this.languageService.getSaleItemsTranslation(language);
+  ngOnInit(): void {
+    this.languageSubscription = this.languageService.language$.subscribe((language) => {
+      this.pageData = this.languageService.getSaleItemsTranslation(language);
+      this.updatePictureUrls(); // Update picture URLs with the prefix
+    });
+  
+    this.subscription = this.languageService.language$.subscribe((language) => {
+      this.pageData = this.separationService.translations.saleItems[language] ||
+        this.separationService.translations.saleItems['GEO'];
+      this.updatePictureUrls(); // Update picture URLs with the prefix
+    });
+  
+    this.subscription.add(
+      this.separationService.translations$.subscribe(() => {
+        const currentLanguage = this.languageService.getCurrentLanguage();
+        this.pageData = this.separationService.translations.saleItems[currentLanguage] ||
+          this.separationService.translations.saleItems['GEO'];
+        this.updatePictureUrls(); // Update picture URLs with the prefix
+      })
+    );
+  }
+  
+  // Method to update picture URLs by prefixing 'localhost:7001'
+  private updatePictureUrls(): void {
+    if (this.pageData && this.pageData.saleItems) {
+      this.pageData.saleItems.forEach((item) => {
+        if (item.picture) {
+          // Check if the picture URL doesn't already start with "https://localhost:7001"
+          if (!item.picture.startsWith('https://localhost:7001')) {
+            item.picture = `https://localhost:7001${item.picture}`;
+          }
+        }
       });
     }
+  }
   
-    ngOnDestroy(): void {
-      // Unsubscribe to prevent memory leaks
-      if (this.languageSubscription) {
-        this.languageSubscription.unsubscribe();
-      }
+  ngOnDestroy(): void {
+    // Unsubscribe to prevent memory leaks
+    if (this.languageSubscription) {
+      this.languageSubscription.unsubscribe();
     }
+  }
 }

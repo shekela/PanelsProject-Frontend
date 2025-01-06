@@ -51,19 +51,24 @@
 
 <!-- Since below there are string which are showing How many pictures you have seen out of amount and all of these string needs to be translated I have binded them from array of string which contains 
  "You have seen", "Out of", "Load more" all these texts which makes easier to be translated and also future possitiblity for admin to change the button or the shown texts-->
-
-    <div class="progress-container">
-      <div class="progress-bar" [style.width.%]="progressPercentage"></div>
-    </div>
-    <div class="progress-text">
-        {{componentTexts.words[0]}} {{ loadedCount }} {{componentTexts.words[1]}} {{ totalPictures }}
-    </div>
-    <button *ngIf="loadedCount < totalPictures" (click)="loadMore()">
-      {{componentTexts.words[2]}}
-    </button>
-
-
-    
+ 
+ <div *ngIf="displayedPictures.length > 0">
+  <div class="progress-container">
+    <div class="progress-bar" [style.width.%]="progressPercentage"></div>
+  </div>
+  <div class="progress-text">
+    <ng-container *ngIf="isGEO; else engTemplate">
+      {{componentTexts.words[0]}} {{ totalPictures }} {{componentTexts.words[1]}} {{ loadedCount }}
+    </ng-container>
+    <ng-template #engTemplate>
+      {{componentTexts.words[0]}} {{ loadedCount }} {{componentTexts.words[1]}} {{ totalPictures }}
+    </ng-template>
+  </div>
+  <button *ngIf="loadedCount < totalPictures" (click)="loadMore()">
+    {{componentTexts.words[2]}}
+  </button>
+</div>
+  
 
 
   </div>

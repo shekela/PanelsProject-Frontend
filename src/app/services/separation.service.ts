@@ -26,7 +26,7 @@ import { VoiceComperatorData as voiceComperatorENG } from '../DUMMY_DATA/VOICE-C
 import { VoiceComperatorData as voiceComperatorGEO} from '../DUMMY_DATA/VOICE-COMPERATOR-DATA/geo';
 import { VoiceComperatorData as voiceComperatorRUS } from '../DUMMY_DATA/VOICE-COMPERATOR-DATA/rus';
 
-import { GalleryComponentTexts as galleryComponentTextsENG } from '../DUMMY_DATA/GALLERY-COMPONENT-DATA/eng';
+import { GalleryComponentTexts, GalleryComponentTexts as galleryComponentTextsENG } from '../DUMMY_DATA/GALLERY-COMPONENT-DATA/eng';
 import { GalleryComponentTexts as galleryComponentTextsGEO } from '../DUMMY_DATA/GALLERY-COMPONENT-DATA/geo';
 import { GalleryComponentTexts as galleryComponentTextsRUS } from '../DUMMY_DATA/GALLERY-COMPONENT-DATA/rus';
 
@@ -130,6 +130,12 @@ export class SeparationService {
       this.fetchMarketingBanners(savedLanguage);
       this.fetchMainProducts(savedLanguage);
       this.fetchVideoCatalog(savedLanguage);
+      this.fetchProductsCatalogSlider(savedLanguage);
+      this.fetchVoiceComperator(savedLanguage);
+      this.fetchColorAndCovers(savedLanguage);
+      this.fetchInformationBanners(savedLanguage);
+      this.fetchGalleryComponentTexts(savedLanguage);
+      this.fetchSaleItems(savedLanguage);
     }
     
   
@@ -157,7 +163,6 @@ export class SeparationService {
                   imgUrl: data[0].imgUrl,
                 };
               }
-              console.log(this.translations.marketingBanner)
               this.translationsSubject.next(this.translations); // Emit updated translations
               resolve();
             },
@@ -170,55 +175,60 @@ export class SeparationService {
     }
 
     fetchMainProducts(selectedLanguage: string): Promise<void> {
-        return new Promise((resolve, reject) => {
-          this.requestService.getMainProductsPage().subscribe(
-            (data) => {
-              if (data) {
-                this.translations.mainProducts['ENG'] = {
-                    title: data.mainProductSections[0].titleEn,
-                    titleText: data.mainProductSections[0].titleTextEn,
-                    products: data.products.map(product => ({
-                        title: product.titleEn,
-                        description: product.descriptionEn,
-                        buttonText: product.buttonTextEn,
-                        backgroundUrl: product.backgroundUrl
-                    }))
-                };
-
-                this.translations.mainProducts['RUS'] = {
-                    title: data.mainProductSections[0].titleRu,
-                    titleText: data.mainProductSections[0].titleTextRu,
-                    products: data.products.map(product => ({
-                        title: product.titleRu,
-                        description: product.descriptionRu,
-                        buttonText: product.buttonTextRu,
-                        backgroundUrl: product.backgroundUrl
-                    }))
-                };
-                this.translations.mainProducts['GEO'] = {
-                    title: data.mainProductSections[0].titleKa,
-                    titleText: data.mainProductSections[0].titleTextKa,
-                    products: data.products.map(product => ({
-                        title: product.titleKa,
-                        description: product.descriptionKa,
-                        buttonText: product.buttonTextKa,
-                        backgroundUrl: product.backgroundUrl
-                    }))
-                };
-              }
-              console.log(data)
-              this.translationsSubject.next(this.translations); // Emit updated translations
-              resolve();
-            },
-            (error) => {
-              console.error('Error in fetching marketing banners', error);
-              reject(error);
+      return new Promise((resolve, reject) => {
+        this.requestService.getMainProductsPage().subscribe(
+          (data) => {
+            if (data) {
+              // Store section data including 'id'
+              this.translations.mainProducts['ENG'] = {
+                title: data.mainProductSections[0].titleEn,
+                titleText: data.mainProductSections[0].titleTextEn,
+                products: data.products.map(product => ({
+                  id: product.id,  // Preserve 'id'
+                  title: product.titleEn,
+                  description: product.descriptionEn,
+                  buttonText: product.buttonTextEn,
+                  backgroundUrl: product.backgroundUrl
+                }))
+              };
+    
+              this.translations.mainProducts['RUS'] = {
+                title: data.mainProductSections[0].titleRu,
+                titleText: data.mainProductSections[0].titleTextRu,
+                products: data.products.map(product => ({
+                  id: product.id,  // Preserve 'id'
+                  title: product.titleRu,
+                  description: product.descriptionRu,
+                  buttonText: product.buttonTextRu,
+                  backgroundUrl: product.backgroundUrl
+                }))
+              };
+    
+              this.translations.mainProducts['GEO'] = {
+                title: data.mainProductSections[0].titleKa,
+                titleText: data.mainProductSections[0].titleTextKa,
+                products: data.products.map(product => ({
+                  id: product.id,  // Preserve 'id'
+                  title: product.titleKa,
+                  description: product.descriptionKa,
+                  buttonText: product.buttonTextKa,
+                  backgroundUrl: product.backgroundUrl
+                }))
+              };
             }
-          );
-          
-        });
+    
+            // Emit updated translations
+            this.translationsSubject.next(this.translations);
+            resolve();
+          },
+          (error) => {
+            console.error('Error in fetching marketing banners', error);
+            reject(error);
+          }
+        );
+      });
     }
-
+    
     fetchVideoCatalog(selectedLanguage: string): Promise<void> {
         return new Promise((resolve, reject) => {
           this.requestService.getVideoCatalog().subscribe(
@@ -244,7 +254,6 @@ export class SeparationService {
                     backgroundUrl: data[0].backgroundUrl,
                 };
               }
-              console.log(data)
               this.translationsSubject.next(this.translations); // Emit updated translations
               resolve();
             },
@@ -256,6 +265,230 @@ export class SeparationService {
           
         });
     }
+
+    fetchProductsCatalogSlider(selectedLanguage: string): Promise<void> {
+      return new Promise((resolve, reject) => {
+        this.requestService.getProductsCatalogSlider().subscribe(
+          (data) => {
+            if (data && data.length > 0) {
+              this.translations.productsToChoose['ENG'] = data.map((item: any) => ({
+                title: item.titleEn,
+                backgroundUrl: item.backgroundUrl,
+              }));
+              this.translations.productsToChoose['RUS'] = data.map((item: any) => ({
+                title: item.titleRu,
+                backgroundUrl: item.backgroundUrl,
+            }));
+              this.translations.productsToChoose['GEO'] = data.map((item: any) => ({
+                title: item.titleKa,
+                backgroundUrl: item.backgroundUrl,
+            }));
+            }
+            this.translationsSubject.next(this.translations); // Emit updated translations
+            resolve();
+          },
+          (error) => {
+            console.error('Error in fetching marketing banners', error);
+            reject(error);
+          }
+        );
+      });
+    }
+
+    fetchVoiceComperator(selectedLanguage: string): Promise<void> {
+      return new Promise((resolve, reject) => {
+        this.requestService.getVoiceComperator().subscribe(
+          (data) => {
+            if (data && data.length > 0) {
+              this.translations.voiceComperator['ENG'] = {
+                title: voiceComperatorENG.title,
+                buttonW: voiceComperatorENG.buttonW,
+                buttonWO: voiceComperatorENG.buttonWO,
+                voiceAcupanel: data[0].voiceAcupanel,
+                voiceWOAcupanel: data[0].voiceWOAcupanel
+              };
+              this.translations.voiceComperator['RUS'] = {
+                title: voiceComperatorENG.title,
+                buttonW: voiceComperatorENG.buttonW,
+                buttonWO: voiceComperatorENG.buttonWO,
+                voiceAcupanel: data[0].voiceAcupanel,
+                voiceWOAcupanel: data[0].voiceWOAcupanel
+              };
+              this.translations.voiceComperator['GEO'] = {
+                title: voiceComperatorENG.title,
+                buttonW: voiceComperatorENG.buttonW,
+                buttonWO: voiceComperatorENG.buttonWO,
+                voiceAcupanel: data[0].voiceAcupanel,
+                voiceWOAcupanel: data[0].voiceWOAcupanel
+              };;
+            }
+            this.translationsSubject.next(this.translations); // Emit updated translations
+            resolve();
+          },
+          (error) => {
+            console.error('Error in fetching marketing banners', error);
+            reject(error);
+          }
+        );
+      });
+    }
+
+    fetchColorAndCovers(selectedLanguage: string): Promise<void> {
+      return new Promise((resolve, reject) => {
+        this.requestService.getColorAndCovers().subscribe(
+          (data) => {
+            this.translations.colorsAndCovers['ENG'] = data.map((item: any, index: number) => ({
+              backgroundUrl: item.backgroundUrl,
+              title: item.titleEn,
+              description: item.descriptionEn,
+              buttonText: item.buttonTextEn,
+              width: colorsAndCoversENG[index]?.width || "auto", // Fallback to "auto" if index out of range
+              height: colorsAndCoversENG[index]?.height || "auto"
+            }));
+            
+            this.translations.colorsAndCovers['RUS'] = data.map((item: any, index: number) => ({
+              backgroundUrl: item.backgroundUrl,
+              title: item.titleRu,
+              description: item.descriptionRu,
+              buttonText: item.buttonTextRu,
+              width: colorsAndCoversRUS[index]?.width || "auto",
+              height: colorsAndCoversRUS[index]?.height || "auto"
+            }));
+            
+            this.translations.colorsAndCovers['GEO'] = data.map((item: any, index: number) => ({
+              backgroundUrl: item.backgroundUrl,
+              title: item.titleKa,
+              description: item.descriptionKa,
+              buttonText: item.buttonTextKa,
+              width: colorsAndCoversGEO[index]?.width || "auto",
+              height: colorsAndCoversGEO[index]?.height || "auto"
+            }));
+            this.translationsSubject.next(this.translations); // Emit updated translations
+            resolve();
+          },
+          (error) => {
+            console.error('Error in fetching marketing banners', error);
+            reject(error);
+          }
+        );
+      });
+    }
+
+    fetchInformationBanners(selectedLanguage: string): Promise<void> {
+      return new Promise((resolve, reject) => {
+        this.requestService.getInformationBanners().subscribe(
+          (data) => {
+            this.translations.infoBanners['ENG'] = data.map((item: any, index: number) => ({
+              backgroundUrl: item.backgroundUrl,
+              title: item.titleEn,
+              description: item.descriptionEn,
+              buttonText: item.buttonTextEn,
+            }));
+            
+            this.translations.infoBanners['RUS'] = data.map((item: any, index: number) => ({
+              backgroundUrl: item.backgroundUrl,
+              title: item.titleRu,
+              description: item.descriptionRu,
+              buttonText: item.buttonTextRu,
+            }));
+            
+            this.translations.infoBanners['GEO'] = data.map((item: any, index: number) => ({
+              backgroundUrl: item.backgroundUrl,
+              title: item.titleKa,
+              description: item.descriptionKa,
+              buttonText: item.buttonTextKa,
+            }));
+            this.translationsSubject.next(this.translations); // Emit updated translations
+            resolve();
+          },
+          (error) => {
+            console.error('Error in fetching marketing banners', error);
+            reject(error);
+          }
+        );
+      });
+    }
+
+    fetchGalleryComponentTexts(selectedLanguage: string): Promise<void> {
+      return new Promise((resolve, reject) => {
+        this.requestService.getGalleryTexts().subscribe(
+          (data) => {
+            if (data && data.length > 0) {
+              this.translations.galleryComponentTexts['ENG'] = {
+                title: data[0].titleEn,
+                titleText: data[0].titleTextEn,
+                words: galleryComponentTextsENG.words
+              };
+              this.translations.galleryComponentTexts['RUS'] = {
+                title: data[0].titleRu,
+                titleText: data[0].titleTextRu,
+                words: galleryComponentTextsRUS.words
+              };
+              this.translations.galleryComponentTexts['GEO'] = {
+                title: data[0].titleKa,
+                titleText: data[0].titleTextKa,
+                words: galleryComponentTextsGEO.words
+              };
+            }
+            this.translationsSubject.next(this.translations); // Emit updated translations
+            resolve();
+          },
+          (error) => {
+            console.error('Error in fetching marketing banners', error);
+            reject(error);
+          }
+        );
+      });
+    }
+
+    fetchSaleItems(selectedLanguage: string): Promise<void> {
+      return new Promise((resolve, reject) => {
+        this.requestService.getSaleItems().subscribe(
+          (data) => {
+            if (data) {
+              // Store section data including 'id'
+              this.translations.saleItems['ENG'] = {
+                title: saleItemsENG.title,
+                saleItems: data.map((product: any) => ({
+                  title: product.titleEn,
+                  description: product.descriptionEn,
+                  picture: product.picture
+                }))
+              };
+    
+              this.translations.saleItems['RUS'] = {
+                title: saleItemsRUS.title,
+                saleItems: data.map((product: any) => ({
+                  title: product.titleRu,
+                  description: product.descriptionRu,
+                  picture: product.picture
+                }))
+              };
+    
+              this.translations.saleItems['GEO'] = {
+                title: saleItemsGEO.title,
+                saleItems: data.map((product: any) => ({
+                  title: product.titleKa,
+                  description: product.descriptionKa,
+                  picture: product.picture
+                }))
+              };
+            }
+    
+            // Emit updated translations
+            this.translationsSubject.next(this.translations);
+            resolve();
+          },
+          (error) => {
+            console.error('Error in fetching marketing banners', error);
+            reject(error);
+          }
+        );
+      });
+    }
+
+    
+    
       
       
       

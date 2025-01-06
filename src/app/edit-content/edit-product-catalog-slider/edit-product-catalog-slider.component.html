@@ -1,0 +1,65 @@
+<div class="edit-section">
+    <h1>Edit Product Catalog Slider</h1>
+    <button class="btn btn-primary" (click)="openPopup()">Add New Product</button>
+
+    <div class="product-list">
+      <!-- Display products with a delete button -->
+      <div *ngFor="let product of products" class="product-card" [style.backgroundImage]="'url(' + product.backgroundUrl + ')'" >
+        <div class="product-header">
+          <div class="product-title">{{ product.titleEn }}</div>
+          <button class="delete-btn" (click)="openConfirmDelete(product)">Delete</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Confirmation Modal for Deletion -->
+    <div class="popup" *ngIf="isConfirmDeleteOpen">
+      <div class="popup-content">
+        <h2>Are you sure you want to delete "{{ productToDelete?.titleEn }}"?</h2>
+        <div class="button-group">
+          <button class="btn btn-danger" (click)="confirmDeleteProduct()">Yes</button>
+          <button class="btn btn-secondary" (click)="closeConfirmDelete()">No</button>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Popup Modal for Adding New Product -->
+    <div class="popup" *ngIf="isPopupOpen">
+      <div class="popup-content">
+        <h2>Add New Product</h2>
+        <form (ngSubmit)="addProduct()" enctype="multipart/form-data">
+          <div class="form-section">
+            <label for="product-title-en">Title (English):</label>
+            <input id="product-title-en" type="text" [(ngModel)]="newProduct.titleEn" name="titleEn" class="form-control" required />
+        
+            <label for="product-title-ka">Title (Georgian):</label>
+            <input id="product-title-ka" type="text" [(ngModel)]="newProduct.titleKa" name="titleKa" class="form-control" required />
+        
+            <label for="product-title-ru">Title (Russian):</label>
+            <input id="product-title-ru" type="text" [(ngModel)]="newProduct.titleRu" name="titleRu" class="form-control" required />
+        
+            <div class="file-upload-wrapper">
+              <input
+                id="product-image"
+                type="file"
+                (change)="onFileSelected($event)"
+                accept="image/*"
+                class="file-upload-input"
+              />
+              <label for="product-image" class="file-upload-label">
+                <span class="upload-icon">📁</span>
+                Upload Background Image
+              </label>
+              <span class="file-upload-name" *ngIf="selectedFile">
+                {{ selectedFile.name }}
+              </span>
+            </div>
+            
+        
+            <button type="submit" class="btn btn-success">Submit</button>
+            <button type="button" class="btn btn-danger" (click)="closePopup()">Cancel</button>
+          </div>
+        </form>        
+      </div>
+    </div>
+</div>

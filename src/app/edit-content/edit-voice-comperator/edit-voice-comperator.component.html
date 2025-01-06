@@ -1,0 +1,88 @@
+<div class="edit-section">
+    <h1>Edit Voice Comparator</h1>
+    <button class="btn btn-primary" (click)="openAddVoicePopup()">Add New Voice</button>
+
+    <div class="voice-list">
+      <!-- Display voice entries -->
+      <div *ngFor="let voice of voices" class="voice-card">
+        <div class="voice-header">
+          <div class="voice-details">
+            <p><strong>With Acupanel:</strong> {{ voice.voiceAcupanel }}</p>
+            <p><strong>Without Acupanel:</strong> {{ voice.voiceWOAcupanel }}</p>
+          </div>
+          <div class="voice-actions">
+            <button class="btn btn-success" (click)="openEditVoicePopup(voice)">Edit</button>
+            <button class="btn btn-danger" (click)="openDeleteConfirmation(voice.id)">Delete</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Add/Edit Voice Popup -->
+    <div class="popup" *ngIf="isVoicePopupOpen">
+      <div class="popup-content">
+        <h2>{{ editMode ? 'Edit Voice Entry' : 'Add New Voice Entry' }}</h2>
+        <form (ngSubmit)="saveVoice()">
+          <div class="form-section">
+            <!-- Styled File Input for Voice with Acupanel -->
+            <div class="file-upload-wrapper">
+              <input
+                id="voice-acupanel-file"
+                type="file"
+                (change)="onVoiceAcupanelFileChange($event)"
+                accept="audio/*"
+                class="file-upload-input"
+              />
+              <label for="voice-acupanel-file" class="file-upload-label">
+                <span class="upload-icon">🎙️</span>
+                Upload Voice With Acupanel
+              </label>
+              <span class="file-upload-name" *ngIf="selectedAcupanelFile">
+                {{ selectedAcupanelFile.name }}
+              </span>
+            </div>
+    
+            <!-- Styled File Input for Voice without Acupanel -->
+            <div class="file-upload-wrapper">
+              <input
+                id="voice-wo-acupanel-file"
+                type="file"
+                (change)="onVoiceWOAcupanelFileChange($event)"
+                accept="audio/*"
+                class="file-upload-input"
+              />
+              <label for="voice-wo-acupanel-file" class="file-upload-label">
+                <span class="upload-icon">🎤</span>
+                Upload Voice Without Acupanel
+              </label>
+              <span class="file-upload-name" *ngIf="selectedWOAcupanelFile">
+                {{ selectedWOAcupanelFile.name }}
+              </span>
+            </div>
+    
+            <!-- Action Buttons -->
+            <div class="button-group">
+              <button type="submit" class="btn btn-success">
+                {{ editMode ? 'Update' : 'Add' }}
+              </button>
+              <button type="button" class="btn btn-danger" (click)="closeVoicePopup()">
+                Cancel
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    
+
+    <!-- Delete Confirmation Modal -->
+    <div class="popup" *ngIf="isDeletePopupOpen">
+      <div class="popup-content">
+        <h2>Are you sure you want to delete this voice entry?</h2>
+        <div class="button-group">
+          <button class="btn btn-danger" (click)="deleteVoice()">Yes</button>
+          <button class="btn btn-secondary" (click)="closeDeletePopup()">No</button>
+        </div>
+      </div>
+    </div>
+</div>

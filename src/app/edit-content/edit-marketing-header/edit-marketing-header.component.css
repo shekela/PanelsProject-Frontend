@@ -1,0 +1,189 @@
+.edit-section {
+    text-align: center;
+    width: 100%;
+    margin-top: 300px;
+    font-family: sans-serif;
+}
+
+.edit-section h1 {
+    text-align: center;
+    font-size: 38px;
+}
+
+.content-section {
+    font-family: sans-serif;
+    width: 600px;
+    height: auto;
+    border: 1px solid black;
+    margin: 0 auto; /* Center the content-section horizontally */
+}
+
+.content-section > div {
+    width: 100%;
+    height: 100px;
+    border-bottom: 1px solid black;
+    display: flex; /* Enable Flexbox */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+}
+.content-section > div:hover {
+    background-color: lightgray;
+}
+
+.content-section > div > h2 {
+    margin: 0;
+}
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100000;
+  }
+  
+  .popup-content {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    width: 500px;
+    text-align: left;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .popup-content h2 {
+    margin-top: 0;
+  }
+  
+  .popup-content .form-control {
+    width: 95%;
+    margin-bottom: 15px;
+    padding: 8px;
+    font-size: 14px;
+  }
+  
+  .popup-content .btn {
+    margin-right: 10px;
+  }
+  .form-section {
+    margin-bottom: 1.5rem;
+  }
+  
+  .form-section label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #34495e;
+    font-weight: 500;
+  }
+  
+  .form-section .form-control {
+    width: 95%;
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+    border: 1px solid #bdc3c7;
+    border-radius: 4px;
+    font-size: 1rem;
+  }
+  
+  .form-section .form-control:focus {
+    outline: none;
+    border-color: #3498db;
+    box-shadow: 0 0 4px rgba(52, 152, 219, 0.5);
+  }
+  
+  /* Optional: Specific styles for different field types */
+  .form-section input[type="text"] {
+    width: 95%;
+    padding: 0.75rem;
+  }
+  /* General Button Styles */
+.btn {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* Success Button (for Submit) */
+.btn-success {
+  background-color: #28a745;
+  color: white;
+}
+
+.btn-success:hover {
+  background-color: #218838;
+  opacity: 0.9;
+}
+
+/* Danger Button (for Cancel) */
+.btn-danger {
+  background-color: #dc3545;
+  color: white;
+}
+
+.btn-danger:hover {
+  background-color: #c82333;
+  opacity: 0.9;
+}
+
+/* Optional: Add a Disabled state */
+.btn:disabled {
+  background-color: #d6d6d6;
+  cursor: not-allowed;
+}
+/* File Upload Wrapper */
+.file-upload-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin: 15px 0;
+}
+
+.file-upload-input {
+  display: none;
+}
+
+.file-upload-label {
+  display: inline-block;
+  background-color: #007bff;
+  color: #ffffff;
+  padding: 12px 20px;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: bold;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.file-upload-label .upload-icon {
+  margin-right: 8px;
+  font-size: 1.2rem;
+  vertical-align: middle;
+}
+
+.file-upload-label:hover {
+  background-color: #0056b3;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.file-upload-label:active {
+  background-color: #004085;
+}
+
+.file-upload-name {
+  font-size: 0.9rem;
+  color: #555555;
+  text-align: center;
+  word-wrap: break-word;
+  max-width: 100%;
+}

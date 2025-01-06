@@ -1,7 +1,6 @@
 <section>
   <div class="video-container">
-    <video autoplay muted loop class="background-video" [attr.src]="videoCatalogData?.backgroundUrl">
-      <!-- Ensure the video is loaded -->
+    <video autoplay muted loop playsinline class="background-video" [attr.src]="videoCatalogData?.backgroundUrl" #videoRef>
       <source [src]="videoCatalogData?.backgroundUrl" type="video/mp4" />
     </video>
     <div class="overlay-text">

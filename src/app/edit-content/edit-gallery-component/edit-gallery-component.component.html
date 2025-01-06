@@ -1,0 +1,103 @@
+<div class="edit-section">
+    <div class="edit-buttons">
+        <h1>Edit Product Catalog Slider</h1>
+        <button class="btn btn-primary" (click)="openGalleryPicturesPopup()">Add New Product</button>
+        <button class="btn btn-primary" (click)="openGalleryTextsPopup()" id="textsBtn">Save Texts</button>
+    </div>
+
+    <div class="current-pictures">
+        <div class="edit-gallery-container">
+            <div *ngFor="let picture of galleryPictures" class="picture">
+                <div class="image-container">
+                    <img [src]="'https://localhost:7001' + picture.picture" alt="Gallery Image" />
+                    <div class="overlay">
+                        <button class="delete-button" (click)="openDeleteConfirm(picture.id)">Delete</button>
+                    </div>
+                </div>
+            </div>
+        </div>    
+    </div>
+
+    <!-- Confirmation Modal for Deletion -->
+    <div class="modal" *ngIf="isDeleteConfirmOpen">
+        <div class="modal-content">
+            <h3>Are you sure you want to delete this item?</h3>
+            <div class="modal-buttons">
+                <button class="confirm-btn" (click)="deletePicture()">Yes, Delete</button>
+                <button class="cancel-btn" (click)="closeDeleteConfirm()">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="popup" *ngIf="isGalleryPicturesPopupOpen">
+        <div class="popup-content">
+            <h2>Add New Picture</h2>
+            <form (ngSubmit)="addOrUpdatePicture()" enctype="multipart/form-data">
+                <div class="form-section">
+                    <label for="media-type">Media Type:</label>
+                    <select id="media-type" [(ngModel)]="newPicture.mediaType" name="mediaType" class="form-control" required>
+                    <option value="" disabled selected>Select Media Type</option>
+                    <option value="image">Image</option>
+                    <option value="video">Video</option>
+                    </select>
+
+                    <label for="picture-url">Picture URL:</label>
+                    <input id="picture-url" type="text" [(ngModel)]="newPicture.url" name="url" class="form-control" required />
+
+                    <div class="file-upload-wrapper">
+                        <input
+                          id="product-image"
+                          type="file"
+                          (change)="onFileSelected($event)"
+                          accept="image/*"
+                          class="file-upload-input"
+                        />
+                        <label for="product-image" class="file-upload-label">
+                          <span class="upload-icon">📁</span>
+                          Upload Background Image
+                        </label>
+                        <span class="file-upload-name" *ngIf="selectedFile">
+                          {{ selectedFile.name }}
+                        </span>
+                      </div>
+
+                    <button type="submit" class="btn btn-success">Submit</button>
+                    <button type="button" class="btn btn-danger" (click)="closeGalleryPicturesPopup()">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+    <!-- Popup Modal for Editing Section Texts -->
+    <div class="popup" *ngIf="isGalleryTextsPopupOpen">
+        <div class="popup-content">
+            <h2>Edit Section Texts</h2>
+            <form (ngSubmit)="updateGalleryTexts()">
+                <div class="form-section">
+                    <label for="title-en">Title (English):</label>
+                    <input id="title-en" type="text" [(ngModel)]="sectionTexts.titleEn" name="titleEn" class="form-control" required />
+
+                    <label for="title-text-en">Title Text (English):</label>
+                    <textarea id="title-text-en" [(ngModel)]="sectionTexts.titleTextEn" name="titleTextEn" class="form-control" required></textarea>
+
+                    <label for="title-ka">Title (Georgian):</label>
+                    <input id="title-ka" type="text" [(ngModel)]="sectionTexts.titleKa" name="titleKa" class="form-control" required />
+
+                    <label for="title-text-ka">Title Text (Georgian):</label>
+                    <textarea id="title-text-ka" [(ngModel)]="sectionTexts.titleTextKa" name="titleTextKa" class="form-control" required></textarea>
+
+                    <label for="title-ru">Title (Russian):</label>
+                    <input id="title-ru" type="text" [(ngModel)]="sectionTexts.titleRu" name="titleRu" class="form-control" required />
+
+                    <label for="title-text-ru">Title Text (Russian):</label>
+                    <textarea id="title-text-ru" [(ngModel)]="sectionTexts.titleTextRu" name="titleTextRu" class="form-control" required></textarea>
+
+                    <button type="submit" class="btn btn-success">Submit</button>
+                    <button type="button" class="btn btn-danger" (click)="closeGalleryTextsPopup()">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

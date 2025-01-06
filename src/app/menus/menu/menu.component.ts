@@ -1,9 +1,9 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { faPlus, faMinus } from '@fortawesome/free-solid-svg-icons';
-import { LanguageService } from '../services/language.service';
-import { MenuParts } from '../DUMMY_DATA/MENUSECTIONS-DATA/eng';
+import { LanguageService } from '../../services/language.service';
+import { MenuParts } from '../../DUMMY_DATA/MENUSECTIONS-DATA/eng';
 import { Subscription } from 'rxjs';
-import { MenuInterface } from '../models/menucontent.model';
+import { MenuInterface } from '../../models/menucontent.model';
 
 @Component({
   selector: 'app-menu',

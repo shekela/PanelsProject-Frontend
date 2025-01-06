@@ -31,19 +31,19 @@ section > div{
     max-width: 100%;
 }
 .products {
-    display: flex; /* Enable Flexbox */
+    display: flex;
     flex-wrap: wrap; /* Allow content to wrap to the next line */
-    gap: 0px; /* Add spacing between items */
-    justify-content: flex-start; /* Align items to the left */
+    gap: 20px; /* Add spacing between items */
+    justify-content: flex-start;
     width: 100%; /* Ensure it takes full width of the parent */
-    box-sizing: border-box; /* Include padding in width calculations */
-    margin-top: 0px;
+    box-sizing: border-box;
 }
-.product{
-    flex: 1; /* Adjust size to fit 4 items per row with gap */
-    margin: 0;
+
+.product {
+    flex: 1 1 calc(25% - 5px); /* Adjust size for 4 items per row with smaller gap */
+    margin-top: 5px; /* Reduced margin-top to 10px */
+    margin-bottom: 5px;
 }
-  
     
   @media only screen and (max-width: 1024px) {
     section > div{

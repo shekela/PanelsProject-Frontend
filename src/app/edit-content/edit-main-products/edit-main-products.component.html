@@ -1,0 +1,138 @@
+<section class="edit-products-section">
+    <div class="container">
+      <span class="edit-text-trigger" (click)="openMainProductsModal()">Add / Edit texts</span>
+      
+  
+      <h3>Products</h3>
+      <button class="btn btn-secondary" (click)="openAddProductModal()">Add Product</button>
+      <table class="products-table">
+        <thead>
+          <tr>
+            <th>Title (English)</th>
+            <th>Title (Georgian)</th>
+            <th>Title (Russian)</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let product of products">
+            <td>{{ product.titleEn }}</td>
+            <td>{{ product.titleKa }}</td>
+            <td>{{ product.titleRu }}</td>
+            <td>
+              <button class="btn btn-edit" (click)="openEditProductModal(product)">Edit</button>
+              <button class="btn btn-delete" (click)="deleteProduct(product)">Delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+  
+
+  <div class="modal-backdrop" *ngIf="showModal">
+    <div class="modal">
+      <h2>{{ modalTitle }}</h2>
+      <button class="modal-close" (click)="closeModal()">×</button>
+      <form (ngSubmit)="saveProduct()">
+        <!-- Title Inputs -->
+      <div class="form-group">
+        <label for="productTitleEn">Title (English):</label>
+        <input id="productTitleEn" [(ngModel)]="newProduct.titleEn"  name="productTitleEn" required />
+      </div>
+      <div class="form-group">
+        <label for="productTitleKa">Title (Georgian):</label>
+        <input id="productTitleKa" [(ngModel)]="newProduct.titleKa" name="productTitleKa" required />
+      </div>
+      <div class="form-group">
+        <label for="productTitleRu">Title (Russian):</label>
+        <input id="productTitleRu" [(ngModel)]="newProduct.titleRu" name="productTitleRu" required />
+      </div>
+
+      <!-- Description Inputs -->
+      <div class="form-group">
+        <label for="productDescriptionEn">Description (English):</label>
+        <textarea id="productDescriptionEn" [(ngModel)]="newProduct.descriptionEn" name="productDescriptionEn"></textarea>
+      </div>
+      <div class="form-group">
+        <label for="productDescriptionKa">Description (Georgian):</label>
+        <textarea id="productDescriptionKa" [(ngModel)]="newProduct.descriptionKa" name="productDescriptionKa"></textarea>
+      </div>
+      <div class="form-group">
+        <label for="productDescriptionRu">Description (Russian):</label>
+        <textarea id="productDescriptionRu" [(ngModel)]="newProduct.descriptionRu" name="productDescriptionRu"></textarea>
+      </div>
+
+      <!-- Button Text Inputs -->
+      <div class="form-group">
+        <label for="productButtonTextEn">Button Text (English):</label>
+        <input id="productButtonTextEn" [(ngModel)]="newProduct.buttonTextEn" name="productButtonTextEn" />
+      </div>
+      <div class="form-group">
+        <label for="productButtonTextKa">Button Text (Georgian):</label>
+        <input id="productButtonTextKa" [(ngModel)]="newProduct.buttonTextKa" name="productButtonTextKa" />
+      </div>
+      <div class="form-group">
+        <label for="productButtonTextRu">Button Text (Russian):</label>
+        <input id="productButtonTextRu" [(ngModel)]="newProduct.buttonTextRu" name="productButtonTextRu" />
+      </div>
+
+      <!-- Background URL Input -->
+      <div class="file-upload-wrapper">
+        <input
+          id="background-url"
+          type="file"
+          (change)="onFileSelected($event)"
+          accept="image/*"
+          class="file-upload-input"
+          required
+        />
+        <label for="background-url" class="file-upload-label">
+          <span class="upload-icon">📁</span>
+          Upload Background Image
+        </label>
+        <span class="file-upload-name" *ngIf="selectedFile">
+          {{ selectedFile.name }}
+        </span>
+      </div>
+      
+
+      <!-- Submit Button -->
+      <button type="submit" class="btn-submit">{{ editingProduct ? 'Update Product' : 'Add Product' }}</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="modal-backdrop" *ngIf="showMainProductsModal">
+    <div class="modal">
+      <h2>Edit Main Products Section Texts</h2>
+      <button class="modal-close" (click)="closeMainProductsModal()">×</button>
+      <form class="main-products-form" (ngSubmit)="updateMainProducts()">
+        <div class="form-group">
+          <label for="titleEn">Title (English):</label>
+          <input id="titleEn" [(ngModel)]="mainProducts.titleEn" name="titleEn" required />
+        </div>
+        <div class="form-group">
+          <label for="titleKa">Title (Georgian):</label>
+          <input id="titleKa" [(ngModel)]="mainProducts.titleKa" name="titleKa" required />
+        </div>
+        <div class="form-group">
+          <label for="titleRu">Title (Russian):</label>
+          <input id="titleRu" [(ngModel)]="mainProducts.titleRu" name="titleRu" required />
+        </div>
+        <div class="form-group">
+          <label for="descriptionEn">Description (English):</label>
+          <textarea id="descriptionEn" [(ngModel)]="mainProducts.titleTextEn" name="descriptionEn"></textarea>
+        </div>
+        <div class="form-group">
+          <label for="descriptionKa">Description (Georgian):</label>
+          <textarea id="descriptionKa" [(ngModel)]="mainProducts.titleTextKa" name="descriptionKa"></textarea>
+        </div>
+        <div class="form-group">
+          <label for="descriptionRu">Description (Russian):</label>
+          <textarea id="descriptionRu" [(ngModel)]="mainProducts.titleTextRu" name="descriptionRu"></textarea>
+        </div>
+        <button class="btn btn-primary" type="submit">Save Texts</button>
+      </form>
+    </div>
+  </div>

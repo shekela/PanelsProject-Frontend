@@ -1,0 +1,82 @@
+<div class="edit-section">
+    <h1>Edit Video Catalog</h1>
+    <div class="content-section">
+      <div (click)="openPopup('Title')">
+        <h2>Title</h2>
+      </div>
+      <div (click)="openPopup('Description')">
+        <h2>Description</h2>
+      </div>
+      <div (click)="openPopup('Button Text')">
+        <h2>Button Text</h2>
+      </div>
+      <div (click)="openPopup('Background Url')">
+        <h2>Background Url</h2>
+      </div>
+    </div>
+  
+    <!-- Popup Modal -->
+    <div class="popup" *ngIf="isPopupOpen">
+      <div class="popup-content">
+        <h2>Edit {{ currentField }}</h2>
+        <form (ngSubmit)="submitPopup()">
+          <!-- Title fields -->
+          <div *ngIf="currentField === 'Title'" class="form-section">
+            <label for="title-en">Title (English):</label>
+            <input id="title-en" type="text" [(ngModel)]="videoCatalog.TitleEn" name="titleEn" class="form-control" required />
+            <label for="title-ru">Title (Russian):</label>
+            <input id="title-ru" type="text" [(ngModel)]="videoCatalog.TitleRu" name="titleRu" class="form-control" required />
+            <label for="title-ka">Title (Georgian):</label>
+            <input id="title-ka" type="text" [(ngModel)]="videoCatalog.TitleKa" name="titleKa" class="form-control" required />
+          </div>
+  
+          <!-- Description fields -->
+          <div *ngIf="currentField === 'Description'" class="form-section">
+            <label for="description-en">Description (English):</label>
+            <input id="description-en" type="text" [(ngModel)]="videoCatalog.DescriptionEn" name="descriptionEn" class="form-control" required />
+            <label for="description-ru">Description (Russian):</label>
+            <input id="description-ru" type="text" [(ngModel)]="videoCatalog.DescriptionRu" name="descriptionRu" class="form-control" required />
+            <label for="description-ka">Description (Georgian):</label>
+            <input id="description-ka" type="text" [(ngModel)]="videoCatalog.DescriptionKa" name="descriptionKa" class="form-control" required />
+          </div>
+  
+          <!-- Button Text fields -->
+          <div *ngIf="currentField === 'Button Text'" class="form-section">
+            <label for="buttonText-en">Button Text (English):</label>
+            <input id="buttonText-en" type="text" [(ngModel)]="videoCatalog.ButtonTextEn" name="buttonTextEn" class="form-control" required />
+            <label for="buttonText-ru">Button Text (Russian):</label>
+            <input id="buttonText-ru" type="text" [(ngModel)]="videoCatalog.ButtonTextRu" name="buttonTextRu" class="form-control" required />
+            <label for="buttonText-ka">Button Text (Georgian):</label>
+            <input id="buttonText-ka" type="text" [(ngModel)]="videoCatalog.ButtonTextKa" name="buttonTextKa" class="form-control" required />
+          </div>
+  
+          <!-- Background URL -->
+          <div *ngIf="currentField === 'Background Url'" class="form-section">
+            <div class="file-upload-wrapper">
+              <input
+                id="background-url"
+                type="file"
+                (change)="onFileSelected($event)"
+                accept="image/*"
+                class="file-upload-input"
+                required
+              />
+              <label for="background-url" class="file-upload-label">
+                <span class="upload-icon">📁</span>
+                Upload Background Image
+              </label>
+              <span class="file-upload-name" *ngIf="selectedFile">
+                {{ selectedFile.name }}
+              </span>
+            </div>
+          </div>
+          
+        
+  
+          <button type="submit" class="btn btn-success">Submit</button>
+          <button type="button" class="btn btn-danger" (click)="closePopup()">Cancel</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  
