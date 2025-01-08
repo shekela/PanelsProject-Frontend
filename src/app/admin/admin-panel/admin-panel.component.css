@@ -60,71 +60,42 @@
     }
 }
 
-::ng-deep app-header {
+::ng-deep app-header,
+::ng-deep app-about-us #app-header,
+::ng-deep app-about-us app-contact,
+::ng-deep app-products app-contact{
     display: none;
 }
 
-::ng-deep app-productswitch-template .background-container{
+::ng-deep app-productswitch-template .background-container,
+::ng-deep app-voice-comperator .voice-comparator,
+::ng-deep app-main-products.special-main-products section,
+::ng-deep app-videocatalog .video-container,
+::ng-deep app-gallery section,
+::ng-deep app-instagram-catalog .instagram-catalog-pictures,
+::ng-deep app-information .box,
+::ng-deep app-edit-colors-covers .edit-section,
+::ng-deep app-edit-gallery-component .edit-section,
+::ng-deep app-edit-informatiobanner-component .edit-section,
+::ng-deep app-edit-saleitems-component .sale-item-container,
+::ng-deep app-edit-aboutus-component .edit-about-us {
     margin-top: 200px !important;
 }
 
-::ng-deep app-voice-comperator .voice-comparator{
-    margin-top: 200px !important;
-}
-
-::ng-deep app-main-products.special-main-products section {
-    margin-top: 200px !important;  /* Example: Adjust margin or any other styles */
-}
-
-::ng-deep app-videocatalog .video-container {
-    margin-top: 200px !important;
-}
-
-::ng-deep app-gallery section{
-    margin-top: 200px !important;
-}
-::ng-deep  app-instagram-catalog .instagram-catalog-pictures{
-    margin-top: 100px !important;
-}
-
-::ng-deep  app-instagram-catalog .backdrop{
+::ng-deep app-instagram-catalog .backdrop,
+::ng-deep app-instagram-catalog .close-feed {
     margin-top: 100px !important;
     z-index: 1000000;
 }
-::ng-deep  app-instagram-catalog .close-feed{
-    margin-top: 110px !important;
-    z-index: 1000000;
-}
 
-::ng-deep app-information .box{
-   margin-top: 100px;
-}
-
-::ng-deep app-edit-video-catalog .edit-section{
+::ng-deep app-edit-video-catalog .edit-section,
+::ng-deep app-edit-voice-comperator .edit-section,
+::ng-deep app-edit-product-catalog-slider .edit-section {
     margin-top: 300px !important;
 }
 
-::ng-deep app-edit-voice-comperator .edit-section{
-    margin-top: 300px !important;
-}
-
-::ng-deep app-edit-product-catalog-slider .edit-section{
-    margin-top: 300px !important;
+::ng-deep app-edit-product-catalog-slider .edit-section {
     font-family: sans-serif;
-}
-::ng-deep app-edit-colors-covers .edit-section{
-    margin-top: 200px !important;
-}
-
-::ng-deep app-edit-gallery-component .edit-section{
-    margin-top: 200px !important;
-}
-
-::ng-deep app-edit-informatiobanner-component .edit-section{
-    margin-top: 200px !important;
-}
-::ng-deep app-edit-saleitems-component .sale-item-container{
-    margin-top: 200px !important;
 }
 .circle, .circle-top {
     position: relative;

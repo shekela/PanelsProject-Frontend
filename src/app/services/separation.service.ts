@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { RequestsService } from "./requests.service";
+import { AboutUsDto, RequestsService } from "./requests.service";
 
 
 import { marketingBannerData as marketingBannerDataENG } from '../DUMMY_DATA/MARKETING-HEADER-DATA/eng'; 
@@ -49,6 +49,10 @@ import { HeaderContent as headerContentRUS} from '../DUMMY_DATA/HEADERCOMPONENT-
 import { SaleItems as saleItemsENG } from '../DUMMY_DATA/SALE-ITEMS/eng';
 import { SaleItems as saleItemsGEO } from '../DUMMY_DATA/SALE-ITEMS/geo';
 import { SaleItems as saleItemsRUS } from '../DUMMY_DATA/SALE-ITEMS/rus';
+
+import { AboutUsPageData as aboutUsPageDataENG } from "../DUMMY_DATA/ABOUT-US-COMPONENT-DATA/eng"; 
+import { AboutUsPageData as aboutUsPageDataRUS } from "../DUMMY_DATA/ABOUT-US-COMPONENT-DATA/rus"; 
+import { AboutUsPageData as aboutUsPageDataGEO } from "../DUMMY_DATA/ABOUT-US-COMPONENT-DATA/geo"; 
 
 import { BehaviorSubject } from "rxjs";
 import { Translations } from "../models/translations.model";
@@ -122,6 +126,11 @@ export class SeparationService {
             ENG: saleItemsENG,
             GEO: saleItemsGEO,
             RUS: saleItemsRUS
+          },
+          aboutUsPage: {
+            ENG: aboutUsPageDataENG,
+            GEO: aboutUsPageDataGEO,
+            RUS: aboutUsPageDataRUS
           }
     };
   
@@ -136,6 +145,8 @@ export class SeparationService {
       this.fetchInformationBanners(savedLanguage);
       this.fetchGalleryComponentTexts(savedLanguage);
       this.fetchSaleItems(savedLanguage);
+      this.fetchAboutUsPage(savedLanguage);
+      this.fetchAboutUsPage(savedLanguage);
     }
     
   
@@ -486,6 +497,51 @@ export class SeparationService {
         );
       });
     }
+
+    fetchAboutUsPage(selectedLanguage: string): Promise<void> {
+      return new Promise((resolve, reject) => {
+        this.requestService.getAboutUsPage().subscribe(
+          (data) => {
+            if (data) {
+              this.translations.aboutUsPage['ENG'] = {
+                  greetingText: data[0].greetingTextEn,
+                  textBoxOneTitle: data[0].textBoxOneTitleEn,
+                  textBoxOneDescription: data[0].textBoxOneDescriptionEn,
+                  textBoxTwoTitle: data[0].textBoxTwoTitleEn,
+                  textBoxTwoDescription: data[0].textBoxTwoDescriptionEn,
+                  backgroundImage: data[0].backgroundImage
+              };
+
+              this.translations.aboutUsPage['RUS'] = {
+                  greetingText: data[0].greetingTextRu,
+                  textBoxOneTitle: data[0].textBoxOneTitleRu,
+                  textBoxOneDescription: data[0].textBoxOneDescriptionRu,
+                  textBoxTwoTitle: data[0].textBoxTwoTitleRu,
+                  textBoxTwoDescription: data[0].textBoxTwoDescriptionRu,
+                  backgroundImage: data[0].backgroundImage
+              };
+              this.translations.aboutUsPage['GEO'] = {
+                  greetingText: data[0].greetingTextKa,
+                  textBoxOneTitle: data[0].textBoxOneTitleKa,
+                  textBoxOneDescription: data[0].textBoxOneDescriptionKa,
+                  textBoxTwoTitle: data[0].textBoxTwoTitleKa,
+                  textBoxTwoDescription: data[0].textBoxTwoDescriptionKa,
+                  backgroundImage: data[0].backgroundImage
+              };
+            }
+            this.translationsSubject.next(this.translations); // Emit updated translations
+            resolve();
+          },
+          (error) => {
+            console.error('Error in fetching about us page', error);
+            reject(error);
+          }
+        );
+        
+      });
+    }
+  
+  
 
     
     

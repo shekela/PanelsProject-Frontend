@@ -59,3 +59,101 @@ section{
     flex-shrink: 0;
 }
 
+@media only screen and (max-width: 1024px){
+    section {
+        margin-top: 150px !important; /* Ensure proper spacing from the header */
+        max-width: 95%; /* Restrict width to 95% */
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .banner {
+        width: 95%; /* Full width with padding on smaller screens */
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .banner h2 {
+        font-size: 72px; /* Smaller font size */
+        left: 15px; /* Reduced left margin */
+        bottom: 0px; /* Reduced bottom margin */
+    }
+    .products {
+        width: 95%;
+        max-width: 95%;
+        margin-left: auto;
+        margin-right: auto;
+        display: flex;
+        flex-wrap: wrap; /* Allow items to wrap to the next row */
+        justify-content: center; /* Center items horizontally */
+        gap: 20px; /* Consistent spacing between items */
+    }
+
+    .product {
+        flex: 1 1 calc(33.33% - 20px); /* Dynamically adjust width to fit three items per row */
+        max-width: calc(33.33% - 20px); /* Ensure maximum width respects the gap */
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    /* Adjust the section to align content properly */
+    section {
+        margin-top: 130px !important; /* Ensure proper spacing from the header */
+        max-width: 95%; /* Restrict width to 95% */
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    /* Make the banner take full width */
+    .banner {
+        width: 95%; /* Full width with padding on smaller screens */
+        height: 300px; /* Reduced height */
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .banner h2 {
+        font-size: 32px; /* Smaller font size */
+        left: 15px; /* Reduced left margin */
+        bottom: 15px; /* Reduced bottom margin */
+    }
+
+    /* Adjust the products container */
+    .products {
+        width: 85%; /* Narrower container */
+        max-width: 85%;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 20px; /* Reduced margin */
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center; /* Center align items */
+        gap: 10px; /* Reduce spacing between items */
+        display: block;
+    }
+
+    /* Sale-item adjustments */
+    .product {
+        max-width: 100%; /* Full width of the container */
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .background-container {
+        width: 100%; /* Full width */
+        height: 200px; /* Adjust height for a balanced aspect ratio */
+    }
+
+    .overlay {
+        font-size: 12px; /* Smaller font */
+        padding: 8px; /* Reduced padding */
+    }
+
+    .details {
+        text-align: center; /* Center align the text */
+        padding-top: 10px;
+    }
+
+    .details p {
+        font-size: 12px; /* Smaller font for product details */
+        margin: 0;
+    }
+}

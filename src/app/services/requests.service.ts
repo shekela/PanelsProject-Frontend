@@ -79,6 +79,26 @@ export interface VoiceComperator{
   voiceWOAcupanel: string;
 }
 
+export interface AboutUsDto{
+   id: number;
+   greetingTextEn: string ;
+   textBoxOneTitleEn: string ;
+   textBoxOneDescriptionEn: string ;
+   textBoxTwoTitleEn: string ;
+   textBoxTwoDescriptionEn: string ;
+   greetingTextRu: string ;
+   textBoxOneTitleRu: string ;
+   textBoxOneDescriptionRu: string ;
+   textBoxTwoTitleRu: string ;
+   textBoxTwoDescriptionRu: string ;
+   greetingTextKa: string ;
+   textBoxOneTitleKa: string ;
+   textBoxOneDescriptionKa: string ;
+   textBoxTwoTitleKa: string ;
+   textBoxTwoDescriptionKa: string ;
+   backgroundImage: string ;
+}
+
 
 @Injectable({
   providedIn: 'root'
@@ -285,7 +305,30 @@ export class RequestsService {
   deleteSaleItem(itemId: number): Observable<any> {
     return this.http.delete(`${environment.apiUrl}/SaleItems/delete-item/${itemId}`);
   }
+  
 
+  getAboutUsPage(): Observable<AboutUsDto[]> {
+    return this.http.get<AboutUsDto[]>(`${environment.apiUrl}/AboutUs/get-aboutUsPage`).pipe(
+      catchError((error) => {
+        console.error('Error fetching about us page:', error);
+        return throwError(() => new Error('Failed to fetch about us page. Please try again later.'));
+      })
+    );
+  }
+
+  updateAboutUsGreetingAndImage(formData: FormData): Observable<any> {
+    return this.http.post(`${environment.apiUrl}/AboutUs/create-greeting`, formData);
+  }
+
+  // Method to update Text Box One Data
+  updateAboutUsTextBoxOne(data: any): Observable<any> {
+    return this.http.post(`${environment.apiUrl}/AboutUs/create-greeting`, data);
+  }
+
+  // Method to update Text Box Two Data
+  updateAboutUsTextBoxTwo(data: any): Observable<any> {
+    return this.http.post(`${environment.apiUrl}/AboutUs/create-greeting`, data);
+  }
 
 
   

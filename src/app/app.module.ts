@@ -38,6 +38,10 @@ import { EditColorsCoversComponent } from './edit-content/edit-colors-covers/edi
 import { EditGalleryComponentComponent } from './edit-content/edit-gallery-component/edit-gallery-component.component';
 import { EditInformatiobannerComponentComponent } from './edit-content/edit-informatiobanner-component/edit-informatiobanner-component.component';
 import { EditSaleitemsComponentComponent } from './edit-content/edit-saleitems-component/edit-saleitems-component.component';
+import { AboutUsComponent } from './about-us/about-us.component';
+import { ContactUsComponent } from './contact-us/contact-us.component';
+import { OurGalleryComponent } from './our-gallery/our-gallery.component';
+import { EditAboutusComponentComponent } from './edit-content/edit-aboutus-component/edit-aboutus-component.component';
 
 
 
@@ -76,6 +80,10 @@ import { EditSaleitemsComponentComponent } from './edit-content/edit-saleitems-c
     EditGalleryComponentComponent,
     EditInformatiobannerComponentComponent,
     EditSaleitemsComponentComponent,
+    AboutUsComponent,
+    ContactUsComponent,
+    OurGalleryComponent,
+    EditAboutusComponentComponent,
   ],
   imports: [
     BrowserModule,

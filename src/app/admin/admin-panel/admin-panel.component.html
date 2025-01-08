@@ -23,6 +23,7 @@
     <app-gallery id="itemC" *ngIf="contentView == 'Gallery'"/>
     <app-information id="itemC" *ngIf="contentView == 'Information Banners'"/>
     <app-products id="itemC" *ngIf="contentView == 'Sale Items'"/>
+    <app-about-us id="itemC" *ngIf="contentView == 'About Us'"/>
     <div class="circle" (click)="toggleEditor()">
         <img src="https://www.iconpacks.net/icons/2/free-arrow-down-icon-3101-thumb.png" class="arrow"/>
     </div>
@@ -41,6 +42,7 @@
   <app-edit-gallery-component *ngIf="contentView == 'Gallery'"/>
   <app-edit-informatiobanner-component *ngIf="contentView == 'Information Banners'"/>
   <app-edit-saleitems-component *ngIf="contentView == 'Sale Items'"/>
+  <app-edit-aboutus-component *ngIf="contentView == 'About Us'" />
 </section>
 
 

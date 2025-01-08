@@ -28,7 +28,7 @@ li:hover{
 }
 li a {
     font-family: Inter, sans-serif;
-    font-size: 36px;
+    font-size: 32px;
     line-height: 1; /* Consistent line-height */
     height: auto; /* No hard height needed */
     display: flex; /* Make it flexible to align content */
@@ -37,7 +37,7 @@ li a {
 
 li span {
     font-family: Inter, sans-serif;
-    font-size: 36px;
+    font-size: 32px;
     line-height: 1; /* Consistent line-height */
     display: flex; /* Make it flexible like <a> */
     align-items: center; /* Vertical center alignment */
@@ -47,13 +47,13 @@ li span {
     font-size: 25px; /* Icon size */
 }
 .languages{
-    margin-left: 25px;
+    margin-left: 35px;
 }
 .languages img{
-    margin-left: 10px;
-    padding: 8px 8px;
-    border-radius: 8px;
-    width: 40px;
+    margin-left: 0px;
+    padding: 2px 6px;
+    border-radius: 6px;
+    width: 30px;
     height: 30px;
 }
 .active{

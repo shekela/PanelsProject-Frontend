@@ -1,0 +1,34 @@
+<app-header id="app-header"/>
+
+<section class="team-section">
+    <!-- Team Image with Overlay -->
+    <div class="team-photo">
+      <img
+        src="https://ccfssflq.photoncache.com/wp-content/uploads/2023/09/team-image-1024x1024.jpg"
+        alt="WoodUpp Team"
+      />
+      <div class="overlay-text">
+        <h1>{{aboutUsPageData.greetingText}}</h1>
+      </div>
+    </div>
+  
+    <!-- Information Cards Section -->
+    <div class="info-cards">
+      <!-- Local Production Card -->
+      <div class="info-card green-card">
+        <h2>{{aboutUsPageData.textBoxOneTitle}}</h2>
+        <p>
+         {{aboutUsPageData.textBoxOneDescription}}
+        </p>
+      </div>
+  
+      <!-- About WoodUpp Card -->
+      <div class="info-card gray-card">
+        <h2>{{aboutUsPageData.textBoxTwoTitle}}</h2>
+        <p>
+          {{aboutUsPageData.textBoxTwoDescription}}
+        </p>
+      </div>
+    </div>
+  </section>
+<app-contact/>

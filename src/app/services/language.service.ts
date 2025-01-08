@@ -10,7 +10,7 @@ import { MarketingBannerData } from '../models/marketingdata.model';
 import { MenuInterface } from '../models/menucontent.model';
 import { ProductsPageInterface } from '../models/products-page.model';
 import { VoiceCompoeratorInterface } from '../models/voice-comperator-model';
-import { RequestsService } from './requests.service';
+import { AboutUsDto, RequestsService } from './requests.service';
 import { SeparationService } from './separation.service';
 
 @Injectable({
@@ -57,6 +57,7 @@ export class LanguageService {
     this.separationService.fetchInformationBanners(selectedLanguage);
     this.separationService.fetchGalleryComponentTexts(selectedLanguage);
     this.separationService.fetchSaleItems(selectedLanguage);
+    this.separationService.fetchAboutUsPage(selectedLanguage);
   }
 
 
@@ -107,7 +108,13 @@ export class LanguageService {
   getHeaderContentTranslation(language: string): HeaderInterface{
     return this.separationService.translations.headerContent[language] || this.separationService.translations.headerContent['GEO']
   }
+
   getSaleItemsTranslation(language: string): ProductsPageInterface{
     return this.separationService.translations.saleItems[language] || this.separationService.translations.saleItems['GEO']
+  }
+  
+  getAboutUsPageTranslation(language: string) {
+    return this.separationService.translations.aboutUsPage[language] || 
+    this.separationService.translations.aboutUsPage['GEO'];
   }
 }

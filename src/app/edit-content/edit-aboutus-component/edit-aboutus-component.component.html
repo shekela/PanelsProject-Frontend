@@ -1,0 +1,167 @@
+<div class="edit-about-us">
+    <!-- Buttons to Open Forms -->
+    <div class="form-buttons">
+      <button class="btn-open" (click)="openPopup('greeting')">Update Greeting & Background</button>
+      <button class="btn-open" (click)="openPopup('textBoxOne')">Update Text Box One</button>
+      <button class="btn-open" (click)="openPopup('textBoxTwo')">Update Text Box Two</button>
+    </div>
+  
+    <!-- Popup Structure -->
+    <div class="popup-overlay" [class.active]="activePopup === 'greeting'">
+      <div class="popup-content">
+        <button class="btn-close" (click)="closePopup()">&times;</button>
+        <h2>Update Greeting Texts & Background Image</h2>
+        <form class="form-group" (ngSubmit)="submitGreetingAndImage()">
+          <div class="input-group">
+            <label for="greetingTextEn">Greeting Text (English):</label>
+            <textarea id="greetingTextEn" name="greetingTextEn" [(ngModel)]="greetingTextEn"></textarea>
+          </div>
+          <div class="input-group">
+            <label for="greetingTextKa">Greeting Text (Georgian):</label>
+            <textarea id="greetingTextKa" name="greetingTextKa" [(ngModel)]="greetingTextKa"></textarea>
+          </div>
+          <div class="input-group">
+            <label for="greetingTextRu">Greeting Text (Russian):</label>
+            <textarea id="greetingTextRu" name="greetingTextRu" [(ngModel)]="greetingTextRu"></textarea>
+          </div>
+          <div class="input-group">
+            <label for="backgroundImage">Background Image:</label>
+            <input type="file" id="backgroundImage" name="backgroundImage" (change)="handleFileUpload($event)" />
+          </div>
+          <button type="submit" class="btn-submit">Submit Greeting & Image</button>
+        </form>
+      </div>
+    </div>
+  
+    <!-- Popup for Text Box One -->
+<div class="popup-overlay" [class.active]="activePopup === 'textBoxOne'">
+    <div class="popup-content">
+      <button class="btn-close" (click)="closePopup()">&times;</button>
+      <h2>Update Text Box One</h2>
+      <form class="form-group" (ngSubmit)="submitTextBoxOne()">
+        <div class="input-group">
+          <label for="textBoxOneTitleEn">Title (English):</label>
+          <textarea
+            id="textBoxOneTitleEn"
+            name="textBoxOneTitleEn"
+            [(ngModel)]="textBoxOneTitleEn"
+            placeholder="Enter the title in English"
+          ></textarea>
+        </div>
+        <div class="input-group">
+          <label for="textBoxOneDescriptionEn">Description (English):</label>
+          <textarea
+            id="textBoxOneDescriptionEn"
+            name="textBoxOneDescriptionEn"
+            [(ngModel)]="textBoxOneDescriptionEn"
+            placeholder="Enter the description in English"
+          ></textarea>
+        </div>
+        <div class="input-group">
+          <label for="textBoxOneTitleKa">Title (Georgian):</label>
+          <textarea
+            id="textBoxOneTitleKa"
+            name="textBoxOneTitleKa"
+            [(ngModel)]="textBoxOneTitleKa"
+            placeholder="Enter the title in Georgian"
+          ></textarea>
+        </div>
+        <div class="input-group">
+          <label for="textBoxOneDescriptionKa">Description (Georgian):</label>
+          <textarea
+            id="textBoxOneDescriptionKa"
+            name="textBoxOneDescriptionKa"
+            [(ngModel)]="textBoxOneDescriptionKa"
+            placeholder="Enter the description in Georgian"
+          ></textarea>
+        </div>
+        <div class="input-group">
+          <label for="textBoxOneTitleRu">Title (Russian):</label>
+          <textarea
+            id="textBoxOneTitleRu"
+            name="textBoxOneTitleRu"
+            [(ngModel)]="textBoxOneTitleRu"
+            placeholder="Enter the title in Russian"
+          ></textarea>
+        </div>
+        <div class="input-group">
+          <label for="textBoxOneDescriptionRu">Description (Russian):</label>
+          <textarea
+            id="textBoxOneDescriptionRu"
+            name="textBoxOneDescriptionRu"
+            [(ngModel)]="textBoxOneDescriptionRu"
+            placeholder="Enter the description in Russian"
+          ></textarea>
+        </div>
+        <button type="submit" class="btn-submit">Submit Text Box One</button>
+      </form>
+    </div>
+  </div>
+  
+  <!-- Popup for Text Box Two -->
+  <div class="popup-overlay" [class.active]="activePopup === 'textBoxTwo'">
+    <div class="popup-content">
+      <button class="btn-close" (click)="closePopup()">&times;</button>
+      <h2>Update Text Box Two</h2>
+      <form class="form-group" (ngSubmit)="submitTextBoxTwo()">
+        <div class="input-group">
+          <label for="textBoxTwoTitleEn">Title (English):</label>
+          <textarea
+            id="textBoxTwoTitleEn"
+            name="textBoxTwoTitleEn"
+            [(ngModel)]="textBoxTwoTitleEn"
+            placeholder="Enter the title in English"
+          ></textarea>
+        </div>
+        <div class="input-group">
+          <label for="textBoxTwoDescriptionEn">Description (English):</label>
+          <textarea
+            id="textBoxTwoDescriptionEn"
+            name="textBoxTwoDescriptionEn"
+            [(ngModel)]="textBoxTwoDescriptionEn"
+            placeholder="Enter the description in English"
+          ></textarea>
+        </div>
+        <div class="input-group">
+          <label for="textBoxTwoTitleKa">Title (Georgian):</label>
+          <textarea
+            id="textBoxTwoTitleKa"
+            name="textBoxTwoTitleKa"
+            [(ngModel)]="textBoxTwoTitleKa"
+            placeholder="Enter the title in Georgian"
+          ></textarea>
+        </div>
+        <div class="input-group">
+          <label for="textBoxTwoDescriptionKa">Description (Georgian):</label>
+          <textarea
+            id="textBoxTwoDescriptionKa"
+            name="textBoxTwoDescriptionKa"
+            [(ngModel)]="textBoxTwoDescriptionKa"
+            placeholder="Enter the description in Georgian"
+          ></textarea>
+        </div>
+        <div class="input-group">
+          <label for="textBoxTwoTitleRu">Title (Russian):</label>
+          <textarea
+            id="textBoxTwoTitleRu"
+            name="textBoxTwoTitleRu"
+            [(ngModel)]="textBoxTwoTitleRu"
+            placeholder="Enter the title in Russian"
+          ></textarea>
+        </div>
+        <div class="input-group">
+          <label for="textBoxTwoDescriptionRu">Description (Russian):</label>
+          <textarea
+            id="textBoxTwoDescriptionRu"
+            name="textBoxTwoDescriptionRu"
+            [(ngModel)]="textBoxTwoDescriptionRu"
+            placeholder="Enter the description in Russian"
+          ></textarea>
+        </div>
+        <button type="submit" class="btn-submit">Submit Text Box Two</button>
+      </form>
+    </div>
+  </div>
+  
+  </div>
+  

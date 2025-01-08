@@ -18,7 +18,8 @@ export class AdminMenuComponent {
     "Colors and Covers",
     "Gallery",
     "Information Banners",
-    "Sale Items"
+    "Sale Items",
+    "About Us"
   ];
 
   onSelectSection(section: string) {

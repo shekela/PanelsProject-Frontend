@@ -1,3 +1,4 @@
+import { AboutUsPageInterface } from "./aboutus-page.model";
 import { BackgroundContentModel } from "./backgoundcontent.model";
 import { ContactInterface } from "./contact.model";
 import { GalleryComponentTextsInterface } from "./gallery-component-texts.model";
@@ -9,16 +10,17 @@ import { ProductsPageInterface } from "./products-page.model";
 import { VoiceCompoeratorInterface } from "./voice-comperator-model";
 
 export interface Translations {
-    marketingBanner: { [key: string]: MarketingBannerData };
-    mainProducts: { [key: string]: MainProductsInterface };
-    videoCatalog: {[key: string]: BackgroundContentModel},
-    productsToChoose: {[key: string]: BackgroundContentModel[]},
-    colorsAndCovers: {[key: string]: BackgroundContentModel[]},
-    voiceComperator: {[key: string]: VoiceCompoeratorInterface},
-    galleryComponentTexts: {[key: string]: GalleryComponentTextsInterface},
-    infoBanners: {[key: string]: BackgroundContentModel[]},
-    contactTextData: {[key: string]: ContactInterface},
-    menuParts: {[key: string]: MenuInterface},
-    headerContent: {[key: string]: HeaderInterface}
-    saleItems: {[key: string]: ProductsPageInterface}
+    marketingBanner: { [key: string]: MarketingBannerData};
+    mainProducts: { [key: string]: MainProductsInterface};
+    videoCatalog: {[key: string]: BackgroundContentModel};
+    productsToChoose: {[key: string]: BackgroundContentModel[]};
+    colorsAndCovers: {[key: string]: BackgroundContentModel[]};
+    voiceComperator: {[key: string]: VoiceCompoeratorInterface};
+    galleryComponentTexts: {[key: string]: GalleryComponentTextsInterface};
+    infoBanners: {[key: string]: BackgroundContentModel[]};
+    contactTextData: {[key: string]: ContactInterface};
+    menuParts: {[key: string]: MenuInterface};
+    headerContent: {[key: string]: HeaderInterface};
+    saleItems: {[key: string]: ProductsPageInterface};
+    aboutUsPage: {[key: string]: AboutUsPageInterface};
   }

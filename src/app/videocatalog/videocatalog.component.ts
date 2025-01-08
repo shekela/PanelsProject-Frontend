@@ -9,10 +9,15 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./videocatalog.component.css']
 })
 export class VideocatalogComponent implements OnInit, OnDestroy {
-  @Input() videoCatalogData: any;  // Use the correct type based on your data model
+  @Input() videoCatalogData: any; // Use the correct type based on your data model
+  @Input() muted: boolean = true; // Default muted to true
+  @Input() autoplay: boolean = true; // Default autoplay to true
+  @Input() loop: boolean = true; // Default loop to true
+  @Input() showButton: boolean = true; // Control whether to show the button
+
   private subscription: Subscription | null = null;
 
-  @ViewChild('videoRef') videoRef: any;  // Reference to video element
+  @ViewChild('videoRef') videoRef: any; // Reference to video element
 
   constructor(
     private languageService: LanguageService,
@@ -46,28 +51,28 @@ export class VideocatalogComponent implements OnInit, OnDestroy {
     );
   }
 
-  ngOnDestroy(): void {
-    // Unsubscribe to prevent memory leaks
-    if (this.subscription) {
-      this.subscription.unsubscribe();
-    }
-  }
-
   ngAfterViewInit(): void {
     const videoElement = this.videoRef?.nativeElement;
 
     if (videoElement) {
-      // Explicitly set autoplay, muted, and loop properties
-      videoElement.autoplay = true;
-      videoElement.muted = true;
-      videoElement.loop = true;
+      videoElement.autoplay = this.autoplay;
+      videoElement.muted = this.muted;
+      videoElement.loop = this.loop;
+
       videoElement.play().catch((error: any) => {
         setTimeout(() => {
           videoElement.play().catch((error: any) => {
             console.log('Error while trying to play the video after retry:', error);
           });
-        }, 500);  // Retry after 500ms
+        }, 500); // Retry after 500ms
       });
+    }
+  }
+
+  ngOnDestroy(): void {
+    // Unsubscribe to prevent memory leaks
+    if (this.subscription) {
+      this.subscription.unsubscribe();
     }
   }
 }

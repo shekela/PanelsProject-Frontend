@@ -1,0 +1,125 @@
+/* Reset and Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+  }
+  #app-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px; /* Define the fixed header height */
+    z-index: 1000;
+}
+  .team-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    width: 100%;
+    padding: 40px 20px;
+    position: relative;;
+  }
+  
+  /* Team Photo with Overlay */
+  .team-photo {
+    position: relative;
+    width: 100%;
+    max-width: 1024px;
+    aspect-ratio: 1; /* Perfect square */
+    border-radius: 20px;
+    overflow: hidden;
+    margin-top: 100px;
+  }
+  
+  .team-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .overlay-text {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
+  }
+  
+  .overlay-text h1 {
+    font-size: 42px;
+    font-weight: 600;
+    text-align: center;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    background-color: transparent;
+  }
+  
+  /* Info Cards Section */
+  .info-cards {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    max-width: 1024px;
+  }
+  
+  .info-card {
+    flex: 1;
+    min-width: 320px;
+    max-width: 480px;
+    padding: 30px 20px;
+    border-radius: 15px;
+    text-align: center;
+    line-height: 1.8;
+  }
+  
+  .green-card {
+    background-color: #3d5641;
+    color: white;
+  }
+  
+  .gray-card {
+    background-color: #eaeaea;
+    color: #333;
+  }
+  
+  .info-card h2 {
+    font-weight: lighter;
+    font-size: 34px;
+    margin-bottom: 15px;
+  }
+  
+  .info-card p {
+    font-weight: 400;
+  }
+  
+  .info-card p strong {
+    font-weight: 700;
+  }
+  
+  /* Responsive Adjustments */
+  @media (max-width: 768px) {
+    .overlay-text h1 {
+      font-size: 28px;
+      padding: 8px 16px;
+    }
+  
+    .info-card {
+      font-size: 14px;
+      padding: 20px 15px;
+    }
+  
+    .info-cards {
+      gap: 15px;
+    }
+  }
+  

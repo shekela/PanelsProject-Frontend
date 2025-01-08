@@ -1,6 +1,6 @@
 <div *ngIf="isLoaded">
     <ul>
-      <li *ngFor="let section of menuContent.menuSections">
+      <li *ngFor="let section of menuContent.menuSections" (click)="navigateTo(section)">
         <span>
           <fa-icon [icon]="faPlus" class="icon"></fa-icon>
         </span>
