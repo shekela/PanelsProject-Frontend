@@ -18,7 +18,10 @@ const routes: Routes = [
   { path: "admin/dashboard", component: AdminPanelComponent, canActivate: [AuthGuard]}
 ];
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {
+    useHash: true,
+    enableTracing: false,
+  })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
