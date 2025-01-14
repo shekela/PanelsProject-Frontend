@@ -1,10 +1,6 @@
 {
     "routes": [
       {
-        "route": "/admin/*",
-        "rewrite": "/index.html"
-      },
-      {
         "route": "/products/*",
         "rewrite": "/index.html"
       },
@@ -14,6 +10,10 @@
       },
       {
         "route": "/about-us/*",
+        "rewrite": "/index.html"
+      },
+      {
+        "route": "/admin/*",
         "rewrite": "/index.html"
       },
       {
