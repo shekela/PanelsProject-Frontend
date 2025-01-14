@@ -88,18 +88,6 @@
     margin-left: 10px;
 }
 
-/* .colors{
-    margin-top: 10px;
-    display: flex;
-    align-items: center;
-    height: auto;
-}
-.colors > img{
-    width: 33px;
-    height: 33px;
-    border-radius: 5px;
-    margin-left: 10px;
-} */
 
 @media only screen and (max-width: 1024px) {
     .product {

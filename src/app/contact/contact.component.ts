@@ -1,10 +1,10 @@
-import { Component, inject } from '@angular/core';
-import { DataServiceService } from '../services/data-service.service';
+import { Component } from '@angular/core';
 import { ContactInterface } from '../models/contact.model';
 import { ContactTextData } from '../DUMMY_DATA/CONTACT-COMPONENT/eng';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { LanguageService } from '../services/language.service';
+import { CompanyData } from '../DUMMY_DATA/company-info';
 
 @Component({
   selector: 'app-contact',
@@ -12,11 +12,10 @@ import { LanguageService } from '../services/language.service';
   styleUrls: ['./contact.component.css']
 })
 export class ContactComponent {
-  private dataService = inject(DataServiceService);
-  brandLogo = this.dataService.brandLogo;
   private languageSubscription: Subscription | null = null; // Initialize as null
 
   componentTexts: ContactInterface = ContactTextData;
+  brandLogo = CompanyData.logo;
   
   constructor(private router: Router, private languageService: LanguageService) {}
 
@@ -32,7 +31,6 @@ export class ContactComponent {
   }
   
   ngOnDestroy(): void {
-    // Unsubscribe to prevent memory leaks
     if (this.languageSubscription) {
       this.languageSubscription.unsubscribe();
     }

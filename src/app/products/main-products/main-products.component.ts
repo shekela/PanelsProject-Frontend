@@ -1,8 +1,7 @@
-import { Component, inject, Input, SimpleChanges } from '@angular/core';
+import { Component, Input, SimpleChanges } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { BackgroundContentModel } from 'src/app/models/backgoundcontent.model';
 import { MainProductsInterface } from 'src/app/models/mainproducts.model';
-import { DataServiceService } from 'src/app/services/data-service.service';
 import { LanguageService } from 'src/app/services/language.service';
 import { SeparationService } from 'src/app/services/separation.service';
 
@@ -12,7 +11,6 @@ import { SeparationService } from 'src/app/services/separation.service';
   styleUrls: ['./main-products.component.css']
 })
 export class MainProductsComponent {
-  private dataService = inject(DataServiceService);
   private languageSubscription: Subscription | undefined;
   private subscription: Subscription | null = null;
 
@@ -29,7 +27,6 @@ export class MainProductsComponent {
               this.separationService.translations.mainProducts[language] ||
               this.separationService.translations.mainProducts['GEO'];
 
-            // Check the backgroundUrl for each product
             if (this.products && this.products.products) {
                 this.products.products.forEach(product => {
                     if (product.backgroundUrl && !product.backgroundUrl.startsWith('https://localhost:7001/')) {

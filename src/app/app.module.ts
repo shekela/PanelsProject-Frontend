@@ -30,7 +30,6 @@ import { AdminPanelComponent } from './admin/admin-panel/admin-panel.component';
 import { AdminMenuComponent } from './menus/admin-menu/admin-menu.component';
 import { EditMarketingHeaderComponent } from './edit-content/edit-marketing-header/edit-marketing-header.component';
 import { EditMainProductsComponent } from './edit-content/edit-main-products/edit-main-products.component';
-import { ModalComponent } from './modal/modal.component';
 import { EditVideoCatalogComponent } from './edit-content/edit-video-catalog/edit-video-catalog.component';
 import { EditProductCatalogSliderComponent } from './edit-content/edit-product-catalog-slider/edit-product-catalog-slider.component';
 import { EditVoiceComperatorComponent } from './edit-content/edit-voice-comperator/edit-voice-comperator.component';
@@ -72,7 +71,6 @@ import { EditAboutusComponentComponent } from './edit-content/edit-aboutus-compo
     AdminMenuComponent,
     EditMarketingHeaderComponent,
     EditMainProductsComponent,
-    ModalComponent,
     EditVideoCatalogComponent,
     EditProductCatalogSliderComponent,
     EditVoiceComperatorComponent,

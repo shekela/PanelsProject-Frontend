@@ -25,8 +25,6 @@ export class MarketingHeaderComponent implements OnInit, OnDestroy {
       this.marketingBannerData =
         this.separationService.translations.marketingBanner[language] ||
         this.separationService.translations.marketingBanner['GEO'];
-  
-      // Ensure the imgUrl has the domain prefixed only once
       if (this.marketingBannerData.imgUrl && !this.marketingBannerData.imgUrl.startsWith('https://localhost:7001/')) {
         this.marketingBannerData.imgUrl = 'https://localhost:7001/' + this.marketingBannerData.imgUrl;
       }
@@ -38,8 +36,6 @@ export class MarketingHeaderComponent implements OnInit, OnDestroy {
         this.marketingBannerData =
           this.separationService.translations.marketingBanner[currentLanguage] ||
           this.separationService.translations.marketingBanner['GEO'];
-  
-        // Ensure the imgUrl has the domain prefixed only once
         if (this.marketingBannerData.imgUrl && !this.marketingBannerData.imgUrl.startsWith('https://localhost:7001/')) {
           this.marketingBannerData.imgUrl = 'https://localhost:7001/' + this.marketingBannerData.imgUrl;
         }

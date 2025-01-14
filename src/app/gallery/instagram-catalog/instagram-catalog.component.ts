@@ -9,7 +9,6 @@ import { GalleryObjectModel } from 'src/app/models/gallery-objects.model';
 export class InstagramCatalogComponent {
 
   @Input() instagramPageName!: string;
-
   
   @Output() close = new EventEmitter();
   @Output() changeToRight = new EventEmitter();

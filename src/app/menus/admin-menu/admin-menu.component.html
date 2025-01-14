@@ -3,5 +3,8 @@
         <li *ngFor="let section of menuContent" (click)="onSelectSection(section)">
             <a>{{ section }}</a>
         </li>
+        <li>
+            <a id="logout" (click)="logout()">Logout</a>
+        </li>
     </ul>
 </div>

@@ -1,30 +1,68 @@
 <app-header id="app-header"/>
 <main>
-    <div class="titles-of-page">
-        <h1>Need help?</h1>
-        <p>Lets get in touch</p>
-    </div>
+    <ng-container>
+      <div class="titles-of-page">
+        <h1>
+          <span *ngIf="currentLanguage === 'GEO'">დახმარება გჭირდებათ?</span>
+          <span *ngIf="currentLanguage === 'RUS'">Нужна помощь?</span>
+          <span *ngIf="currentLanguage === 'ENG'">Need help?</span>
+        </h1>
+        <p>
+          <span *ngIf="currentLanguage === 'GEO'">მოგვმართეთ</span>
+          <span *ngIf="currentLanguage === 'RUS'">Свяжитесь с нами</span>
+          <span *ngIf="currentLanguage === 'ENG'">Let's get in touch</span>
+        </p>
+      </div>
+    </ng-container>
     <section class="contact-section">
         <div class="contact-container">
           <div class="info-container">
-            <h2>How can we help?</h2>
+            <h2>
+              <span *ngIf="currentLanguage === 'GEO'">როგორ შეგვიძლია დახმარება?</span>
+              <span *ngIf="currentLanguage === 'RUS'">Как мы можем помочь?</span>
+              <span *ngIf="currentLanguage === 'ENG'">How can we help?</span>
+            </h2>
             <p>
-              We are ready to assist. Whether you have questions, concerns, or feedback, we're just a message or call away.
+              <span *ngIf="currentLanguage === 'GEO'">
+                ჩვენ მზად ვართ დაგეხმაროთ. თუ გაქვთ შეკითხვები, შეშფოთება ან 
+                კომენტარები, ჩვენ ერთი ზარის ან შეტყობინების მოშორებით ვართ.
+              </span>
+              <span *ngIf="currentLanguage === 'RUS'">
+                Мы готовы помочь. Если у вас есть вопросы, сомнения или отзывы, мы 
+                всегда на связи.
+              </span>
+              <span *ngIf="currentLanguage === 'ENG'">
+                We are ready to assist. Whether you have questions, concerns, or 
+                feedback, we're just a message or call away.
+              </span>
             </p>
             <div class="business-hours">
-              <p><strong>Business hours</strong></p>
-              <p>Monday to Thursday: 8.00 – 16.00</p>
-              <p>Friday: 8.30 – 13.30</p>
+              <p><strong>
+                <span *ngIf="currentLanguage === 'GEO'">სამუშაო საათები</span>
+                <span *ngIf="currentLanguage === 'RUS'">Рабочие часы</span>
+                <span *ngIf="currentLanguage === 'ENG'">Business hours</span>
+              </strong></p>
+              <p *ngFor="let workingHour of companyContactTexts.workingHours">
+                {{ workingHour }}
+              </p>
             </div>
             <div class="address">
-              <p><strong>Address:</strong></p>
+              <p><strong>
+                <span *ngIf="currentLanguage === 'GEO'">მისამართი:</span>
+                <span *ngIf="currentLanguage === 'RUS'">Адрес:</span>
+                <span *ngIf="currentLanguage === 'ENG'">Address:</span>
+              </strong></p>
               <p>Paniacoustics</p>
-              <p>Tbilisi 59, Pekini ave., Georgia</p>
-              <p>Phone: +995 577 15 27 27</p>
-              <p>E-mail: pm@paniacoustics.com</p>
-              <p>VAT: GE36924187</p>
+              <p>
+                <span *ngIf="currentLanguage === 'GEO'">თბილისი, პეკინის გამზ. 59, საქართველო</span>
+                <span *ngIf="currentLanguage === 'RUS'">Тбилиси, проспект Пекина 59, Грузия</span>
+                <span *ngIf="currentLanguage === 'ENG'">Tbilisi 59, Pekini ave., Georgia</span>
+              </p>
+              <p>{{ companyContactTexts.phone }}</p>
+              <p>{{ companyContactTexts.email }}</p>
             </div>
           </div>
+          
           <div class="image-container">
             <img src="https://ccfssflq.photoncache.com/wp-content/uploads/2024/06/DSC03917-2-1024x683-1.jpg" alt="Team Image" />
           </div>
@@ -32,18 +70,35 @@
       
         <div class="contact-buttons">
           <div class="button">
-            <p class="button-text">+995 577 15 27 27</p>
-            <a href="tel:+995577152727">Call us</a>
+            <p class="button-text">{{ companyContactTexts.phone }}</p>
+            <a href="tel:{{ companyContactTexts.phone }}">
+              <span *ngIf="currentLanguage === 'GEO'">დაგვირეკეთ</span>
+              <span *ngIf="currentLanguage === 'RUS'">Позвоните нам</span>
+              <span *ngIf="currentLanguage === 'ENG'">Call us</span>
+            </a>
           </div>
           <div class="button">
-            <p class="button-text">Livechat</p>
-            <a href="#" (click)="openChat($event)">Chat with us</a>
+            <p class="button-text">
+              <span *ngIf="currentLanguage === 'GEO'">ონლაინ ჩატი</span>
+              <span *ngIf="currentLanguage === 'RUS'">Онлайн чат</span>
+              <span *ngIf="currentLanguage === 'ENG'">Livechat</span>
+            </p>
+            <a href="#" (click)="openChat($event)">
+              <span *ngIf="currentLanguage === 'GEO'">დაგვიკავშირდით ჩატით</span>
+              <span *ngIf="currentLanguage === 'RUS'">Свяжитесь с нами через чат</span>
+              <span *ngIf="currentLanguage === 'ENG'">Chat with us</span>
+            </a>
           </div>
           <div class="button">
-            <p class="button-text">pm@paniacoustics.com</p>
-            <a href="mailto:pm@paniacoustics.com">Send us an email</a>
+            <p class="button-text">{{ companyContactTexts.email }}</p>
+            <a href="mailto:{{ companyContactTexts.email }}">
+              <span *ngIf="currentLanguage === 'GEO'">მოგვწერეთ</span>
+              <span *ngIf="currentLanguage === 'RUS'">Напишите нам</span>
+              <span *ngIf="currentLanguage === 'ENG'">Send us an email</span>
+            </a>
           </div>
         </div>
+        
       </section>
 </main>
 <app-contact/>

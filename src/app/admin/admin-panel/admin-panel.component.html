@@ -14,16 +14,16 @@
 </div>
 
 <section *ngIf="!isLoaded" id="contentSection">
-    <app-marketing-header id="itemC" *ngIf="contentView == 'Marketing Banner'"/>
+    <app-marketing-header  *ngIf="contentView == 'Marketing Banner'"/>
     <app-main-products *ngIf="contentView == 'Main Products'"/>
-    <app-videocatalog id="itemC" *ngIf="contentView == 'Video Catalog'"/>
-    <app-productswitch-template id="itemC" *ngIf="contentView == 'Products Catalog Slider'"/>
-    <app-voice-comperator id="itemC" *ngIf="contentView == 'Voice Comperator'"/>
+    <app-videocatalog  *ngIf="contentView == 'Video Catalog'"/>
+    <app-productswitch-template  *ngIf="contentView == 'Products Catalog Slider'"/>
+    <app-voice-comperator  *ngIf="contentView == 'Voice Comperator'"/>
     <app-main-products *ngIf="contentView == 'Colors and Covers'" class="special-main-products" [productsInput]="colorAndCoversProducts" [showTitle]="false"/> 
-    <app-gallery id="itemC" *ngIf="contentView == 'Gallery'"/>
-    <app-information id="itemC" *ngIf="contentView == 'Information Banners'"/>
-    <app-products id="itemC" *ngIf="contentView == 'Sale Items'"/>
-    <app-about-us id="itemC" *ngIf="contentView == 'About Us'"/>
+    <app-gallery  *ngIf="contentView == 'Gallery'"/>
+    <app-information  *ngIf="contentView == 'Information Banners'"/>
+    <app-products  *ngIf="contentView == 'Sale Items'"/>
+    <app-about-us  *ngIf="contentView == 'About Us'"/>
     <div class="circle" (click)="toggleEditor()">
         <img src="https://www.iconpacks.net/icons/2/free-arrow-down-icon-3101-thumb.png" class="arrow"/>
     </div>

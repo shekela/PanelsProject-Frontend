@@ -1,16 +1,12 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { Translations } from '../models/translations.model';
 import { BackgroundContentModel } from '../models/backgoundcontent.model';
 import { ContactInterface } from '../models/contact.model';
 import { GalleryComponentTextsInterface } from '../models/gallery-component-texts.model';
 import { HeaderInterface } from '../models/headercontent.model';
-import { MainProductsInterface } from '../models/mainproducts.model';
-import { MarketingBannerData } from '../models/marketingdata.model';
 import { MenuInterface } from '../models/menucontent.model';
 import { ProductsPageInterface } from '../models/products-page.model';
 import { VoiceCompoeratorInterface } from '../models/voice-comperator-model';
-import { AboutUsDto, RequestsService } from './requests.service';
 import { SeparationService } from './separation.service';
 
 @Injectable({

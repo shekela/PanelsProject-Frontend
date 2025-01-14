@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AboutUsDto, RequestsService } from 'src/app/services/requests.service';
+import { RequestsService } from 'src/app/services/requests.service';
 
 @Component({
   selector: 'app-edit-aboutus-component',

@@ -1,13 +1,6 @@
-import { HttpClient } from '@angular/common/http';
-import { Component, ElementRef, Input, OnInit, Renderer2, SimpleChanges } from '@angular/core';
-import { Router } from '@angular/router';
-import { TranslateService } from '@ngx-translate/core';
-import { Subscription } from 'rxjs';
-import { BackgroundContentModel } from 'src/app/models/backgoundcontent.model';
-import { MainProductsInterface } from 'src/app/models/mainproducts.model';
-import { LanguageService } from 'src/app/services/language.service';
-import { ProductSwitcherService } from 'src/app/services/product-switcher.service';
-import { mainProductSections, MainProductsPage, products, RequestsService } from 'src/app/services/requests.service';
+import { Component, OnInit } from '@angular/core';
+import { productsDto } from 'src/app/DTOS/productsDto';
+import { RequestsService } from 'src/app/services/requests.service';
 import { SeparationService } from 'src/app/services/separation.service';
 
 @Component({
@@ -18,7 +11,7 @@ import { SeparationService } from 'src/app/services/separation.service';
 export class EditMainProductsComponent implements OnInit {
   selectedFile: File | undefined;
 
-  currentProduct: products = {
+  currentProduct: productsDto = {
     id: 0,
     titleEn: '',
     titleKa: '',
@@ -42,8 +35,8 @@ export class EditMainProductsComponent implements OnInit {
     titleTextRu: ''
   };
 
-  products: products[] = [];
-  newProduct!: products;
+  products: productsDto[] = [];
+  newProduct!: productsDto;
   editingProduct: boolean = false;
   showModal: boolean = false; // Variable to control modal visibility
   modalTitle: string = 'Add Product'; // Set title dynamically based on action
@@ -154,7 +147,7 @@ private createProductFormData(): FormData {
   return formData;
 }
 
-  deleteProduct(product: products): void {
+  deleteProduct(product: productsDto): void {
     this.requestsService.deleteProduct(product.id).subscribe(
       () => {
         console.log('Product deleted successfully');
@@ -183,7 +176,7 @@ private createProductFormData(): FormData {
     this.showModal = true;
   }
 
-  openEditProductModal(product: products): void {
+  openEditProductModal(product: productsDto): void {
     console.log('Product to edit:', product); // Add a console log to verify the product
     this.newProduct = product;
     this.editingProduct = true;
@@ -195,7 +188,7 @@ private createProductFormData(): FormData {
     this.showModal = false;
   }
 
-  resetProduct(): products {
+  resetProduct(): productsDto {
     return {
       id: 0,
       titleEn: '',

@@ -1,12 +1,5 @@
-import { HttpClient } from '@angular/common/http';
-import { Component, ElementRef, EventEmitter, inject, Input, Output, Renderer2 } from '@angular/core';
-import { Router } from '@angular/router';
-import { TranslateService } from '@ngx-translate/core';
-import { Subscription } from 'rxjs';
-import { BackgroundContentModel } from 'src/app/models/backgoundcontent.model';
-import { DataServiceService } from 'src/app/services/data-service.service';
+import { Component, Renderer2 } from '@angular/core';
 import { LanguageService } from 'src/app/services/language.service';
-import { ProductSwitcherService } from 'src/app/services/product-switcher.service';
 import { RequestsService } from 'src/app/services/requests.service';
 import { SeparationService } from 'src/app/services/separation.service';
 
@@ -46,14 +39,9 @@ export class EditMarketingHeaderComponent {
     
   constructor(
       private renderer: Renderer2, 
-      private el: ElementRef, 
       private requestService: RequestsService,
-      private productService: ProductSwitcherService, 
-      private translate: TranslateService, 
       private languageService: LanguageService, 
-      private router: Router, 
-      private separationService: SeparationService,
-      private http: HttpClient) {}
+      private separationService: SeparationService,) {}
       
 
   openPopup(field: string) {

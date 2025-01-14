@@ -16,29 +16,29 @@ export class InformationComponent {
 
   private languageSubscription: Subscription | null = null; // Initialize as null
   
-    constructor(private languageService: LanguageService, private separationService: SeparationService) {}
+  constructor(private languageService: LanguageService, private separationService: SeparationService) {}
   
-    ngOnInit(): void {
-      this.subscription = this.languageService.language$.subscribe((language) => {
+  ngOnInit(): void {
+    this.subscription = this.languageService.language$.subscribe((language) => {
+      this.infoBannerContent =
+        this.separationService.translations.infoBanners[language] ||
+        this.separationService.translations.infoBanners['GEO'];
+    });
+  
+    this.subscription.add(
+      this.separationService.translations$.subscribe(() => {
+        const currentLanguage = this.languageService.getCurrentLanguage();
         this.infoBannerContent =
-          this.separationService.translations.infoBanners[language] ||
+          this.separationService.translations.infoBanners[currentLanguage] ||
           this.separationService.translations.infoBanners['GEO'];
-      });
-    
-      this.subscription.add(
-        this.separationService.translations$.subscribe(() => {
-          const currentLanguage = this.languageService.getCurrentLanguage();
-          this.infoBannerContent =
-            this.separationService.translations.infoBanners[currentLanguage] ||
-            this.separationService.translations.infoBanners['GEO'];
-        })
-      );
-    }
+      })
+    );
+  }
   
-    ngOnDestroy(): void {
-      // Unsubscribe to prevent memory leaks
-      if (this.languageSubscription) {
-        this.languageSubscription.unsubscribe();
-      }
+  ngOnDestroy(): void {
+    // Unsubscribe to prevent memory leaks
+    if (this.languageSubscription) {
+      this.languageSubscription.unsubscribe();
     }
+  }
 }

@@ -65,13 +65,14 @@ export class MenuComponent implements OnInit, OnDestroy {
         this.isLoaded = false;
         break;
 
-        case 'დაგვიკავშირდით':
-        case 'Свяжитесь с нами':
-        case 'Contact us':
+      case 'დაგვიკავშირდით':
+      case 'Свяжитесь с нами':
+      case 'Contact us':
         this.router.navigate(['/contact-us']);
         this.renderer.removeClass(document.body, 'no-scroll');
         this.isLoaded = false;
         break;
+        
       default:
         console.warn('No route defined for this section:', section);
     }

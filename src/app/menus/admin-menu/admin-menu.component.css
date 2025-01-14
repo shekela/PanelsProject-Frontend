@@ -40,9 +40,16 @@ li:hover {
 
 li a, li span {
     font-family: Inter, sans-serif;
-    font-size: 36px;
+    font-size: 28px;
     line-height: 1; /* Consistent line-height */
     display: flex; /* Make it flexible */
     align-items: center; /* Vertical center alignment */
     justify-content: center; /* Horizontal center alignment */
+}
+
+#logout{
+    padding: 6px 10px;
+    background-color: red;
+    border-radius: 8px;
+    font-size: 19px;
 }

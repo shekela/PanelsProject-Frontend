@@ -1,12 +1,11 @@
-import { ChangeDetectorRef, Component, ElementRef, inject, Renderer2, ViewChild } from '@angular/core';
-import { GalleryObjects } from '../DUMMY_DATA/dummy-gallery-objects'; 
+import { ChangeDetectorRef, Component, Renderer2 } from '@angular/core';
 import { GalleryObjectModel } from '../models/gallery-objects.model';
-import { DataServiceService } from '../services/data-service.service';
 import { GalleryComponentTexts } from '../DUMMY_DATA/GALLERY-COMPONENT-DATA/eng';
 import { Subscription } from 'rxjs';
 import { LanguageService } from '../services/language.service';
 import { RequestsService } from '../services/requests.service';
 import { SeparationService } from '../services/separation.service';
+import { CompanyData } from '../DUMMY_DATA/company-info';
 
 @Component({
   selector: 'app-gallery',
@@ -16,14 +15,14 @@ import { SeparationService } from '../services/separation.service';
 
 export class GalleryComponent {
 private languageSubscription: Subscription | null = null; // Initialize as null
-private dataService = inject(DataServiceService);
 private subscription: Subscription | null = null;
 
 componentTexts = GalleryComponentTexts;
+instagramPageName = CompanyData.instagramPageName;
 
-instagramPageName = this.dataService.instagramPageName;
 isInstagramCatalogLoaded = false;
 isGEO: boolean = false;
+
 
 pictures!: GalleryObjectModel[]; // Original array of pictures
 displayedPictures: GalleryObjectModel[] = []; // Pictures currently displayed
@@ -31,12 +30,17 @@ totalPictures!: number; // Total number of pictures
 loadedCount: number = 0; // Number of pictures currently loaded
 progressPercentage: number = 0; // Progress percentage
 
+
 mainPicture?: GalleryObjectModel;
 leftPicture?: any;
 rightPicture?: any;
 
-constructor(private renderer: Renderer2, private cdr: ChangeDetectorRef, private languageService: LanguageService, private requestService: RequestsService, private separationService: SeparationService) {
-}
+constructor(private renderer: Renderer2, 
+            private cdr: ChangeDetectorRef,
+            private languageService: LanguageService, 
+            private requestService: RequestsService, 
+            private separationService: SeparationService) {}
+
 
 loadMore(): void {
   const nextBatch = this.pictures.slice(
@@ -67,14 +71,11 @@ onChangeToLeft(): void {
   if (!this.leftPicture) {
     return; 
   }
-
   const currentIndex = this.pictures.findIndex(
     obj => obj === this.leftPicture
   );
 
   this.mainPicture = this.leftPicture;
-
-  // Circular navigation for left picture
   this.leftPicture = currentIndex > 0 ? this.pictures[currentIndex - 1] : this.pictures[this.pictures.length - 1]; 
   this.rightPicture =
     currentIndex < this.pictures.length - 1

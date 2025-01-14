@@ -4,101 +4,14 @@ import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { environment } from 'src/environment/environment';
 import { GalleryObjectModel } from '../models/gallery-objects.model';
-import { GalleryComponentTextsInterface } from '../models/gallery-component-texts.model';
-import { VideoCatalogDto } from '../edit-content/edit-video-catalog/edit-video-catalog.component';
-import { ProductSliderCatalog } from '../edit-content/edit-product-catalog-slider/edit-product-catalog-slider.component';
-
-export interface MarketingBanner {
-  id: number;
-  titleEn: string;
-  aimEn: string;
-  descriptionEn: string;
-  titleRu: string;
-  aimRu: string;
-  descriptionRu: string;
-  titleKa: string;
-  aimKa: string;
-  descriptionKa: string;
-  imgUrl: string;
-}
-
-export interface VideoCatalog {
-  id: number;
-  titleEn: string;
-  descriptionEn: string;
-  buttonTextEn: string;
-  titleKa: string;
-  descriptionKa: string;
-  buttonTextKa: string;
-  titleRu: string;
-  descriptionRu: string;
-  buttonTextRu: string;
-  backgroundUrl: string;
-}
-
-export interface mainProductSections
-{
-  id: number;
-  titleEn: string;
-  titleTextEn: string;
-  titleKa: string;
-  titleTextKa: string;
-  titleRu: string;
-  titleTextRu: string;
-}
-export interface products {
-  id: number;
-  titleEn: string;
-  titleKa: string;
-  titleRu: string;
-  descriptionEn: string;
-  descriptionKa: string;
-  descriptionRu: string;
-  buttonTextEn: string;
-  buttonTextKa: string;
-  buttonTextRu: string;
-  backgroundUrl: string;
-}
-
-export interface MainProductsPage{
-  mainProductSections: mainProductSections[],
-  products: products[]
-}
-
-export interface ProductsCatalogSlider{
-    id: number,
-    titleEn: string;
-    titleKa: string;
-    titleRu: string;
-    backgroundUrl: string;
-}
-
-export interface VoiceComperator{
-  id: number;
-  voiceAcupanel: string;
-  voiceWOAcupanel: string;
-}
-
-export interface AboutUsDto{
-   id: number;
-   greetingTextEn: string ;
-   textBoxOneTitleEn: string ;
-   textBoxOneDescriptionEn: string ;
-   textBoxTwoTitleEn: string ;
-   textBoxTwoDescriptionEn: string ;
-   greetingTextRu: string ;
-   textBoxOneTitleRu: string ;
-   textBoxOneDescriptionRu: string ;
-   textBoxTwoTitleRu: string ;
-   textBoxTwoDescriptionRu: string ;
-   greetingTextKa: string ;
-   textBoxOneTitleKa: string ;
-   textBoxOneDescriptionKa: string ;
-   textBoxTwoTitleKa: string ;
-   textBoxTwoDescriptionKa: string ;
-   backgroundImage: string ;
-}
-
+import { MarketingBannerDto } from '../DTOS/MarketingBannerDto';
+import { VideoCatalogDto } from '../DTOS/VideoCatalogDto';
+import { mainProductSectionsDto } from '../DTOS/mainProductSectionsDto';
+import { productsDto } from '../DTOS/productsDto';
+import { MainProductsPageDto } from '../DTOS/MainProductsPageDto';
+import { ProductsCatalogSliderDto } from '../DTOS/ProductsCatalogSliderDto';
+import { VoiceComperatorDto } from '../DTOS/VoiceComperatorDto';
+import { AboutUsDto } from '../DTOS/AboutUsDto';
 
 @Injectable({
   providedIn: 'root'
@@ -107,8 +20,8 @@ export class RequestsService {
 
   constructor(private http: HttpClient) {}
 
-  getMarketingBanners(): Observable<MarketingBanner[]> {
-    return this.http.get<MarketingBanner[]>(`${environment.apiUrl}/MarektingBanner/get-marketingBanner`).pipe(
+  getMarketingBanners(): Observable<MarketingBannerDto[]> {
+    return this.http.get<MarketingBannerDto[]>(`${environment.apiUrl}/MarektingBanner/get-marketingBanner`).pipe(
       catchError((error) => {
         console.error('Error fetching marketing banners:', error);
         return throwError(() => new Error('Failed to fetch marketing banners. Please try again later.'));
@@ -116,8 +29,8 @@ export class RequestsService {
     );
   }
 
-  getMainProductsPage(): Observable<MainProductsPage> {
-    return this.http.get<MainProductsPage>(`${environment.apiUrl}/MainProductsSection/Combined`).pipe(
+  getMainProductsPage(): Observable<MainProductsPageDto> {
+    return this.http.get<MainProductsPageDto>(`${environment.apiUrl}/MainProductsSection/Combined`).pipe(
       catchError((error) => {
         console.error('Error fetching marketing banners:', error);
         return throwError(() => new Error('Failed to fetch marketing banners. Please try again later.'));
@@ -125,8 +38,8 @@ export class RequestsService {
     );
   }
 
-  getMainProducts(): Observable<products[]> {
-    return this.http.get<products[]>(`https://localhost:7001/api/MainProductsSection/get-Products`).pipe(
+  getMainProducts(): Observable<productsDto[]> {
+    return this.http.get<productsDto[]>(`${environment.apiUrl}/MainProductsSection/get-Products`).pipe(
       catchError((error) => {
         console.error('Error fetching marketing banners:', error);
         return throwError(() => new Error('Failed to fetch marketing banners. Please try again later.'));
@@ -134,8 +47,8 @@ export class RequestsService {
     );
   }
 
-  getVideoCatalog(): Observable<VideoCatalog[]> {
-    return this.http.get<VideoCatalog[]>(`${environment.apiUrl}/VideoCatalog/get-videoCatalog`).pipe(
+  getVideoCatalog(): Observable<VideoCatalogDto[]> {
+    return this.http.get<VideoCatalogDto[]>(`${environment.apiUrl}/VideoCatalog/get-videoCatalog`).pipe(
       catchError((error) => {
         console.error('Error fetching marketing banners:', error);
         return throwError(() => new Error('Failed to fetch marketing banners. Please try again later.'));
@@ -143,8 +56,8 @@ export class RequestsService {
     );
   }
 
-  getProductsCatalogSlider(): Observable<ProductsCatalogSlider[]> {
-    return this.http.get<ProductsCatalogSlider[]>(`${environment.apiUrl}/ProductsSliderCatalog/get-ProductsCatalogSlider`).pipe(
+  getProductsCatalogSlider(): Observable<ProductsCatalogSliderDto[]> {
+    return this.http.get<ProductsCatalogSliderDto[]>(`${environment.apiUrl}/ProductsSliderCatalog/get-ProductsCatalogSlider`).pipe(
       catchError((error) => {
         console.error('Error fetching marketing banners:', error);
         return throwError(() => new Error('Failed to fetch marketing banners. Please try again later.'));
@@ -152,8 +65,8 @@ export class RequestsService {
     );
   }
 
-  getVoiceComperator(): Observable<VoiceComperator[]> {
-    return this.http.get<VoiceComperator[]>(`${environment.apiUrl}/VoiceComperator/get-VoiceExamples`).pipe(
+  getVoiceComperator(): Observable<VoiceComperatorDto[]> {
+    return this.http.get<VoiceComperatorDto[]>(`${environment.apiUrl}/VoiceComperator/get-VoiceExamples`).pipe(
       catchError((error) => {
         console.error('Error fetching marketing banners:', error);
         return throwError(() => new Error('Failed to fetch marketing banners. Please try again later.'));
@@ -161,8 +74,8 @@ export class RequestsService {
     );
   }
 
-  getColorAndCovers(): Observable<products[]> {
-    return this.http.get<products[]>(`${environment.apiUrl}/ColorAndCovers/get-ColorAndCovers`).pipe(
+  getColorAndCovers(): Observable<productsDto[]> {
+    return this.http.get<productsDto[]>(`${environment.apiUrl}/ColorAndCovers/get-ColorAndCovers`).pipe(
       catchError((error) => {
         console.error('Error fetching marketing banners:', error);
         return throwError(() => new Error('Failed to fetch marketing banners. Please try again later.'));
@@ -170,8 +83,8 @@ export class RequestsService {
     );
   }
 
-  getGalleryTexts(): Observable<mainProductSections[]> {
-    return this.http.get<mainProductSections[]>(`${environment.apiUrl}/Gallery/get-galleryTexts`).pipe(
+  getGalleryTexts(): Observable<mainProductSectionsDto[]> {
+    return this.http.get<mainProductSectionsDto[]>(`${environment.apiUrl}/Gallery/get-galleryTexts`).pipe(
       catchError((error) => {
         console.error('Error fetching marketing banners:', error);
         return throwError(() => new Error('Failed to fetch marketing banners. Please try again later.'));
@@ -198,17 +111,16 @@ export class RequestsService {
     if (imageFile) {
         formData.append('imageFile', imageFile);
     }
-    return this.http.post('https://localhost:7001/api/MarektingBanner/CreateMarketingBanner', formData);
+    return this.http.post(`${environment.apiUrl}/MarektingBanner/CreateMarketingBanner`, formData);
   }
 
-
   updateMainProductSection(mainProducts: any): Observable<any> {
-    return this.http.post<any>('https://localhost:7001/api/MainProductsSection/createMainProductSectionText', mainProducts);
+    return this.http.post<any>(`${environment.apiUrl}/MainProductsSection/createMainProductSectionText`, mainProducts);
   }
 
   addProduct(formData: FormData): Observable<any> {
     return this.http
-      .post(`https://localhost:7001/api/MainProductsSection/add-product`, formData)
+      .post(`${environment.apiUrl}/MainProductsSection/add-product`, formData)
       .pipe(
         catchError((error) => {
           console.error('Error adding product:', error);
@@ -219,7 +131,7 @@ export class RequestsService {
   
   updateProduct(productId: number, formData: FormData): Observable<any> {
     return this.http
-      .put(`https://localhost:7001/api/MainProductsSection/update-product/${productId}`, formData)
+      .put(`${environment.apiUrl}/MainProductsSection/update-product/${productId}`, formData)
       .pipe(
         catchError((error) => {
           console.error('Error updating product:', error);
@@ -228,9 +140,8 @@ export class RequestsService {
       );
   }
 
-  // Delete a product
   deleteProduct(id: number): Observable<any> {
-    return this.http.delete(`https://localhost:7001/api/MainProductsSection/delete-product/${id}`).pipe(
+    return this.http.delete(`${environment.apiUrl}/MainProductsSection/delete-product/${id}`).pipe(
       catchError((error) => {
         console.error('Error deleting product:', error);
         return throwError(() => new Error('Failed to delete product. Please try again.'));
@@ -248,21 +159,21 @@ export class RequestsService {
     if (backgroundFile) {
       formData.append('backgroundFile', backgroundFile);
     }
-    return this.http.post('https://localhost:7001/api/VideoCatalog/CreateVideoCatalog', formData);
+    return this.http.post(`${environment.apiUrl}/VideoCatalog/CreateVideoCatalog`, formData);
   }
 
 
   addProductsSliderProduct(formData: FormData): Observable<any> {
-    return this.http.post(`https://localhost:7001/api/ProductsSliderCatalog/add-product`, formData);
+    return this.http.post(`${environment.apiUrl}/ProductsSliderCatalog/add-product`, formData);
   }
 
   deleteProductsSliderProduct(productId: number): Observable<any> {
-    return this.http.delete(`https://localhost:7001/api/ProductsSliderCatalog/delete-product/${productId}`);
+    return this.http.delete(`${environment.apiUrl}/ProductsSliderCatalog/delete-product/${productId}`);
   }
 
 
-  getInformationBanners(): Observable<products[]> {
-    return this.http.get<products[]>(`${environment.apiUrl}/InformationBanners/get-banners`).pipe(
+  getInformationBanners(): Observable<productsDto[]> {
+    return this.http.get<productsDto[]>(`${environment.apiUrl}/InformationBanners/get-banners`).pipe(
       catchError((error) => {
         console.error('Error fetching marketing banners:', error);
         return throwError(() => new Error('Failed to fetch marketing banners. Please try again later.'));
@@ -287,7 +198,6 @@ export class RequestsService {
     return this.http.get(`${environment.apiUrl}/SaleItems/get-saleitems`);
   }
 
-  // Add a new sale item
   addSaleItem(newSaleItem: any, selectedFile: File | null): Observable<any> {
     const formData = new FormData();
     for (const key in newSaleItem) {
@@ -301,12 +211,10 @@ export class RequestsService {
     return this.http.post(`${environment.apiUrl}/SaleItems/add-saleitem`, formData);
   }
 
-  // Delete a sale item
   deleteSaleItem(itemId: number): Observable<any> {
     return this.http.delete(`${environment.apiUrl}/SaleItems/delete-item/${itemId}`);
   }
   
-
   getAboutUsPage(): Observable<AboutUsDto[]> {
     return this.http.get<AboutUsDto[]>(`${environment.apiUrl}/AboutUs/get-aboutUsPage`).pipe(
       catchError((error) => {
@@ -320,18 +228,12 @@ export class RequestsService {
     return this.http.post(`${environment.apiUrl}/AboutUs/create-greeting`, formData);
   }
 
-  // Method to update Text Box One Data
   updateAboutUsTextBoxOne(data: any): Observable<any> {
     return this.http.post(`${environment.apiUrl}/AboutUs/create-greeting`, data);
   }
 
-  // Method to update Text Box Two Data
   updateAboutUsTextBoxTwo(data: any): Observable<any> {
     return this.http.post(`${environment.apiUrl}/AboutUs/create-greeting`, data);
   }
-
-
-  
-
-
 }
+

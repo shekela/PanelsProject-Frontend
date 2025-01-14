@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { LanguageService } from 'src/app/services/language.service';
-import { VoiceComperator } from 'src/app/services/requests.service';
+import { VoiceComperatorDto } from 'src/app/DTOS/VoiceComperatorDto'; 
 import { SeparationService } from 'src/app/services/separation.service';
 
 @Component({
@@ -10,8 +10,8 @@ import { SeparationService } from 'src/app/services/separation.service';
   styleUrls: ['./edit-voice-comperator.component.css']
 })
 export class EditVoiceComperatorComponent {
-  voices: VoiceComperator[] = [];
-  currentVoice: VoiceComperator = { id: 0, voiceAcupanel: '', voiceWOAcupanel: '' };
+  voices: VoiceComperatorDto[] = [];
+  currentVoice: VoiceComperatorDto = { id: 0, voiceAcupanel: '', voiceWOAcupanel: '' };
   isVoicePopupOpen = false;
   isDeletePopupOpen = false;
   editMode = false;
@@ -26,7 +26,7 @@ export class EditVoiceComperatorComponent {
   }
 
   loadVoices(): void {
-    this.http.get<VoiceComperator[]>('https://localhost:7001/api/VoiceComperator/get-VoiceExamples')
+    this.http.get<VoiceComperatorDto[]>('https://localhost:7001/api/VoiceComperator/get-VoiceExamples')
       .subscribe(data => {
         this.voices = data.map(voice => ({
           ...voice,
@@ -42,7 +42,7 @@ export class EditVoiceComperatorComponent {
     this.currentVoice = { id: 0, voiceAcupanel: '', voiceWOAcupanel: '' };
   }
 
-  openEditVoicePopup(voice: VoiceComperator): void {
+  openEditVoicePopup(voice: VoiceComperatorDto): void {
     this.isVoicePopupOpen = true;
     this.editMode = true;
     this.currentVoice = { ...voice };

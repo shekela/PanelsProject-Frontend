@@ -1,19 +1,20 @@
 import { ContactInterface } from "src/app/models/contact.model";
+import { CompanyData } from "../company-info";
 
 export const ContactTextData: ContactInterface = {
     titles: ["დაგვიკავშირდით", "სამუშაო საათები", "ჩვენს შესახებ"],
     workingHours: [
-        "ორშაბათი: 8:00AM - 9:00PM",
-        "სამშაბათი: 8:00AM - 9:00PM",
-        "ოთხშაბათი: 8:00AM - 9:00PM",
-        "ხუთშაბათი: 8:00AM - 9:00PM",
-        "პარასკევი: 8:00AM - 9:00PM",
-        "შაბათი: 8:00AM - 9:00PM",
-        "კვირა: არ მუშაობს"
+        `ორშაბათი: ${CompanyData.mondayTime}`,
+        `სამშაბათი: ${CompanyData.tuesdayTime}`,
+        `ოთხშაბათი: ${CompanyData.wednesdayTime}`,
+        `ხუთშაბათი: ${CompanyData.thursdayTime}`,
+        `პარასკევი: ${CompanyData.fridayTime}`,
+        `შაბათი: ${CompanyData.saturdayTime}`,
+        `კვირა: ${CompanyData.sundayTime}`
     ],
-    aboutUs: "Acupanel არის აკუსტიკური პანელების წამყვანი მწარმოებელი, რომელიც გთავაზობთ მაღალი ხარისხის ხმის იზოლაციის გადაწყვეტილებებს საცხოვრებელი, კომერციული და ინდუსტრიული სივრცისთვის. ცნობილია ინოვაციური დიზაინებითა და მდგრადი მასალებით, Acupanel ქმნის პროდუქტებს, რომლებიც აუმჯობესებენ როგორც აკუსტიკას, ისე ესთეტიკას, რაც ეხმარება მომხმარებლებს მიაღწიონ ოპტიმალურ ხმის ხარისხს და ვიზუალურად მიმზიდველ გარემოს.",
-    instragramLink: "https://instagram.com",
-    facebookLink: "https://facebook.com",
-    email: "paniacoustics.com",
-    phone: "+995 577 15 2727"
+    aboutUs: `${CompanyData.aboutUsKa}`,
+    instragramLink: `${CompanyData.instagram}`,
+    facebookLink: `${CompanyData.facebook}`,
+    email: `${CompanyData.email}`,
+    phone: `${CompanyData.mobile}`
 };

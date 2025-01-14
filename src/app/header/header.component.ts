@@ -2,10 +2,10 @@ import { Component, inject, Renderer2 } from '@angular/core';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
-import { DataServiceService } from '../services/data-service.service';
 import { LanguageService } from '../services/language.service';
 import { Subscription } from 'rxjs';
 import { HeaderContent } from '../DUMMY_DATA/HEADERCOMPONENT-CONTENT/geo';
+import { CompanyData } from '../DUMMY_DATA/company-info';
 
 @Component({
   selector: 'app-header',
@@ -15,15 +15,13 @@ import { HeaderContent } from '../DUMMY_DATA/HEADERCOMPONENT-CONTENT/geo';
 export class HeaderComponent {
    constructor(private renderer: Renderer2, private languageService: LanguageService){}
    
-
-   private dataService = inject(DataServiceService);
    private languageSubscription: Subscription | null = null;
 
    faBars = faBars;
    faX = faXmark;
    faCheck = faCheck;
    
-   brandLogo = this.dataService.brandLogo;
+   brandLogo = CompanyData.logo;
    headerContent = HeaderContent;
    isLoaded: boolean = false;
 
@@ -38,14 +36,12 @@ export class HeaderComponent {
   }
 
   ngOnInit(): void {
-    // Subscribe to language changes
     this.languageSubscription = this.languageService.language$.subscribe((language) => {
       this.headerContent = this.languageService.getHeaderContentTranslation(language);
     });
   }
  
    ngOnDestroy(): void {
-     // Clean up subscription
      this.languageSubscription?.unsubscribe();
    }
    
