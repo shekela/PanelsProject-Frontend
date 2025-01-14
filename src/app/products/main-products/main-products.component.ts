@@ -29,8 +29,8 @@ export class MainProductsComponent {
 
             if (this.products && this.products.products) {
                 this.products.products.forEach(product => {
-                    if (product.backgroundUrl && !product.backgroundUrl.startsWith('https://localhost:7001/')) {
-                        product.backgroundUrl = `https://localhost:7001${product.backgroundUrl}`;
+                    if (product.backgroundUrl && !product.backgroundUrl.startsWith('https://panelsprojectbackend-dvhuaffabfd2ejbs.southeastasia-01.azurewebsites.net/')) {
+                        product.backgroundUrl = `https://panelsprojectbackend-dvhuaffabfd2ejbs.southeastasia-01.azurewebsites.net${product.backgroundUrl}`;
                         console.log(`Product URL: ${product.backgroundUrl}`);  // Log the URL for debugging
                     }
                 });
@@ -46,8 +46,8 @@ export class MainProductsComponent {
 
                 if (this.products && this.products.products) {
                     this.products.products.forEach(product => {
-                        if (product.backgroundUrl && !product.backgroundUrl.startsWith('https://localhost:7001/')) {
-                            product.backgroundUrl = `https://localhost:7001${product.backgroundUrl}`;
+                        if (product.backgroundUrl && !product.backgroundUrl.startsWith('https://panelsprojectbackend-dvhuaffabfd2ejbs.southeastasia-01.azurewebsites.net/')) {
+                            product.backgroundUrl = `https://panelsprojectbackend-dvhuaffabfd2ejbs.southeastasia-01.azurewebsites.net${product.backgroundUrl}`;
                             console.log(`Product URL: ${product.backgroundUrl}`);  // Log the URL for debugging
                         }
                     });

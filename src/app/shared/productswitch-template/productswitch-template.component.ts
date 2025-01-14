@@ -46,8 +46,8 @@ export class ProductswitchTemplateComponent {
   
     // Prepend 'localhost:7001' to the backgroundUrl of each product if not already included
     this.products = this.products.map(product => {
-      if (!product.backgroundUrl.startsWith('https://localhost:7001')) {
-        product.backgroundUrl = `https://localhost:7001${product.backgroundUrl}`;
+      if (!product.backgroundUrl.startsWith('https://panelsprojectbackend-dvhuaffabfd2ejbs.southeastasia-01.azurewebsites.net')) {
+        product.backgroundUrl = `https://panelsprojectbackend-dvhuaffabfd2ejbs.southeastasia-01.azurewebsites.net${product.backgroundUrl}`;
       }
       return product;
     });

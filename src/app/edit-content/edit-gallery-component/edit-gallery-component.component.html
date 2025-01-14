@@ -9,7 +9,7 @@
         <div class="edit-gallery-container">
             <div *ngFor="let picture of galleryPictures" class="picture">
                 <div class="image-container">
-                    <img [src]="'https://localhost:7001' + picture.picture" alt="Gallery Image" />
+                    <img [src]="'https://panelsprojectbackend-dvhuaffabfd2ejbs.southeastasia-01.azurewebsites.net' + picture.picture" alt="Gallery Image" />
                     <div class="overlay">
                         <button class="delete-button" (click)="openDeleteConfirm(picture.id)">Delete</button>
                     </div>

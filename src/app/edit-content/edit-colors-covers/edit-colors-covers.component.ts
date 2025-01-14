@@ -55,12 +55,12 @@ export class EditColorsCoversComponent {
   }
 
   loadProducts(): void {
-    this.http.get<ColorAndCovers[]>('https://localhost:7001/api/ColorAndCovers/get-ColorAndCovers')
+    this.http.get<ColorAndCovers[]>('https://panelsprojectbackend-dvhuaffabfd2ejbs.southeastasia-01.azurewebsites.net/api/ColorAndCovers/get-ColorAndCovers')
       .subscribe(data => {
-        // Iterate over each product and ensure the backgroundUrl is prefixed with 'https://localhost:7001'
+        // Iterate over each product and ensure the backgroundUrl is prefixed with 'https://panelsprojectbackend-dvhuaffabfd2ejbs.southeastasia-01.azurewebsites.net'
         this.products = data.map(product => {
-          if (product.backgroundUrl && !product.backgroundUrl.startsWith('https://localhost:7001')) {
-            product.backgroundUrl = 'https://localhost:7001' + product.backgroundUrl;
+          if (product.backgroundUrl && !product.backgroundUrl.startsWith('https://panelsprojectbackend-dvhuaffabfd2ejbs.southeastasia-01.azurewebsites.net')) {
+            product.backgroundUrl = 'https://panelsprojectbackend-dvhuaffabfd2ejbs.southeastasia-01.azurewebsites.net' + product.backgroundUrl;
           }
           return product;
         });
@@ -112,14 +112,14 @@ export class EditColorsCoversComponent {
     // Send the appropriate HTTP request based on editMode (PUT or POST)
     if (this.editMode) {
       // PUT request for updating product
-      this.http.put(`https://localhost:7001/api/ColorAndCovers/update-product/${this.currentProduct.id}`, formData)
+      this.http.put(`https://panelsprojectbackend-dvhuaffabfd2ejbs.southeastasia-01.azurewebsites.net/api/ColorAndCovers/update-product/${this.currentProduct.id}`, formData)
         .subscribe(() => {
           this.loadProducts();
           this.closeProductPopup();
         });
     } else {
       // POST request for adding a new product
-      this.http.post('https://localhost:7001/api/ColorAndCovers/add-product', formData)
+      this.http.post('https://panelsprojectbackend-dvhuaffabfd2ejbs.southeastasia-01.azurewebsites.net/api/ColorAndCovers/add-product', formData)
         .subscribe(() => {
           this.loadProducts();
           this.closeProductPopup();
@@ -140,7 +140,7 @@ export class EditColorsCoversComponent {
 
   deleteProduct(): void {
     if (this.productToDeleteId !== null) {
-      this.http.delete(`https://localhost:7001/api/ColorAndCovers/delete-color-and-covers/${this.productToDeleteId}`)
+      this.http.delete(`https://panelsprojectbackend-dvhuaffabfd2ejbs.southeastasia-01.azurewebsites.net/api/ColorAndCovers/delete-color-and-covers/${this.productToDeleteId}`)
         .subscribe(() => {
           this.loadProducts();
           this.closeDeletePopup();

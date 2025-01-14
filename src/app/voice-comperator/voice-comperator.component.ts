@@ -46,8 +46,8 @@ export class VoiceComperatorComponent {
       this.voiceComperatorData =
         this.separationService.translations.voiceComperator[language] ||
         this.separationService.translations.voiceComperator['GEO'];
-        this.voice1Path = 'https://localhost:7001' + this.voiceComperatorData.voiceWOAcupanel;
-        this.voice2Path = 'https://localhost:7001' + this.voiceComperatorData.voiceAcupanel;
+        this.voice1Path = 'https://panelsprojectbackend-dvhuaffabfd2ejbs.southeastasia-01.azurewebsites.net' + this.voiceComperatorData.voiceWOAcupanel;
+        this.voice2Path = 'https://panelsprojectbackend-dvhuaffabfd2ejbs.southeastasia-01.azurewebsites.net' + this.voiceComperatorData.voiceAcupanel;
     });
   
     this.subscription.add(
@@ -56,8 +56,8 @@ export class VoiceComperatorComponent {
         this.voiceComperatorData =
           this.separationService.translations.voiceComperator[currentLanguage] ||
           this.separationService.translations.mainProducts['GEO'];
-          this.voice1Path = 'https://localhost:7001' + this.voiceComperatorData.voiceWOAcupanel;
-          this.voice2Path = 'https://localhost:7001' + this.voiceComperatorData.voiceAcupanel;
+          this.voice1Path = 'https://panelsprojectbackend-dvhuaffabfd2ejbs.southeastasia-01.azurewebsites.net' + this.voiceComperatorData.voiceWOAcupanel;
+          this.voice2Path = 'https://panelsprojectbackend-dvhuaffabfd2ejbs.southeastasia-01.azurewebsites.net' + this.voiceComperatorData.voiceAcupanel;
       })
     );
   }

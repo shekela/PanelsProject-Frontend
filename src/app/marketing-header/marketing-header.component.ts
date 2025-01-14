@@ -25,8 +25,8 @@ export class MarketingHeaderComponent implements OnInit, OnDestroy {
       this.marketingBannerData =
         this.separationService.translations.marketingBanner[language] ||
         this.separationService.translations.marketingBanner['GEO'];
-      if (this.marketingBannerData.imgUrl && !this.marketingBannerData.imgUrl.startsWith('https://localhost:7001/')) {
-        this.marketingBannerData.imgUrl = 'https://localhost:7001/' + this.marketingBannerData.imgUrl;
+      if (this.marketingBannerData.imgUrl && !this.marketingBannerData.imgUrl.startsWith('https://panelsprojectbackend-dvhuaffabfd2ejbs.southeastasia-01.azurewebsites.net/')) {
+        this.marketingBannerData.imgUrl = 'https://panelsprojectbackend-dvhuaffabfd2ejbs.southeastasia-01.azurewebsites.net/' + this.marketingBannerData.imgUrl;
       }
     });
   
@@ -36,8 +36,8 @@ export class MarketingHeaderComponent implements OnInit, OnDestroy {
         this.marketingBannerData =
           this.separationService.translations.marketingBanner[currentLanguage] ||
           this.separationService.translations.marketingBanner['GEO'];
-        if (this.marketingBannerData.imgUrl && !this.marketingBannerData.imgUrl.startsWith('https://localhost:7001/')) {
-          this.marketingBannerData.imgUrl = 'https://localhost:7001/' + this.marketingBannerData.imgUrl;
+        if (this.marketingBannerData.imgUrl && !this.marketingBannerData.imgUrl.startsWith('https://panelsprojectbackend-dvhuaffabfd2ejbs.southeastasia-01.azurewebsites.net/')) {
+          this.marketingBannerData.imgUrl = 'https://panelsprojectbackend-dvhuaffabfd2ejbs.southeastasia-01.azurewebsites.net/' + this.marketingBannerData.imgUrl;
         }
       })
     );

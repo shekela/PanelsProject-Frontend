@@ -52,7 +52,7 @@ export class EditGalleryComponentComponent {
   // Delete the selected picture
   deletePicture(): void {
     if (this.pictureToDeleteId !== null) {
-      this.http.delete(`https://localhost:7001/api/Gallery/delete-picture/${this.pictureToDeleteId}`)
+      this.http.delete(`https://panelsprojectbackend-dvhuaffabfd2ejbs.southeastasia-01.azurewebsites.net/api/Gallery/delete-picture/${this.pictureToDeleteId}`)
         .subscribe(
           (response) => {
             console.log('Picture deleted successfully:', response);
@@ -68,7 +68,7 @@ export class EditGalleryComponentComponent {
   }
 
   loadGalleryPictures(): void {
-    this.http.get<GalleryObjectModel[]>('https://localhost:7001/api/Gallery/get-gallery')
+    this.http.get<GalleryObjectModel[]>('https://panelsprojectbackend-dvhuaffabfd2ejbs.southeastasia-01.azurewebsites.net/api/Gallery/get-gallery')
       .subscribe(
         (response) => {
           this.galleryPictures = response; // Assign the response to the galleryPictures array
@@ -118,7 +118,7 @@ closeGalleryTextsPopup() {
     }
 
     // Call the backend API
-    this.http.post('https://localhost:7001/api/Gallery/add-picture', formData)
+    this.http.post('https://panelsprojectbackend-dvhuaffabfd2ejbs.southeastasia-01.azurewebsites.net/api/Gallery/add-picture', formData)
       .subscribe(
         (response) => {
           console.log('Picture added/updated successfully:', response);
@@ -134,7 +134,7 @@ closeGalleryTextsPopup() {
 
   // Update section texts
   updateGalleryTexts(): void {
-    this.http.post('https://localhost:7001/api/Gallery/createGalleryTexts', this.sectionTexts)
+    this.http.post('https://panelsprojectbackend-dvhuaffabfd2ejbs.southeastasia-01.azurewebsites.net/api/Gallery/createGalleryTexts', this.sectionTexts)
       .subscribe(
         (response) => {
           console.log('Section texts updated successfully:', response);

@@ -37,7 +37,7 @@ export class EditSaleitemsComponentComponent {
       (data: any) => {
         this.saleItems = data.map((item: any) => ({
           ...item,
-          picture: item.picture ? `https://localhost:7001${item.picture}` : null
+          picture: item.picture ? `https://panelsprojectbackend-dvhuaffabfd2ejbs.southeastasia-01.azurewebsites.net${item.picture}` : null
         }));
       },
       (error) => {

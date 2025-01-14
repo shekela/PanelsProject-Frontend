@@ -50,8 +50,8 @@ export class EditProductCatalogSliderComponent {
       .subscribe((data) => {
         // Update the products with the correct background URL
         this.products = data.map(product => {
-          if (!product.backgroundUrl.startsWith('https://localhost:7001')) {
-            product.backgroundUrl = `https://localhost:7001${product.backgroundUrl}`;
+          if (!product.backgroundUrl.startsWith('https://panelsprojectbackend-dvhuaffabfd2ejbs.southeastasia-01.azurewebsites.net')) {
+            product.backgroundUrl = `https://panelsprojectbackend-dvhuaffabfd2ejbs.southeastasia-01.azurewebsites.net${product.backgroundUrl}`;
           }
           return product;
         });

@@ -54,8 +54,8 @@ export class AdminPanelComponent {
         this.separationService.translations.colorsAndCovers[language] ||
         this.separationService.translations.colorsAndCovers['GEO'];
         this.colorAndCoversProducts = this.colorAndCoversProducts.map(product => {
-          if (product.backgroundUrl && !product.backgroundUrl.startsWith('https://localhost:7001')) {
-            product.backgroundUrl = 'https://localhost:7001' + product.backgroundUrl;
+          if (product.backgroundUrl && !product.backgroundUrl.startsWith('https://panelsprojectbackend-dvhuaffabfd2ejbs.southeastasia-01.azurewebsites.net')) {
+            product.backgroundUrl = 'https://panelsprojectbackend-dvhuaffabfd2ejbs.southeastasia-01.azurewebsites.net' + product.backgroundUrl;
           }
           return product;
         });
@@ -68,8 +68,8 @@ export class AdminPanelComponent {
           this.separationService.translations.colorsAndCovers[currentLanguage] ||
           this.separationService.translations.colorsAndCovers['GEO'];
           this.colorAndCoversProducts = this.colorAndCoversProducts.map(product => {
-            if (product.backgroundUrl && !product.backgroundUrl.startsWith('https://localhost:7001')) {
-              product.backgroundUrl = 'https://localhost:7001' + product.backgroundUrl;
+            if (product.backgroundUrl && !product.backgroundUrl.startsWith('https://panelsprojectbackend-dvhuaffabfd2ejbs.southeastasia-01.azurewebsites.net')) {
+              product.backgroundUrl = 'https://panelsprojectbackend-dvhuaffabfd2ejbs.southeastasia-01.azurewebsites.net' + product.backgroundUrl;
             }
             return product;
           });

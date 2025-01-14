@@ -47,8 +47,8 @@ export class ProductsComponent {
     if (this.pageData && this.pageData.saleItems) {
       this.pageData.saleItems.forEach((item) => {
         if (item.picture) {
-          if (!item.picture.startsWith('https://localhost:7001')) {
-            item.picture = `https://localhost:7001${item.picture}`;
+          if (!item.picture.startsWith('https://panelsprojectbackend-dvhuaffabfd2ejbs.southeastasia-01.azurewebsites.net')) {
+            item.picture = `https://panelsprojectbackend-dvhuaffabfd2ejbs.southeastasia-01.azurewebsites.net${item.picture}`;
           }
         }
       });

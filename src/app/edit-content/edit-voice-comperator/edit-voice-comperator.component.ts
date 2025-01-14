@@ -26,12 +26,12 @@ export class EditVoiceComperatorComponent {
   }
 
   loadVoices(): void {
-    this.http.get<VoiceComperatorDto[]>('https://localhost:7001/api/VoiceComperator/get-VoiceExamples')
+    this.http.get<VoiceComperatorDto[]>('https://panelsprojectbackend-dvhuaffabfd2ejbs.southeastasia-01.azurewebsites.net/api/VoiceComperator/get-VoiceExamples')
       .subscribe(data => {
         this.voices = data.map(voice => ({
           ...voice,
-          voiceAcupanel: `https://localhost:7001${voice.voiceAcupanel}`,
-          voiceWOAcupanel: `https://localhost:7001${voice.voiceWOAcupanel}`,
+          voiceAcupanel: `https://panelsprojectbackend-dvhuaffabfd2ejbs.southeastasia-01.azurewebsites.net${voice.voiceAcupanel}`,
+          voiceWOAcupanel: `https://panelsprojectbackend-dvhuaffabfd2ejbs.southeastasia-01.azurewebsites.net${voice.voiceWOAcupanel}`,
         }));
       });
   }
@@ -61,13 +61,13 @@ export class EditVoiceComperatorComponent {
     }
 
     if (this.editMode) {
-      this.http.put(`https://localhost:7001/api/VoiceComperator/update-voice/${this.currentVoice.id}`, formData)
+      this.http.put(`https://panelsprojectbackend-dvhuaffabfd2ejbs.southeastasia-01.azurewebsites.net/api/VoiceComperator/update-voice/${this.currentVoice.id}`, formData)
         .subscribe(() => {
           this.loadVoices();
           this.closeVoicePopup();
         });
     } else {
-      this.http.post('https://localhost:7001/api/VoiceComperator/AddVoices', formData)
+      this.http.post('https://panelsprojectbackend-dvhuaffabfd2ejbs.southeastasia-01.azurewebsites.net/api/VoiceComperator/AddVoices', formData)
         .subscribe(() => {
           this.loadVoices();
           this.closeVoicePopup();
@@ -94,7 +94,7 @@ export class EditVoiceComperatorComponent {
 
   deleteVoice(): void {
     if (this.voiceToDeleteId !== null) {
-      this.http.delete(`https://localhost:7001/api/VoiceComperator/delete-voice/${this.voiceToDeleteId}`)
+      this.http.delete(`https://panelsprojectbackend-dvhuaffabfd2ejbs.southeastasia-01.azurewebsites.net/api/VoiceComperator/delete-voice/${this.voiceToDeleteId}`)
         .subscribe(() => {
           this.loadVoices();
           this.closeDeletePopup();
