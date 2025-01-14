@@ -54,16 +54,16 @@
           <div *ngIf="currentField === 'Background Url'" class="form-section">
             <div class="file-upload-wrapper">
               <input
-                id="background-url"
-                type="file"
-                (change)="onFileSelected($event)"
-                accept="image/*"
-                class="file-upload-input"
-                required
-              />
+              id="background-url"
+              type="file"
+              (change)="onFileSelected($event)"
+              accept="image/*, video/*"
+              class="file-upload-input"
+              required
+            />
               <label for="background-url" class="file-upload-label">
                 <span class="upload-icon">📁</span>
-                Upload Background Image
+                Upload Background Image / Video
               </label>
               <span class="file-upload-name" *ngIf="selectedFile">
                 {{ selectedFile.name }}
