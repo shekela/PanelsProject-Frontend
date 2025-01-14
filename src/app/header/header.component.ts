@@ -6,6 +6,7 @@ import { LanguageService } from '../services/language.service';
 import { Subscription } from 'rxjs';
 import { HeaderContent } from '../DUMMY_DATA/HEADERCOMPONENT-CONTENT/geo';
 import { CompanyData } from '../DUMMY_DATA/company-info';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -13,7 +14,7 @@ import { CompanyData } from '../DUMMY_DATA/company-info';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
-   constructor(private renderer: Renderer2, private languageService: LanguageService){}
+   constructor(private renderer: Renderer2, private languageService: LanguageService, private router: Router){}
    
    private languageSubscription: Subscription | null = null;
 
@@ -24,6 +25,10 @@ export class HeaderComponent {
    brandLogo = CompanyData.logo;
    headerContent = HeaderContent;
    isLoaded: boolean = false;
+
+   goToHomePage(){
+    this.router.navigate(['/']);
+   }
 
    onOpen() {
     if (this.isLoaded) {

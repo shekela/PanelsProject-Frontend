@@ -49,7 +49,7 @@ export class EditAboutusComponentComponent {
 
       this.requestService.updateAboutUsGreetingAndImage(formData).subscribe(
         response => {
-          console.log('Greeting Texts and Image updated successfully:', response);
+          this.closePopup();
         },
         error => {
           console.error('Error updating Greeting Texts and Image:', error);

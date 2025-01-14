@@ -8,12 +8,29 @@
     <div class="current-pictures">
         <div class="edit-gallery-container">
             <div *ngFor="let picture of galleryPictures" class="picture">
-                <div class="image-container">
-                    <img [src]="picture.picture" alt="Gallery Image" />
-                    <div class="overlay">
-                        <button class="delete-button" (click)="openDeleteConfirm(picture.id)">Delete</button>
+                <ng-container *ngIf="picture.mediaType == 'image'">
+                    <div class="image-container">
+                        <img [src]="picture.picture" alt="Gallery Image" />
+                        <div class="overlay">
+                            <button class="delete-button" (click)="openDeleteConfirm(picture.id)">Delete</button>
+                        </div>
                     </div>
-                </div>
+                </ng-container>
+                <ng-container *ngIf="picture.mediaType == 'video'">
+                    <div class="image-container">
+                        <video
+                        #mainVideo
+                        autoplay
+                        loop
+                        playsinline
+                        [src]="picture.picture"
+                        class="video-element"
+                      ></video>
+                        <div class="overlay">
+                            <button class="delete-button" (click)="openDeleteConfirm(picture.id)">Delete</button>
+                        </div>
+                    </div>
+                </ng-container>
             </div>
         </div>    
     </div>
@@ -45,22 +62,42 @@
                     <label for="picture-url">Picture URL:</label>
                     <input id="picture-url" type="text" [(ngModel)]="newPicture.url" name="url" class="form-control" required />
 
-                    <div class="file-upload-wrapper">
-                        <input
-                          id="product-image"
-                          type="file"
-                          (change)="onFileSelected($event)"
-                          accept="image/*"
-                          class="file-upload-input"
-                        />
-                        <label for="product-image" class="file-upload-label">
-                          <span class="upload-icon">📁</span>
-                          Upload Background Image
-                        </label>
-                        <span class="file-upload-name" *ngIf="selectedFile">
-                          {{ selectedFile.name }}
-                        </span>
-                      </div>
+                    <ng-container *ngIf="newPicture.mediaType == 'video'">
+                        <div class="file-upload-wrapper">
+                            <input
+                              id="product-image"
+                              type="file"
+                              (change)="onFileSelected($event)"
+                              accept="video/*"
+                              class="file-upload-input"
+                            />
+                            <label for="product-image" class="file-upload-label">
+                              <span class="upload-icon">📁</span>
+                              Upload Background Video
+                            </label>
+                            <span class="file-upload-name" *ngIf="selectedFile">
+                              {{ selectedFile.name }}
+                            </span>
+                          </div>    
+                    </ng-container>
+                    <ng-container *ngIf="newPicture.mediaType == 'image'"> 
+                        <div class="file-upload-wrapper">
+                            <input
+                              id="product-image"
+                              type="file"
+                              (change)="onFileSelected($event)"
+                              accept="image/*"
+                              class="file-upload-input"
+                            />
+                            <label for="product-image" class="file-upload-label">
+                              <span class="upload-icon">📁</span>
+                              Upload Background Image
+                            </label>
+                            <span class="file-upload-name" *ngIf="selectedFile">
+                              {{ selectedFile.name }}
+                            </span>
+                          </div>    
+                    </ng-container>
 
                     <button type="submit" class="btn btn-success">Submit</button>
                     <button type="button" class="btn btn-danger" (click)="closeGalleryPicturesPopup()">Cancel</button>

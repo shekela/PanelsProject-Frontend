@@ -78,7 +78,7 @@ export class RequestsService {
   }
 
   deleteVoice(voiceId: number): Observable<any> {
-    return this.http.delete(`${environment.apiUrl}/delete-voice/${voiceId}`);
+    return this.http.delete(`${environment.apiUrl}/VoiceComperator/delete-voice/${voiceId}`);
   }
 
   // Method to add new voices (POST)

@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { mainProductSectionsDto } from 'src/app/DTOS/mainProductSectionsDto';
 import { GalleryComponentTextsInterface } from 'src/app/models/gallery-component-texts.model';
@@ -14,6 +14,7 @@ import { SeparationService } from 'src/app/services/separation.service';
   styleUrls: ['./edit-gallery-component.component.css']
 })
 export class EditGalleryComponentComponent {
+  @ViewChild('mainVideo', { static: false }) mainVideoElement!: ElementRef<HTMLVideoElement>;
 
   isGalleryPicturesPopupOpen: boolean = false;
   isGalleryTextsPopupOpen: boolean = false;
@@ -163,6 +164,18 @@ export class EditGalleryComponentComponent {
     const currentLanguage = this.languageService.getCurrentLanguage();
     this.separationService.fetchGalleryComponentTexts(currentLanguage);
   }
+  ngAfterViewChecked(): void {
+    this.applyVideoSettings(this.mainVideoElement);
+  }
+
+  private applyVideoSettings(videoElement: ElementRef<HTMLVideoElement> | undefined) {
+    if (videoElement) {
+      const video = videoElement.nativeElement;
+      video.muted = true; // Enable sound
+      video.volume = 0; // Set to full volume
+      console.log('Applied settings for video:', video.src);
+    }
+  }
 }
 
 class GalleryPictures {
@@ -171,3 +184,5 @@ class GalleryPictures {
   picture: string = '';
   url: string = '';
 }
+
+
