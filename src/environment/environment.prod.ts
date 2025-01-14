@@ -1,5 +1,5 @@
 export const environment = {
     production: true,
-    apiUrl: 'https://api.myproductiondomain.com/api', // Production API URL
+    apiUrl: 'https://panelsprojectbackend-dvhuaffabfd2ejbs.southeastasia-01.azurewebsites.net/api', // Production API URL
   };
   
