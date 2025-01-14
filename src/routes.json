@@ -1,0 +1,25 @@
+{
+    "routes": [
+      {
+        "route": "/admin/*",
+        "rewrite": "/index.html"
+      },
+      {
+        "route": "/products/*",
+        "rewrite": "/index.html"
+      },
+      {
+        "route": "/contact-us/*",
+        "rewrite": "/index.html"
+      },
+      {
+        "route": "/about-us/*",
+        "rewrite": "/index.html"
+      },
+      {
+        "route": "/*",
+        "rewrite": "/index.html"
+      }
+    ]
+  }
+  
