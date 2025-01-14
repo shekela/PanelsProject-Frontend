@@ -28,13 +28,6 @@ export class MainComponent {
         this.colorAndCoversProducts =
           this.separationService.translations.colorsAndCovers[language] ||
           this.separationService.translations.colorsAndCovers['GEO'];
-    
-        this.colorAndCoversProducts = this.colorAndCoversProducts.map(product => {
-          if (product.backgroundUrl && !product.backgroundUrl.startsWith('https://panelsprojectbackend-dvhuaffabfd2ejbs.southeastasia-01.azurewebsites.net')) {
-            product.backgroundUrl = 'https://panelsprojectbackend-dvhuaffabfd2ejbs.southeastasia-01.azurewebsites.net' + product.backgroundUrl;
-          }
-          return product;
-        });
       });
     
       this.subscription.add(
@@ -43,13 +36,6 @@ export class MainComponent {
           this.colorAndCoversProducts =
             this.separationService.translations.colorsAndCovers[currentLanguage] ||
             this.separationService.translations.colorsAndCovers['GEO'];
-    
-          this.colorAndCoversProducts = this.colorAndCoversProducts.map(product => {
-            if (product.backgroundUrl && !product.backgroundUrl.startsWith('https://panelsprojectbackend-dvhuaffabfd2ejbs.southeastasia-01.azurewebsites.net')) {
-              product.backgroundUrl = 'https://panelsprojectbackend-dvhuaffabfd2ejbs.southeastasia-01.azurewebsites.net' + product.backgroundUrl;
-            }
-            return product;
-          });
         })
       );
     }

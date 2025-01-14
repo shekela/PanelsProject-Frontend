@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { LanguageService } from 'src/app/services/language.service';
 import { VoiceComperatorDto } from 'src/app/DTOS/VoiceComperatorDto'; 
 import { SeparationService } from 'src/app/services/separation.service';
+import { RequestsService } from 'src/app/services/requests.service';
 
 @Component({
   selector: 'app-edit-voice-comperator',
@@ -19,20 +20,16 @@ export class EditVoiceComperatorComponent {
   selectedAcupanelFile: File | null = null;
   selectedWOAcupanelFile: File | null = null;
 
-  constructor(private http: HttpClient, private languageService: LanguageService, private separationService: SeparationService) {}
+  constructor(private http: HttpClient, private languageService: LanguageService, private separationService: SeparationService, private requestService: RequestsService) {}
 
   ngOnInit(): void {
     this.loadVoices();
   }
 
   loadVoices(): void {
-    this.http.get<VoiceComperatorDto[]>('https://panelsprojectbackend-dvhuaffabfd2ejbs.southeastasia-01.azurewebsites.net/api/VoiceComperator/get-VoiceExamples')
+    this.requestService.getVoiceComperator()
       .subscribe(data => {
-        this.voices = data.map(voice => ({
-          ...voice,
-          voiceAcupanel: `https://panelsprojectbackend-dvhuaffabfd2ejbs.southeastasia-01.azurewebsites.net${voice.voiceAcupanel}`,
-          voiceWOAcupanel: `https://panelsprojectbackend-dvhuaffabfd2ejbs.southeastasia-01.azurewebsites.net${voice.voiceWOAcupanel}`,
-        }));
+        this.voices = data;
       });
   }
 
@@ -61,13 +58,13 @@ export class EditVoiceComperatorComponent {
     }
 
     if (this.editMode) {
-      this.http.put(`https://panelsprojectbackend-dvhuaffabfd2ejbs.southeastasia-01.azurewebsites.net/api/VoiceComperator/update-voice/${this.currentVoice.id}`, formData)
+      this.requestService.updateVoice(this.currentVoice.id, formData)
         .subscribe(() => {
           this.loadVoices();
           this.closeVoicePopup();
         });
     } else {
-      this.http.post('https://panelsprojectbackend-dvhuaffabfd2ejbs.southeastasia-01.azurewebsites.net/api/VoiceComperator/AddVoices', formData)
+      this.requestService.addVoice(formData)
         .subscribe(() => {
           this.loadVoices();
           this.closeVoicePopup();
@@ -94,7 +91,7 @@ export class EditVoiceComperatorComponent {
 
   deleteVoice(): void {
     if (this.voiceToDeleteId !== null) {
-      this.http.delete(`https://panelsprojectbackend-dvhuaffabfd2ejbs.southeastasia-01.azurewebsites.net/api/VoiceComperator/delete-voice/${this.voiceToDeleteId}`)
+      this.requestService.deleteVoice(this.voiceToDeleteId)
         .subscribe(() => {
           this.loadVoices();
           this.closeDeletePopup();

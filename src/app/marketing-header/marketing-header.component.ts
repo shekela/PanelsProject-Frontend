@@ -25,9 +25,6 @@ export class MarketingHeaderComponent implements OnInit, OnDestroy {
       this.marketingBannerData =
         this.separationService.translations.marketingBanner[language] ||
         this.separationService.translations.marketingBanner['GEO'];
-      if (this.marketingBannerData.imgUrl && !this.marketingBannerData.imgUrl.startsWith('https://panelsprojectbackend-dvhuaffabfd2ejbs.southeastasia-01.azurewebsites.net/')) {
-        this.marketingBannerData.imgUrl = 'https://panelsprojectbackend-dvhuaffabfd2ejbs.southeastasia-01.azurewebsites.net/' + this.marketingBannerData.imgUrl;
-      }
     });
   
     this.subscription.add(
@@ -36,9 +33,6 @@ export class MarketingHeaderComponent implements OnInit, OnDestroy {
         this.marketingBannerData =
           this.separationService.translations.marketingBanner[currentLanguage] ||
           this.separationService.translations.marketingBanner['GEO'];
-        if (this.marketingBannerData.imgUrl && !this.marketingBannerData.imgUrl.startsWith('https://panelsprojectbackend-dvhuaffabfd2ejbs.southeastasia-01.azurewebsites.net/')) {
-          this.marketingBannerData.imgUrl = 'https://panelsprojectbackend-dvhuaffabfd2ejbs.southeastasia-01.azurewebsites.net/' + this.marketingBannerData.imgUrl;
-        }
       })
     );
   }

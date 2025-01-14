@@ -89,9 +89,12 @@
 }
 
 ::ng-deep app-edit-video-catalog .edit-section,
-::ng-deep app-edit-voice-comperator .edit-section,
 ::ng-deep app-edit-product-catalog-slider .edit-section {
     margin-top: 300px !important;
+}
+
+::ng-deep app-edit-voice-comperator .edit-section{
+    margin-top: 100px !important;
 }
 
 ::ng-deep app-edit-product-catalog-slider .edit-section {

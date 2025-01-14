@@ -46,7 +46,15 @@
     height: 33.5938px;
     letter-spacing: -0.38px;
     line-height: 33.6px;
-    margin: 0px 0px 40px 0px;
+    margin: 0; /* Remove any default margin from <p> */
+    padding: 0;
+    text-align: center;
+    line-height: 1.2;
+}
+p br {
+    display: block; /* Make <br> a block element */
+    margin: 0; /* Remove any margin from <br> */
+    padding: 0; /* Remove any padding from <br> */
 }
 
 .text button {
@@ -62,6 +70,7 @@
     overflow-wrap: break-word;
     text-align: center;
     justify-content: center;
+    margin-top: 50px;
 }
 
 .text button:hover {

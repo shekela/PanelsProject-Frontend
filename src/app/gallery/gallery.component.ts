@@ -150,7 +150,6 @@ ngOnInit(): void {
         ...pic,
         height: `${height}px`,
         rowSpan: Math.ceil(height / 8),
-        picture: `https://panelsprojectbackend-dvhuaffabfd2ejbs.southeastasia-01.azurewebsites.net${pic.picture}`
       };
     });
     this.loadMore();

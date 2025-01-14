@@ -7,7 +7,7 @@
         <h2>
           <strong> {{ product.title }}</strong>
         </h2>
-        <p>{{ product.description }}</p>
+        <p [innerHTML]="product.description | linebreak"></p>
         <button>{{ product.buttonText }}</button>
     </div>
 </div>

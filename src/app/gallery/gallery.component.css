@@ -69,6 +69,7 @@ section{
     grid-auto-rows: 8px; /* Each grid row is 8px tall */
     gap: 10px; /* 10px spacing between grid items */
     justify-content: center; /* Center the grid */
+    margin-top: 50px
   }
   
   .picture {

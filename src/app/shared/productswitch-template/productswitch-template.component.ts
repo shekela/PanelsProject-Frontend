@@ -43,21 +43,12 @@ export class ProductswitchTemplateComponent {
     this.products =
       this.separationService.translations.productsToChoose[language] ||
       this.separationService.translations.productsToChoose['GEO'];
-  
-    // Prepend 'localhost:7001' to the backgroundUrl of each product if not already included
-    this.products = this.products.map(product => {
-      if (!product.backgroundUrl.startsWith('https://panelsprojectbackend-dvhuaffabfd2ejbs.southeastasia-01.azurewebsites.net')) {
-        product.backgroundUrl = `https://panelsprojectbackend-dvhuaffabfd2ejbs.southeastasia-01.azurewebsites.net${product.backgroundUrl}`;
+      
+      if (this.products.length > 0) {
+        this.currentProduct = this.products[0];
+      } else {
+        this.currentProduct = null; // Handle empty products
       }
-      return product;
-    });
-  
-    // Set the first product as the current product
-    if (this.products.length > 0) {
-      this.currentProduct = this.products[0];
-    } else {
-      this.currentProduct = null; // Handle empty products
-    }
   }
   
 

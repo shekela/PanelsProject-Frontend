@@ -73,6 +73,18 @@ export class RequestsService {
       })
     );
   }
+  updateVoice(voiceId: number, formData: FormData): Observable<any> {
+    return this.http.put(`${environment.apiUrl}/VoiceComperator/update-voice/${voiceId}`, formData);
+  }
+
+  deleteVoice(voiceId: number): Observable<any> {
+    return this.http.delete(`${environment.apiUrl}/delete-voice/${voiceId}`);
+  }
+
+  // Method to add new voices (POST)
+  addVoice(formData: FormData): Observable<any> {
+    return this.http.post(`${environment.apiUrl}/VoiceComperator/AddVoices`, formData);
+  }
 
   getColorAndCovers(): Observable<productsDto[]> {
     return this.http.get<productsDto[]>(`${environment.apiUrl}/ColorAndCovers/get-ColorAndCovers`).pipe(
@@ -81,6 +93,22 @@ export class RequestsService {
         return throwError(() => new Error('Failed to fetch marketing banners. Please try again later.'));
       })
     );
+  }
+
+  deleteColorAndCoversProduct(id: number): Observable<any> {
+    const url = `${environment.apiUrl}/ColorAndCovers/delete-color-and-covers/${id}`;
+    return this.http.delete(url);
+  }
+  
+
+  updateColorAndCoversProduct(id: number, formData: any): Observable<any> {
+    const url = `${environment.apiUrl}/ColorAndCovers/update-product/${id}`;
+    return this.http.put(url, formData);
+  }
+  
+  addColorAndCoversProduct(formData: any): Observable<any> {
+    const url = `${environment.apiUrl}/ColorAndCovers/add-product`;
+    return this.http.post(url, formData);
   }
 
   getGalleryTexts(): Observable<mainProductSectionsDto[]> {
@@ -100,6 +128,18 @@ export class RequestsService {
       })
     );
   }  
+
+  addGalleryPicture(formData: FormData): Observable<any> {
+    return this.http.post(`${environment.apiUrl}/Gallery/add-picture`, formData);
+  }
+
+  updateGalleryTexts(sectionTexts: mainProductSectionsDto): Observable<any> {
+    return this.http.post(`${environment.apiUrl}/Gallery/createGalleryTexts`, sectionTexts);
+  }
+
+  deleteGalleryPicture(pictureId: number): Observable<any> {
+    return this.http.delete(`${environment.apiUrl}/Gallery/delete-picture/${pictureId}`);
+  }
 
   submitMarketingBanner(bannerData: any, imageFile?: File): Observable<any> {
     const formData = new FormData();

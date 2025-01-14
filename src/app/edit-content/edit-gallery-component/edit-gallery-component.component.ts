@@ -1,9 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { mainProductSectionsDto } from 'src/app/DTOS/mainProductSectionsDto';
 import { GalleryComponentTextsInterface } from 'src/app/models/gallery-component-texts.model';
 import { GalleryObjectModel } from 'src/app/models/gallery-objects.model';
 import { LanguageService } from 'src/app/services/language.service';
+import { RequestsService } from 'src/app/services/requests.service';
 import { SeparationService } from 'src/app/services/separation.service';
 
 @Component({
@@ -26,14 +28,14 @@ export class EditGalleryComponentComponent {
   selectedFile: File | null = null;
 
   newPicture: GalleryPictures = new GalleryPictures();
-  sectionTexts: GallerySectionTexts = new GallerySectionTexts();
+  GalleryTexts!: mainProductSectionsDto[];
 
-  constructor(private fb: FormBuilder, private http: HttpClient, private languageService: LanguageService, private separationService: SeparationService) {
+  constructor(private fb: FormBuilder, private http: HttpClient, private languageService: LanguageService, private separationService: SeparationService, private reuqestService: RequestsService) {
     
   }
 
   ngOnInit(): void {
-    // Load gallery pictures here
+    this.loadGalleryTexts();
     this.loadGalleryPictures();
   }
 
@@ -52,7 +54,7 @@ export class EditGalleryComponentComponent {
   // Delete the selected picture
   deletePicture(): void {
     if (this.pictureToDeleteId !== null) {
-      this.http.delete(`https://panelsprojectbackend-dvhuaffabfd2ejbs.southeastasia-01.azurewebsites.net/api/Gallery/delete-picture/${this.pictureToDeleteId}`)
+      this.reuqestService.deleteGalleryPicture(this.pictureToDeleteId)
         .subscribe(
           (response) => {
             console.log('Picture deleted successfully:', response);
@@ -68,33 +70,43 @@ export class EditGalleryComponentComponent {
   }
 
   loadGalleryPictures(): void {
-    this.http.get<GalleryObjectModel[]>('https://panelsprojectbackend-dvhuaffabfd2ejbs.southeastasia-01.azurewebsites.net/api/Gallery/get-gallery')
+    this.reuqestService.getGalleryPictures()
       .subscribe(
         (response) => {
-          this.galleryPictures = response; // Assign the response to the galleryPictures array
+          this.galleryPictures = response;
         },
         (error) => {
           console.error('Error loading gallery pictures:', error);
         }
       );
   }
+
+  loadGalleryTexts(): void{
+    this.reuqestService.getGalleryTexts()
+      .subscribe(
+        (response) => {
+          this.GalleryTexts = response;
+          console.log(this.GalleryTexts);
+        }
+      )
+  }
  
   
-openGalleryPicturesPopup() {
-    this.isGalleryPicturesPopupOpen = true;
-}
+  openGalleryPicturesPopup() {
+      this.isGalleryPicturesPopupOpen = true;
+  }
 
-closeGalleryPicturesPopup() {
-    this.isGalleryPicturesPopupOpen = false;
-}
+  closeGalleryPicturesPopup() {
+      this.isGalleryPicturesPopupOpen = false;
+  }
 
-openGalleryTextsPopup() {
-    this.isGalleryTextsPopupOpen = true;
-}
+  openGalleryTextsPopup() {
+      this.isGalleryTextsPopupOpen = true;
+  }
 
-closeGalleryTextsPopup() {
-    this.isGalleryTextsPopupOpen = false;
-}
+  closeGalleryTextsPopup() {
+      this.isGalleryTextsPopupOpen = false;
+  }
 
   onFileSelected(event: any): void {
     this.selectedFile = event.target.files[0];
@@ -117,8 +129,7 @@ closeGalleryTextsPopup() {
         formData.append('backgroundImage', this.selectedFile, this.selectedFile.name);
     }
 
-    // Call the backend API
-    this.http.post('https://panelsprojectbackend-dvhuaffabfd2ejbs.southeastasia-01.azurewebsites.net/api/Gallery/add-picture', formData)
+    this.reuqestService.addGalleryPicture(formData)
       .subscribe(
         (response) => {
           console.log('Picture added/updated successfully:', response);
@@ -134,7 +145,7 @@ closeGalleryTextsPopup() {
 
   // Update section texts
   updateGalleryTexts(): void {
-    this.http.post('https://panelsprojectbackend-dvhuaffabfd2ejbs.southeastasia-01.azurewebsites.net/api/Gallery/createGalleryTexts', this.sectionTexts)
+    this.reuqestService.updateGalleryTexts(this.GalleryTexts[0])
       .subscribe(
         (response) => {
           console.log('Section texts updated successfully:', response);
@@ -159,14 +170,4 @@ class GalleryPictures {
   mediaType: string = '';
   picture: string = '';
   url: string = '';
-}
-
-class GallerySectionTexts {
-  id: number = 0;
-  titleEn: string = '';
-  titleTextEn: string = '';
-  titleKa: string = '';
-  titleTextKa: string = '';
-  titleRu: string = '';
-  titleTextRu: string = '';
 }

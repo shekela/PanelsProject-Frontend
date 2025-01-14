@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { LanguageService } from 'src/app/services/language.service';
+import { RequestsService } from 'src/app/services/requests.service';
 import { SeparationService } from 'src/app/services/separation.service';
 
 export interface ColorAndCovers {
@@ -32,7 +33,7 @@ export class EditColorsCoversComponent {
   productToDeleteId: number | null = null;
   selectedImageFile: File | null = null;
 
-  constructor(private http: HttpClient, private languageService: LanguageService, private separationService: SeparationService) {}
+  constructor(private http: HttpClient, private languageService: LanguageService, private separationService: SeparationService, private requestService: RequestsService) {}
 
   ngOnInit(): void {
     this.loadProducts();
@@ -55,15 +56,9 @@ export class EditColorsCoversComponent {
   }
 
   loadProducts(): void {
-    this.http.get<ColorAndCovers[]>('https://panelsprojectbackend-dvhuaffabfd2ejbs.southeastasia-01.azurewebsites.net/api/ColorAndCovers/get-ColorAndCovers')
+    this.requestService.getColorAndCovers()
       .subscribe(data => {
-        // Iterate over each product and ensure the backgroundUrl is prefixed with 'https://panelsprojectbackend-dvhuaffabfd2ejbs.southeastasia-01.azurewebsites.net'
-        this.products = data.map(product => {
-          if (product.backgroundUrl && !product.backgroundUrl.startsWith('https://panelsprojectbackend-dvhuaffabfd2ejbs.southeastasia-01.azurewebsites.net')) {
-            product.backgroundUrl = 'https://panelsprojectbackend-dvhuaffabfd2ejbs.southeastasia-01.azurewebsites.net' + product.backgroundUrl;
-          }
-          return product;
-        });
+        this.products = data;
       });
     this.refreshTranslations();
   }
@@ -108,18 +103,17 @@ export class EditColorsCoversComponent {
     if (this.selectedImageFile) {
       formData.append('backgroundImage', this.selectedImageFile, this.selectedImageFile.name);
     }
-  
-    // Send the appropriate HTTP request based on editMode (PUT or POST)
+
     if (this.editMode) {
       // PUT request for updating product
-      this.http.put(`https://panelsprojectbackend-dvhuaffabfd2ejbs.southeastasia-01.azurewebsites.net/api/ColorAndCovers/update-product/${this.currentProduct.id}`, formData)
+      this.requestService.updateColorAndCoversProduct(this.currentProduct.id, formData)
         .subscribe(() => {
           this.loadProducts();
           this.closeProductPopup();
         });
     } else {
       // POST request for adding a new product
-      this.http.post('https://panelsprojectbackend-dvhuaffabfd2ejbs.southeastasia-01.azurewebsites.net/api/ColorAndCovers/add-product', formData)
+      this.requestService.addColorAndCoversProduct(formData)
         .subscribe(() => {
           this.loadProducts();
           this.closeProductPopup();
@@ -140,7 +134,7 @@ export class EditColorsCoversComponent {
 
   deleteProduct(): void {
     if (this.productToDeleteId !== null) {
-      this.http.delete(`https://panelsprojectbackend-dvhuaffabfd2ejbs.southeastasia-01.azurewebsites.net/api/ColorAndCovers/delete-color-and-covers/${this.productToDeleteId}`)
+      this.requestService.deleteColorAndCoversProduct(this.productToDeleteId)
         .subscribe(() => {
           this.loadProducts();
           this.closeDeletePopup();

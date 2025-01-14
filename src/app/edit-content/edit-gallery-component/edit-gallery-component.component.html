@@ -9,7 +9,7 @@
         <div class="edit-gallery-container">
             <div *ngFor="let picture of galleryPictures" class="picture">
                 <div class="image-container">
-                    <img [src]="'https://panelsprojectbackend-dvhuaffabfd2ejbs.southeastasia-01.azurewebsites.net' + picture.picture" alt="Gallery Image" />
+                    <img [src]="picture.picture" alt="Gallery Image" />
                     <div class="overlay">
                         <button class="delete-button" (click)="openDeleteConfirm(picture.id)">Delete</button>
                     </div>
@@ -77,22 +77,22 @@
             <form (ngSubmit)="updateGalleryTexts()">
                 <div class="form-section">
                     <label for="title-en">Title (English):</label>
-                    <input id="title-en" type="text" [(ngModel)]="sectionTexts.titleEn" name="titleEn" class="form-control" required />
+                    <input id="title-en" type="text" [(ngModel)]="GalleryTexts[0].titleEn" name="titleEn" class="form-control" required />
 
                     <label for="title-text-en">Title Text (English):</label>
-                    <textarea id="title-text-en" [(ngModel)]="sectionTexts.titleTextEn" name="titleTextEn" class="form-control" required></textarea>
+                    <textarea id="title-text-en" [(ngModel)]="GalleryTexts[0].titleTextEn" name="titleTextEn" class="form-control" required></textarea>
 
                     <label for="title-ka">Title (Georgian):</label>
-                    <input id="title-ka" type="text" [(ngModel)]="sectionTexts.titleKa" name="titleKa" class="form-control" required />
+                    <input id="title-ka" type="text" [(ngModel)]="GalleryTexts[0].titleKa" name="titleKa" class="form-control" required />
 
                     <label for="title-text-ka">Title Text (Georgian):</label>
-                    <textarea id="title-text-ka" [(ngModel)]="sectionTexts.titleTextKa" name="titleTextKa" class="form-control" required></textarea>
+                    <textarea id="title-text-ka" [(ngModel)]="GalleryTexts[0].titleTextKa" name="titleTextKa" class="form-control" required></textarea>
 
                     <label for="title-ru">Title (Russian):</label>
-                    <input id="title-ru" type="text" [(ngModel)]="sectionTexts.titleRu" name="titleRu" class="form-control" required />
+                    <input id="title-ru" type="text" [(ngModel)]="GalleryTexts[0].titleRu" name="titleRu" class="form-control" required />
 
                     <label for="title-text-ru">Title Text (Russian):</label>
-                    <textarea id="title-text-ru" [(ngModel)]="sectionTexts.titleTextRu" name="titleTextRu" class="form-control" required></textarea>
+                    <textarea id="title-text-ru" [(ngModel)]="GalleryTexts[0].titleTextRu" name="titleTextRu" class="form-control" required></textarea>
 
                     <button type="submit" class="btn btn-success">Submit</button>
                     <button type="button" class="btn btn-danger" (click)="closeGalleryTextsPopup()">Cancel</button>

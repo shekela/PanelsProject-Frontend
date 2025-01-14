@@ -2,7 +2,7 @@
      <div class="text-banner">
          <div>
             <h2>{{ title }}</h2>
-            <p [innerHTML]="(description ?? '') | linebreak"></p>
+            <p [innerHTML]="description | linebreak"></p>
          </div>
          <button>{{buttonText}}</button>
      </div>

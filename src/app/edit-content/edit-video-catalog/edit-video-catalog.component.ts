@@ -3,19 +3,6 @@ import { LanguageService } from 'src/app/services/language.service';
 import { RequestsService } from 'src/app/services/requests.service';
 import { SeparationService } from 'src/app/services/separation.service';
 
-export interface VideoCatalogDto {
-  TitleEn: string;
-  TitleRu: string;
-  TitleKa: string;
-  DescriptionEn: string;
-  DescriptionRu: string;
-  DescriptionKa: string;
-  ButtonTextEn: string;
-  ButtonTextRu: string;
-  ButtonTextKa: string;
-  BackgroundUrl: string;
-}
-
 @Component({
   selector: 'app-edit-video-catalog',
   templateUrl: './edit-video-catalog.component.html',

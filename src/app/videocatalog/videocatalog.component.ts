@@ -29,11 +29,6 @@ export class VideocatalogComponent implements OnInit, OnDestroy {
       this.videoCatalogData =
         this.separationService.translations.videoCatalog[language] ||
         this.separationService.translations.videoCatalog['GEO'];
-
-      // Ensure video URL is correct
-      if (this.videoCatalogData.backgroundUrl && !this.videoCatalogData.backgroundUrl.startsWith('https://panelsprojectbackend-dvhuaffabfd2ejbs.southeastasia-01.azurewebsites.net')) {
-        this.videoCatalogData.backgroundUrl = 'https://panelsprojectbackend-dvhuaffabfd2ejbs.southeastasia-01.azurewebsites.net' + this.videoCatalogData.backgroundUrl;
-      }
     });
 
     this.subscription.add(
@@ -42,11 +37,6 @@ export class VideocatalogComponent implements OnInit, OnDestroy {
         this.videoCatalogData =
           this.separationService.translations.videoCatalog[currentLanguage] ||
           this.separationService.translations.videoCatalog['GEO'];
-
-        // Ensure video URL is correct
-        if (this.videoCatalogData.backgroundUrl && !this.videoCatalogData.backgroundUrl.startsWith('https://panelsprojectbackend-dvhuaffabfd2ejbs.southeastasia-01.azurewebsites.net')) {
-          this.videoCatalogData.backgroundUrl = 'https://panelsprojectbackend-dvhuaffabfd2ejbs.southeastasia-01.azurewebsites.net' + this.videoCatalogData.backgroundUrl;
-        }
       })
     );
   }

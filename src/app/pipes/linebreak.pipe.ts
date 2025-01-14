@@ -5,10 +5,9 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class LinebreakPipe implements PipeTransform {
 
-  transform(value: string): string {
-    if (!value) return value;
-    let formattedText = value.replace(/\.\s?/g, '.<br>\n<br>');
-    return formattedText;
+  transform(value: string | null | undefined): string {
+    if (!value) return ''; // Handle null or undefined values
+    return value.replace(/\.\s?/g, '.<br>'); // Replace periods with a single <br> tag
   }
 
 }

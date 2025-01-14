@@ -35,10 +35,7 @@ export class EditSaleitemsComponentComponent {
   getSaleItems() {
     this.requestService.getSaleItems().subscribe(
       (data: any) => {
-        this.saleItems = data.map((item: any) => ({
-          ...item,
-          picture: item.picture ? `https://panelsprojectbackend-dvhuaffabfd2ejbs.southeastasia-01.azurewebsites.net${item.picture}` : null
-        }));
+        this.saleItems = data;
       },
       (error) => {
         console.error('Error fetching sale items', error);

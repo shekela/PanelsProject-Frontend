@@ -20,21 +20,13 @@ export class MainProductsComponent {
 
   constructor(private languageService: LanguageService, private separationService: SeparationService) {}
 
+  
   ngOnInit(): void {
     if (!this.productsInput) {
         this.subscription = this.languageService.language$.subscribe((language) => {
             this.products =
               this.separationService.translations.mainProducts[language] ||
               this.separationService.translations.mainProducts['GEO'];
-
-            if (this.products && this.products.products) {
-                this.products.products.forEach(product => {
-                    if (product.backgroundUrl && !product.backgroundUrl.startsWith('https://panelsprojectbackend-dvhuaffabfd2ejbs.southeastasia-01.azurewebsites.net/')) {
-                        product.backgroundUrl = `https://panelsprojectbackend-dvhuaffabfd2ejbs.southeastasia-01.azurewebsites.net${product.backgroundUrl}`;
-                        console.log(`Product URL: ${product.backgroundUrl}`);  // Log the URL for debugging
-                    }
-                });
-            }
         });
 
         this.subscription.add(
@@ -43,15 +35,6 @@ export class MainProductsComponent {
                 this.products =
                   this.separationService.translations.mainProducts[currentLanguage] ||
                   this.separationService.translations.mainProducts['GEO'];
-
-                if (this.products && this.products.products) {
-                    this.products.products.forEach(product => {
-                        if (product.backgroundUrl && !product.backgroundUrl.startsWith('https://panelsprojectbackend-dvhuaffabfd2ejbs.southeastasia-01.azurewebsites.net/')) {
-                            product.backgroundUrl = `https://panelsprojectbackend-dvhuaffabfd2ejbs.southeastasia-01.azurewebsites.net${product.backgroundUrl}`;
-                            console.log(`Product URL: ${product.backgroundUrl}`);  // Log the URL for debugging
-                        }
-                    });
-                }
             })
         );
     }
