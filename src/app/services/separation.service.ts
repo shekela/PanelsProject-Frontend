@@ -319,16 +319,16 @@ export class SeparationService {
                 voiceWOAcupanel: data[0].voiceWOAcupanel
               };
               this.translations.voiceComperator['RUS'] = {
-                title: voiceComperatorENG.title,
-                buttonW: voiceComperatorENG.buttonW,
-                buttonWO: voiceComperatorENG.buttonWO,
+                title: voiceComperatorRUS.title,
+                buttonW: voiceComperatorRUS.buttonW,
+                buttonWO: voiceComperatorRUS.buttonWO,
                 voiceAcupanel: data[0].voiceAcupanel,
                 voiceWOAcupanel: data[0].voiceWOAcupanel
               };
               this.translations.voiceComperator['GEO'] = {
-                title: voiceComperatorENG.title,
-                buttonW: voiceComperatorENG.buttonW,
-                buttonWO: voiceComperatorENG.buttonWO,
+                title: voiceComperatorGEO.title,
+                buttonW: voiceComperatorGEO.buttonW,
+                buttonWO: voiceComperatorGEO.buttonWO,
                 voiceAcupanel: data[0].voiceAcupanel,
                 voiceWOAcupanel: data[0].voiceWOAcupanel
               };;
