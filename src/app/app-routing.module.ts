@@ -7,11 +7,13 @@ import { AdminLoginComponent } from './admin/admin-login/admin-login.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { AuthGuard } from './guards/auth.guard';
+import { OurGalleryComponent } from './our-gallery/our-gallery.component';
 
 const routes: Routes = [
   { path:"", component: MainComponent},
   { path: 'admin', redirectTo: '/admin/login', pathMatch: 'full' },
   { path: 'products', component: ProductsComponent},
+  { path: 'gallery', component: OurGalleryComponent},
   { path: 'contact-us', component: ContactUsComponent},
   { path: 'about-us', component: AboutUsComponent},
   { path: "admin/login", component: AdminLoginComponent},

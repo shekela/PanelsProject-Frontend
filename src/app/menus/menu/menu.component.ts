@@ -51,6 +51,8 @@ export class MenuComponent implements OnInit, OnDestroy {
         this.isLoaded = false;
         break;
 
+      case 'გალერეა':
+      case 'Галерея':
       case 'Gallery':
         this.router.navigate(['/gallery']);
         this.renderer.removeClass(document.body, 'no-scroll');
