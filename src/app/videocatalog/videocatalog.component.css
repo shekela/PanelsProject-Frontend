@@ -82,10 +82,22 @@ section{
   /* Smallest screens */
   @media only screen and (max-width: 600px) {
     .video-container {
-        width: 80%;
+        width: 90%;
     }
     .background-video {
         object-fit: contain;
+    }
+    .overlay-text h1 {
+        font-size: 2rem;
+    }
+    
+    .overlay-text p {
+        font-size: 16px;
+    }
+    
+    .overlay-text button {
+        padding: 10px 20px;
+        font-size: 15px;
     }
   }
   

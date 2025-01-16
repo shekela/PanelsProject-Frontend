@@ -120,6 +120,8 @@ nav{
     }
     .brandLogo {
         max-width: 150px;
+        margin-left: 0;
+        margin-top: 5px;
     }
     .brandLogo img {
         width: 150px;
