@@ -146,8 +146,19 @@ main {
 
 /* Responsive Design */
 @media (max-width: 768px) {
+    .titles-of-page h1 {
+        font-size: 62px;
+    }
     .contact-container {
         display: block;
+        border-bottom-right-radius: 0px;
+        border-bottom-left-radius: 0px;
+        height: auto;
+    }
+    .info-ready{
+        font-size: 15px;
+        max-width: 90%;
+        margin-left: 3.5%;
     }
 
     .image-container {
@@ -155,6 +166,10 @@ main {
         max-width: 1215px;
         margin-left: -20px;
         padding-left: 0;
+    }
+    .image-container img{
+        border-top-right-radius: 0px;
+        border-top-left-radius: 0px;
     }
 
     .info-container {
@@ -167,7 +182,6 @@ main {
         flex-direction: column;
         gap: 10px;
         margin-left: 0px;
-        margin-top: 450px; /* Remove fixed margin */
     }
 
     .button {
