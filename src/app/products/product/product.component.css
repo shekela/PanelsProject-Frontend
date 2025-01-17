@@ -61,7 +61,8 @@ p br {
     font-family: Inter, sans-serif;
     padding: 16px 26px;
     color: white;
-    background-color: #0e2F4F;
+    background-color: #db4a2b;
+    /* background-color: #0e2F4F; */
     border: none;
     border-radius: 30px;
     cursor: pointer;
