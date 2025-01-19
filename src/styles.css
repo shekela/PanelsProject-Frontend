@@ -29,6 +29,7 @@ html[lang='GEO'] h5,
 html[lang='GEO'] h6, 
 html[lang='GEO'] p, 
 html[lang='GEO'] a, 
+html[lang='GEO'] button, 
 html[lang='GEO'] span, 
 html[lang='GEO'] li {
   font-family: 'FiraGO', sans-serif !important;
