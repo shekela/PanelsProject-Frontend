@@ -9,8 +9,8 @@
   
   .black-box {
     width: 40%; /* Text box width */
-    background-color: #514339;
-    color: white;
+    background-color: #E4E2DD;
+    color: black;
     display: flex;
     flex-direction: column;
     text-align: center;

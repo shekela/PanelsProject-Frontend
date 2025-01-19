@@ -1,7 +1,7 @@
 import { CompanyModel } from "../models/brand.model";
 
 export const CompanyData: CompanyModel = {
-   logo: "assets/pani-acoustics-logo-final.jpeg",
+   logo: "assets/signal-2025-01-19-182351-removebg-preview.png",
    mondayTime: "9:00AM - 9:00PM",
    tuesdayTime: "9:00AM - 9:00PM",
    wednesdayTime: "9:00AM - 9:00PM",
