@@ -1,7 +1,7 @@
 import { CompanyModel } from "../models/brand.model";
 
 export const CompanyData: CompanyModel = {
-   logo: "assets/WoodUpp-logo.svg",
+   logo: "assets/paniacoustics-logo-preview.png",
    mondayTime: "9:00AM - 9:00PM",
    tuesdayTime: "9:00AM - 9:00PM",
    wednesdayTime: "9:00AM - 9:00PM",
