@@ -35,7 +35,7 @@
   
   
   .black-box h1 {
-    font-size: 70px;
+    font-size: 60px;
     margin: 20px 0 7px 0; /* Top margin reduced, bottom margin adjusted */
     max-width: 85%;
     margin-left: 25px;
@@ -43,7 +43,7 @@
   }
   
   .black-box h2 {
-    font-size: 45px;
+    font-size: 35px;
     margin: 10px 0 20px 0; /* Remove top margin */
     max-width: 85%;
     margin-left: 25px;
