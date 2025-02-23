@@ -18,7 +18,7 @@ import { InformationBannerComponent } from './information/information-banner/inf
 import { InformationBannerReversedComponent } from './information/information-banner-reversed/information-banner-reversed.component';
 import { LinebreakPipe } from './pipes/linebreak.pipe';
 import { MenuComponent } from './menus/menu/menu.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { TranslateModule } from '@ngx-translate/core';
 import { InformationComponent } from './information/information/information.component';
 import { ContactComponent } from './contact/contact.component';
@@ -41,6 +41,7 @@ import { AboutUsComponent } from './about-us/about-us.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { OurGalleryComponent } from './our-gallery/our-gallery.component';
 import { EditAboutusComponentComponent } from './edit-content/edit-aboutus-component/edit-aboutus-component.component';
+import { AuthInterceptor } from './auth.interceptor';
 
 
 
@@ -92,7 +93,9 @@ import { EditAboutusComponentComponent } from './edit-content/edit-aboutus-compo
     ReactiveFormsModule,
     TranslateModule.forRoot(),
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

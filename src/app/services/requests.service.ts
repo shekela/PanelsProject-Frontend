@@ -13,6 +13,7 @@ import { ProductsCatalogSliderDto } from '../DTOS/ProductsCatalogSliderDto';
 import { VoiceComperatorDto } from '../DTOS/VoiceComperatorDto';
 import { AboutUsDto } from '../DTOS/AboutUsDto';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -151,6 +152,11 @@ export class RequestsService {
     if (imageFile) {
         formData.append('imageFile', imageFile);
     }
+
+    const token = localStorage.getItem('token'); 
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`
+    });
     return this.http.post(`${environment.apiUrl}/MarektingBanner/CreateMarketingBanner`, formData);
   }
 

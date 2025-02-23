@@ -28,7 +28,7 @@ export class AuthGuard implements CanActivate {
     if (token) {
       try {
         const decodedToken: any = jwtDecode(token); // Decode the token
-        if (decodedToken?.Role === 'Admin') {
+        if (decodedToken?.role === 'Admin') {
           return true; // Allow access if the role is 'Admin'
         } else {
           this.router.navigate(['/admin/login']); // Redirect if not an admin
