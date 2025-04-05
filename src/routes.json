@@ -1,25 +1,9 @@
 {
-    "routes": [
-      {
-        "route": "/products/*",
-        "rewrite": "/index.html"
-      },
-      {
-        "route": "/contact-us/*",
-        "rewrite": "/index.html"
-      },
-      {
-        "route": "/about-us/*",
-        "rewrite": "/index.html"
-      },
-      {
-        "route": "/admin/*",
-        "rewrite": "/index.html"
-      },
-      {
-        "route": "/*",
-        "rewrite": "/index.html"
-      }
-    ]
-  }
-  
+  "routes": [
+    {
+      "route": "/*",
+      "serve": "/index.html",
+      "statusCode": 200
+    }
+  ]
+}
