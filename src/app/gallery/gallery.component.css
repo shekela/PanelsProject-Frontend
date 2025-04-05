@@ -14,9 +14,7 @@ section{
     font-family: Inter, sans-serif;
     font-size: 52px;
     font-weight: 500;
-    height: 72.7969px;
     letter-spacing: -1.7px;
-    line-height: 72.8px;
     margin: 0;
     margin-top: 50px;
 }
@@ -25,9 +23,7 @@ section{
     display: block;
     font-family: Inter, sans-serif;
     font-size: 22px;
-    height: 67.1875px;
     letter-spacing: -0.38px;
-    line-height: 33.6px;
     max-width: 50%;
     margin-left: 25%;
     margin-top: 0;
@@ -239,6 +235,9 @@ section{
       margin-left: 5%;
       margin-top: 0px;
   }
+    .pictures {
+      margin-top: 18px
+    }
     .progress-container{
       margin-top: 40px;
     }
