@@ -1,5 +1,6 @@
 .section-container {
     display: flex;
+    flex-direction: row;
     width: 100%;
     height: 80vh; /* Adjust as needed */
     margin-top: 78px;
@@ -141,28 +142,31 @@
     justify-content: center; /* Vertically center content */
     align-items: center; /* Horizontally center content */
     width: 100%; /* Full width */
-    height: auto; /* Adjust as needed */
+    height: 50vh; /* Adjust as needed */
     padding: 20px; /* Optional: Add padding for spacing */
   }
 
   .black-box h1 {
-    font-size: 30px;
-    margin-left: 0;
+    font-size: 26px;
+    margin-left: 0px;
+    max-width: 100%;
     width: 100%;
     text-align: center;
   }
   
   .black-box h2 {
-    font-size: 25px;
+    font-size: 20px;
     margin-left: 0;
     width: 100%;
+    max-width: 100%;
     text-align: center;
   }
   
   .black-box p {
-    font-size: 20px;
+    font-size: 18px;
     margin-left: 0;
     width: 100%;
+    max-width: 100%;
     text-align: center;
   }
 
@@ -171,12 +175,12 @@
     align-items: center; /* Center image vertically */
     justify-content: center; /* Optional: Horizontal centering */
     width: 100%; /* Full width */
-    height: 100%; /* Full height of the viewport */
+    height: calc(50vh - 78px); /* Full height of the viewport */
     overflow: hidden; /* Ensures no overflow if the image scales */
   }
 
   .image-box img {
-    width: auto; /* Adjust width proportionally */
+    width: 100%; /* Adjust width proportionally */
     height: 100%; /* Full height of the container */
     object-fit: cover; /* Ensure the image fits the container without distortion */
   }
