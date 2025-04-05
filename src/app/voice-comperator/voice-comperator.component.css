@@ -10,9 +10,8 @@
     font-family: Inter, sans-serif;
     font-size: 68px;
     font-weight: 500;
-    height: 95.1875px;
+    margin: 0;
     letter-spacing: -1.7px;
-    line-height: 95.2px;
   }
   
   .playback-container {
@@ -71,7 +70,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 20px;
+    margin-top: 0px;
     gap: 10px;
     font-size: 18px;
     color: #666;
@@ -162,7 +161,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-top: 20px;
+      margin-top: 0px;
       gap: 10px;
       font-size: 15px;
       color: #666;
