@@ -16,15 +16,13 @@ section > div{
     text-align: center;
     letter-spacing: -3px;
     margin: 80px 0px 0px 0px;
-    height: 95.1875px;
-    line-height: 95.2px;
+    text-transform: capitalize;
 }
 .title-ii{
     color: rgb(38, 38, 38);
     font-family: Inter, sans-serif;
     text-align: center;
     font-size: 24px;
-    height: 100.781px;
     letter-spacing: -0.38px;
     width: 50%;
     margin-left: 25%;
@@ -73,6 +71,7 @@ section > div{
         max-width: 90%;
         word-wrap: break-word; 
         overflow-wrap: break-word; 
+        text-transform: capitalize;
     }
     .title-ii{
         color: rgb(38, 38, 38);
@@ -97,31 +96,35 @@ section > div{
         margin-left: auto;
         margin-right: auto;
         font-family: Inter, sans-serif;
+        overflow: hidden;
     }
     .title {
         font-size: 38px;
         text-align: center;
         letter-spacing: 0px;
         margin: 0;
-        margin-top: 40px;
         margin-left: 5%;
-        line-height: 1.2; 
+        margin-top: 36px;
         width: 90%;
         max-width: 90%;
         word-wrap: break-word; 
         overflow-wrap: break-word; 
+        text-transform: capitalize;
     }
     .title-ii{
         color: rgb(38, 38, 38);
         font-family: Inter, sans-serif;
         text-align: center;
         font-size: 20px;
-        height: auto;
         letter-spacing: 0;
         width: 100%;
         margin-left: 0;
-        margin-top: 65px;
+        margin: 0;
+        margin-top: 18px;
         max-width: 100%;
+    }
+    .products{
+        margin-top: 36px;
     }
   }
   
